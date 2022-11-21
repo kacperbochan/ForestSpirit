@@ -3,6 +3,8 @@
 
 :root {
   --main-color: #4c7a34;
+  --primary-color: #355723;
+  --secondary-color: #243e16;
 }
 /* Provide sufficient contrast against white background */
 a {
