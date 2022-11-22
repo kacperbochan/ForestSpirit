@@ -44,12 +44,4 @@ html {
   opacity: .6;
 }
 
-.basket-button{
-  background-color: var(--main-color);
-  border-color: var(--primary-color);
-}
-.btn:focus {
-  outline: none;
-  box-shadow: none;
-}
 
