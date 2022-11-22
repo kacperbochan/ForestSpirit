@@ -11,15 +11,16 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ShopComponent } from './shop/shop.component';
+import { BasketComponent } from './basket/basket.component';
 
 @NgModule({
   declarations: [
+    AboutComponent,
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    AboutComponent,
+    HomeComponent,
+    NavMenuComponent,
     ShopComponent
   ],
   imports: [
@@ -32,6 +33,7 @@ import { ShopComponent } from './shop/shop.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'about', component: AboutComponent },
       { path: 'shop', component: ShopComponent },
+      { path: 'basket', component: BasketComponent },
     ])
   ],
   providers: [],
