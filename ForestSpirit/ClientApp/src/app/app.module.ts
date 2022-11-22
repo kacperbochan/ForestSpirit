@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -12,21 +12,27 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ShopComponent } from './shop/shop.component';
 import { BasketComponent } from './basket/basket.component';
+import { AdresFormComponent } from './basket/adres-form/adres-form.component';
+import {SummaryComponent} from './basket/summary/summary.component'
 
 @NgModule({
   declarations: [
     AboutComponent,
+    AdresFormComponent,
     AppComponent,
     CounterComponent,
+    BasketComponent,
     FetchDataComponent,
     HomeComponent,
     NavMenuComponent,
-    ShopComponent
+    ShopComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
