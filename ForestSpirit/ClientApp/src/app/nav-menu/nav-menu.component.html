@@ -1,9 +1,11 @@
 <header>
   <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+    class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm bg-white border-bottom box-shadow"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">ForestSpirit</a>
+      <a class="navbar-brand link-active-custom no-padding" [routerLink]="['/']">
+        <img src="assets/zdjecie_brak_pionowe.jpg" width="40px" height="40px" alt="ikona" class="image">
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -22,30 +24,35 @@
         <ul class="navbar-nav flex-grow">
           <li
             class="nav-item"
-            [routerLinkActive]="['link-active']"
+            [routerLinkActive]="['link-active-custom']"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <a class="nav-link nav-link-custom" [routerLink]="['/']">Forest Spirit</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']"
-              >Counter</a
-            >
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/about']">
+              O nas
+            </a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
-              >Fetch data</a
-            >
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/shop']">
+              Sklep
+            </a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/shop']"
-              >Sklep</a
-            >
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/counter']">
+              Kontakt
+            </a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/about']"
-              >O nas</a
-            >
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link no-padding" [routerLink]="['/basket']">
+              <button class="btn custom-button" >
+                <span class="icon-basket-1"></span> Koszyk
+              </button>
+            </a>
           </li>
 
         </ul>
