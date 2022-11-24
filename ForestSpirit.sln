@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForestSpirit", "ForestSpiri
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ForestSpirit.Schema", "ForestSpirit.Schema\ForestSpirit.Schema.sqlproj", "{02373C91-8A0F-4CE8-962E-DEA121C959DC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForestSpirit.Core", "ForestSpirit.Core\ForestSpirit.Core.csproj", "{DD95633E-0AB2-4BF0-89B9-AAF1CF29A720}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForestSpirit.ServiceModel", "ForestSpirit.ServiceModel\ForestSpirit.ServiceModel.csproj", "{E9568727-77B4-4396-9CAA-F7F5C2573E06}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForestSpirit.Framework", "ForestSpirit.Framework\ForestSpirit.Framework.csproj", "{8F8391EE-8CE1-4598-9A56-95DCC782627F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +29,18 @@ Global
 		{02373C91-8A0F-4CE8-962E-DEA121C959DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02373C91-8A0F-4CE8-962E-DEA121C959DC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{02373C91-8A0F-4CE8-962E-DEA121C959DC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DD95633E-0AB2-4BF0-89B9-AAF1CF29A720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD95633E-0AB2-4BF0-89B9-AAF1CF29A720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD95633E-0AB2-4BF0-89B9-AAF1CF29A720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD95633E-0AB2-4BF0-89B9-AAF1CF29A720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9568727-77B4-4396-9CAA-F7F5C2573E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9568727-77B4-4396-9CAA-F7F5C2573E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9568727-77B4-4396-9CAA-F7F5C2573E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9568727-77B4-4396-9CAA-F7F5C2573E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F8391EE-8CE1-4598-9A56-95DCC782627F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F8391EE-8CE1-4598-9A56-95DCC782627F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F8391EE-8CE1-4598-9A56-95DCC782627F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F8391EE-8CE1-4598-9A56-95DCC782627F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
