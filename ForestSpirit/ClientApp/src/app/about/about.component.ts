@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AboutComponent implements OnInit {
 
   constructor() { 
-    document.body.style.backgroundImage = "url('../../assets/foggy-pine-forest-background-vector.jpg)";
+    document.body.style.backgroundImage =  "url('../../assets/foggy-pine-forest-background-vector.jpg')";
     document.body.style.backgroundPosition = "center";
     document.body.style.backgroundRepeat = "no repeat";
     document.body.style.backgroundAttachment = "fixed";
