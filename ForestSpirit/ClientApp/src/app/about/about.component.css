@@ -1,5 +1,10 @@
 
-
+.space{
+   
+    margin: 50px;
+    border: 0.2 solid var(--secondary-color);
+    opacity: 0.8;
+}
 
   h1{
     color: white;
