@@ -2,7 +2,7 @@
 .space{
    
     margin: 50px;
-    border: 0.2 solid var(--secondary-color);
+    border: 0.2 solid var(--primary-color);
     opacity: 0.8;
 }
 
@@ -11,9 +11,13 @@
   }
     
   h2{
-    color: white;
+    color: var(--primary-color);
   }
 
 p{
-    color: white;
+    color: var(--primary-color);
+}
+
+.image {
+  border: 2px solid var(--main-color);
 }
