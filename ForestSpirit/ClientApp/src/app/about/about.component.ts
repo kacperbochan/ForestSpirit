@@ -18,7 +18,7 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ngOnExit(){
+  ngOnDestroy(){
     document.body.style.backgroundImage = "none";
   }
 

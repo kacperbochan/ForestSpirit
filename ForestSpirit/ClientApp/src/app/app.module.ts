@@ -14,6 +14,8 @@ import { ShopComponent } from './shop/shop.component';
 import { BasketComponent } from './basket/basket.component';
 import { AdresFormComponent } from './basket/adres-form/adres-form.component';
 import {SummaryComponent} from './basket/summary/summary.component'
+import { FooterComponent } from './footer/footer.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import {SummaryComponent} from './basket/summary/summary.component'
     FetchDataComponent,
     HomeComponent,
     NavMenuComponent,
+    FooterComponent,
     ShopComponent,
     SummaryComponent
   ],
