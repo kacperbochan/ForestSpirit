@@ -7,13 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ForestSpirit.Framework\ForestSpirit.Framework.csproj" />
-    <ProjectReference Include="..\ForestSpirit.ServiceModel\ForestSpirit.ServiceModel.csproj" />
+    <Compile Remove="Mappings\**" />
+    <EmbeddedResource Remove="Mappings\**" />
+    <None Remove="Mappings\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Mappings\" />
-    <Folder Include="Validators\" />
+    <ProjectReference Include="..\ForestSpirit.Framework\ForestSpirit.Framework.csproj" />
+    <ProjectReference Include="..\ForestSpirit.ServiceModel\ForestSpirit.ServiceModel.csproj" />
   </ItemGroup>
 
   <ItemGroup>

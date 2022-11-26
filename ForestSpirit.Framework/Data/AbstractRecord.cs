@@ -1,16 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ServiceStack.DataAnnotations;
 
 namespace ForestSpirit.Framework.Data;
+
 public abstract class AbstractRecord : IRecord
 {
+    [Alias("Id")]
     public int Id { get; set; }
+
+    [Alias("Created_Date")]
     public DateTime CreatedDate { get; set; }
+
+    [Alias("Changed_Date")]
     public DateTime ChangedDate { get; set; }
+
+    [Alias("Created_By")]
     public string CreatedBy { get; set; }
+
+    [Alias("Changed_By")]
     public string ChangedBy { get; set; }
 
     /// <inheritdoc />

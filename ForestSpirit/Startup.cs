@@ -1,29 +1,18 @@
 ﻿using AutoMapper;
-using ForestSpirit.Framework.Products.Providers;
-using ForestSpirit.Framework.Products;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
-using Microsoft.Net.Http.Headers;
 using ServiceStack.Auth;
-using ServiceStack.Configuration;
 using ServiceStack.Data;
-using ServiceStack.FluentValidation;
 using ServiceStack.IO;
-using ServiceStack.Messaging;
 using ServiceStack.OrmLite.SqlServer.Converters;
 using ServiceStack.OrmLite;
-using ServiceStack.Redis;
-using System.Net.Http.Headers;
 using System.Text.Json.Serialization;
-using System.Web.Razor.Parser.SyntaxTree;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using ForestSpirit.Mappings;
-using Microsoft.Extensions.DependencyInjection;
 using ForestSpirit.Settings;
 using AppSettings = ForestSpirit.Settings.AppSettings;
 using SqlKata.Compilers;
 using ForestSpirit.Framework.Connection;
+using ServiceStack;
 
 namespace ForestSpirit;
 
@@ -44,6 +33,7 @@ public class Startup
     {
         this.configuration = configuration;
     }
+
     /// <summary>
     /// This method gets called by the runtime. Use this method to add services to the container.
     /// </summary>
@@ -56,8 +46,10 @@ public class Startup
 
         // Configuration
         var settings = this.configuration.Get<AppSettings>();
-        services.AddSingleton<IOptions<AppSettings>>(provider => new OptionsWrapper<AppSettings>(settings));
-        services.AddSingleton<IOptions<ResourcesSettings>>(provider => new OptionsWrapper<ResourcesSettings>(settings.Resources));
+        services.AddSingleton<Microsoft.Extensions.Options.IOptions<AppSettings>>(provider => new OptionsWrapper<AppSettings>(settings));
+        services.AddSingleton<Microsoft.Extensions.Options.IOptions<ResourcesSettings>>(provider => new OptionsWrapper<ResourcesSettings>(settings.Resources));
+
+        services.AddMvc(options => options.EnableEndpointRouting = false);
 
         this.InstallDb(services, settings);
 
@@ -72,7 +64,7 @@ public class Startup
                     {
                         policy.WithOrigins(new string[]
                         {
-                                "http://localhost:4200", "http://localhost:5000", "http://localhost:80",
+                                "http://localhost:4200","http://localhost:44415","http://localhost:44315", "http://localhost:5000", "http://localhost:80",
                                 "http://localhost",
                         })
                             .AllowAnyHeader()
@@ -112,20 +104,14 @@ public class Startup
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
         }
-
-        app.UseRouting();
 
         app.UseCors("default");
         app.UseStaticFiles();
-        app.UseAuthentication();
 
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapControllers();
-        });
+        app.UseServiceStack(new AppHost(env.ApplicationName, this.configuration));
+
+        app.UseMvcWithDefaultRoute();
     }
 
     /// <summary>

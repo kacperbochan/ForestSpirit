@@ -24,4 +24,34 @@ public class ProductRecordBuilder : AbstractRecordBuilder<IProductRecordBuilder,
     }
 
     public override IProductRecordBuilder GetNext() => this;
+
+    public IProductRecordBuilder Ingridience(string value)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IProductRecordBuilder Name(string value)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IProductRecordBuilder OpinionCount(int value)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IProductRecordBuilder Price(float value)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IProductRecordBuilder Procentage(int value)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IProductRecordBuilder Rating(int value)
+    {
+        throw new NotImplementedException();
+    }
 }
