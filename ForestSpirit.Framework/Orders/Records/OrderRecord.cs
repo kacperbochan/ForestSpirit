@@ -1,4 +1,5 @@
-﻿using ForestSpirit.Framework.Data;
+﻿using ForestSpirit.Framework.Customers.Records;
+using ForestSpirit.Framework.Data;
 using ServiceStack.DataAnnotations;
 
 namespace ForestSpirit.Framework.Orders.Records;
@@ -20,4 +21,7 @@ public class OrderRecord : AbstractRecord
 
     [Alias("PredictedDeliveryDate")]
     public DateTime PredictedDeliveryDate { get; set; }
+
+    [Ignore]
+    public CustomerRecord Customer { get; set; }
 }

@@ -1,4 +1,5 @@
-﻿using ForestSpirit.Framework.Data.Builders;
+﻿using ForestSpirit.Framework.Customers.Records;
+using ForestSpirit.Framework.Data.Builders;
 using ForestSpirit.Framework.Outposts.Records.Builders;
 
 using System;
@@ -12,7 +13,7 @@ public interface IOrderRecordBuilder : IAbstractRecordBuilder<IOrderRecordBuilde
                                          IExtendedRecordBuilder<IOrderRecordBuilder, OrderRecord>
 {
     IOrderRecordBuilder OrderDate(DateTime value);
-    IOrderRecordBuilder CustomerId(int value);
+    IOrderRecordBuilder Customer(CustomerRecord value);
     IOrderRecordBuilder Price(float value);
     IOrderRecordBuilder Status(short value);
     IOrderRecordBuilder PredictedDeliveryDate(DateTime value);

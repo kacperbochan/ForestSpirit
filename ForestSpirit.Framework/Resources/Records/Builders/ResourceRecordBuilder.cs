@@ -1,5 +1,5 @@
 ﻿using ForestSpirit.Framework.Data.Builders;
-
+using ForestSpirit.Framework.Outposts.Records;
 using System.Data;
 
 namespace ForestSpirit.Framework.Resources.Records.Builders;
@@ -26,28 +26,34 @@ public class ResourceRecordBuilder : AbstractRecordBuilder<IResourceRecordBuilde
 
     public IResourceRecordBuilder BuyDate(DateTime value)
     {
-        throw new NotImplementedException();
+        this.Record.BuyDate = value;
+        return this.GetNext();
     }
 
     public IResourceRecordBuilder ExpirationDate(DateTime value)
     {
-        throw new NotImplementedException();
+        this.Record.ExpirationDate = value;
+        return this.GetNext();
     }
 
     public override IResourceRecordBuilder GetNext() => this;
 
     public IResourceRecordBuilder Name(string value)
     {
-        throw new NotImplementedException();
+        this.Record.Name = value;
+        return this.GetNext();
     }
 
-    public IResourceRecordBuilder OutpostId(int value)
+    public IResourceRecordBuilder Outpost(OutpostRecord value)
     {
-        throw new NotImplementedException();
+        this.Record.Outpost = value;
+        this.Record.OutpostId = value.Id;
+        return this.GetNext();
     }
 
     public IResourceRecordBuilder Quantity(int value)
     {
-        throw new NotImplementedException();
+        this.Record.Quantity = value;
+        return this.GetNext();
     }
 }

@@ -1,4 +1,6 @@
-﻿using ForestSpirit.Framework.Data.Builders;
+﻿using ForestSpirit.Framework.Customers.Records;
+using ForestSpirit.Framework.Data.Builders;
+using ForestSpirit.Framework.Products.Records;
 using System.Data;
 
 namespace ForestSpirit.Framework.Opinions.Records.Builders;
@@ -23,25 +25,31 @@ public class OpinionRecordBuilder : AbstractRecordBuilder<IOpinionRecordBuilder,
     {
     }
 
-    public IOpinionRecordBuilder CustomerId(int value)
+    public IOpinionRecordBuilder Customer(CustomerRecord value)
     {
-        throw new NotImplementedException();
+        this.Record.Customer = value;
+        this.Record.CustomerId = value.Id;
+        return this.GetNext();
     }
 
     public override IOpinionRecordBuilder GetNext() => this;
 
-    public IOpinionRecordBuilder ProductId(int value)
+    public IOpinionRecordBuilder Product(ProductRecord value)
     {
-        throw new NotImplementedException();
+        this.Record.Product = value;
+        this.Record.ProductId = value.Id;
+        return this.GetNext();
     }
 
     public IOpinionRecordBuilder Rating(int value)
     {
-        throw new NotImplementedException();
+        this.Record.Rating = value;
+        return this.GetNext();
     }
 
     public IOpinionRecordBuilder Text(string value)
     {
-        throw new NotImplementedException();
+        this.Record.Text = value;
+        return this.GetNext();
     }
 }

@@ -1,4 +1,7 @@
-﻿using ForestSpirit.Framework.Data.Builders;
+﻿using ForestSpirit.Framework.Customers.Records;
+using ForestSpirit.Framework.Data.Builders;
+using ForestSpirit.Framework.Products.Records;
+using ServiceStack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +14,6 @@ public interface IOpinionRecordBuilder : IAbstractRecordBuilder<IOpinionRecordBu
 {
     IOpinionRecordBuilder Text(string value);
     IOpinionRecordBuilder Rating(int value);
-    IOpinionRecordBuilder CustomerId(int value);
-    IOpinionRecordBuilder ProductId(int value);
+    IOpinionRecordBuilder Customer(CustomerRecord value);
+    IOpinionRecordBuilder Product(ProductRecord value);
 }

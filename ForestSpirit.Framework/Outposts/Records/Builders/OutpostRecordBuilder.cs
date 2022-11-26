@@ -27,16 +27,19 @@ public class OutpostRecordBuilder : AbstractRecordBuilder<IOutpostRecordBuilder,
 
     public IOutpostRecordBuilder Latitude(double value)
     {
-        throw new NotImplementedException();
+        this.Record.Latitude = value;
+        return this.GetNext();
     }
 
     public IOutpostRecordBuilder Longitude(double value)
     {
-        throw new NotImplementedException();
+        this.Record.Longitude = value;
+        return this.GetNext();
     }
 
     public IOutpostRecordBuilder Name(string value)
     {
-        throw new NotImplementedException();
+        this.Record.Name = value;
+        return this.GetNext();
     }
 }

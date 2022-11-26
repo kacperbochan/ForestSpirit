@@ -1,10 +1,7 @@
 ﻿using System.Data;
-
-using ForestSpirit.Core.Controllers;
+using ForestSpirit.Core.ApiServices;
 
 using ServiceStack;
-using ServiceStack.Api.OpenApi;
-using ServiceStack.Auth;
 using ServiceStack.Host;
 using ServiceStack.Text;
 using ServiceStack.Validation;
@@ -26,7 +23,7 @@ public class AppHost : AppHostBase
     /// <param name="applicationName">Nazwa aplikacji.</param>
     /// <param name="configuration">Konfiguracja hosta.</param>
     public AppHost(string applicationName, IConfiguration configuration)
-        : base(applicationName, typeof(ProductController).Assembly)
+        : base(applicationName, typeof(ProductApiService).Assembly)
     {
         this.ApplicationName = applicationName;
         this.configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));

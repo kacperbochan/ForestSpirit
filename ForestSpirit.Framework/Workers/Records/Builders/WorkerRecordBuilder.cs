@@ -29,21 +29,25 @@ public class WorkerRecordBuilder : AbstractRecordBuilder<IWorkerRecordBuilder, W
 
     public IWorkerRecordBuilder Name(string value)
     {
-        throw new NotImplementedException();
+        this.Record.Name = value;
+        return this.GetNext();
     }
 
     public IWorkerRecordBuilder Status(short value)
     {
-        throw new NotImplementedException();
+        this.Record.Status = value;
+        return this.GetNext();
     }
 
     public IWorkerRecordBuilder Type(short value)
     {
-        throw new NotImplementedException();
+        this.Record.Type = value;
+        return this.GetNext();
     }
 
     public IWorkerRecordBuilder Wage(float value)
     {
-        throw new NotImplementedException();
+        this.Record.Wage = value;
+        return this.GetNext();
     }
 }

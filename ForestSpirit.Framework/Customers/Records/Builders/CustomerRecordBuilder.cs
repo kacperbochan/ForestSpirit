@@ -27,11 +27,13 @@ public class CustomerRecordBuilder : AbstractRecordBuilder<ICustomerRecordBuilde
 
     public ICustomerRecordBuilder Name(string value)
     {
-        throw new NotImplementedException();
+        this.Record.Name = value;
+        return this.GetNext();
     }
 
     public ICustomerRecordBuilder PublicName(string value)
     {
-        throw new NotImplementedException();
+        this.Record.PublicName = value;
+        return this.GetNext();
     }
 }

@@ -1,4 +1,5 @@
-﻿using ForestSpirit.Framework.Data.Builders;
+﻿using ForestSpirit.Framework.Customers.Records;
+using ForestSpirit.Framework.Data.Builders;
 
 using System.Data;
 
@@ -24,30 +25,36 @@ public class OrderRecordBuilder : AbstractRecordBuilder<IOrderRecordBuilder, Ord
     {
     }
 
-    public IOrderRecordBuilder CustomerId(int value)
+    public IOrderRecordBuilder Customer(CustomerRecord value)
     {
-        throw new NotImplementedException();
+        this.Record.Customer = value;
+        this.Record.CustomerId = value.Id;
+        return this.GetNext();
     }
 
     public override IOrderRecordBuilder GetNext() => this;
 
     public IOrderRecordBuilder OrderDate(DateTime value)
     {
-        throw new NotImplementedException();
+        this.Record.OrderDate = value;
+        return this.GetNext();
     }
 
     public IOrderRecordBuilder PredictedDeliveryDate(DateTime value)
     {
-        throw new NotImplementedException();
+        this.Record.PredictedDeliveryDate = value;
+        return this.GetNext();
     }
 
     public IOrderRecordBuilder Price(float value)
     {
-        throw new NotImplementedException();
+        this.Record.Price = value;
+        return this.GetNext();
     }
 
     public IOrderRecordBuilder Status(short value)
     {
-        throw new NotImplementedException();
+        this.Record.Status = value;
+        return this.GetNext();
     }
 }

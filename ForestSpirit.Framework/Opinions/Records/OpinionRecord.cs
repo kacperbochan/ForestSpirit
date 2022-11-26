@@ -1,5 +1,6 @@
-﻿using ForestSpirit.Framework.Data;
-
+﻿using ForestSpirit.Framework.Customers.Records;
+using ForestSpirit.Framework.Data;
+using ForestSpirit.Framework.Products.Records;
 using ServiceStack.DataAnnotations;
 
 namespace ForestSpirit.Framework.Opinions.Records;
@@ -18,4 +19,11 @@ public class OpinionRecord : AbstractRecord
 
     [Alias("ProductId")]
     public int ProductId { get; set; }
+
+    [Ignore]
+    public CustomerRecord Customer { get; set; }
+
+    [Ignore]
+    public ProductRecord Product { get; set; }
+
 }

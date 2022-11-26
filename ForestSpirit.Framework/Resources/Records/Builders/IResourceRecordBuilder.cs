@@ -1,4 +1,5 @@
 ﻿using ForestSpirit.Framework.Data.Builders;
+using ForestSpirit.Framework.Outposts.Records;
 using ForestSpirit.Framework.Workers.Records.Builders;
 
 using System;
@@ -15,5 +16,5 @@ public interface IResourceRecordBuilder : IAbstractRecordBuilder<IResourceRecord
     IResourceRecordBuilder Quantity(int value);
     IResourceRecordBuilder ExpirationDate(DateTime value);
     IResourceRecordBuilder BuyDate(DateTime value);
-    IResourceRecordBuilder OutpostId(int value);
+    IResourceRecordBuilder Outpost(OutpostRecord value);
 }

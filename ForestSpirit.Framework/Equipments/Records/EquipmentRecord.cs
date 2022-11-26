@@ -1,4 +1,5 @@
 ﻿using ForestSpirit.Framework.Data;
+using ForestSpirit.Framework.Outposts.Records;
 using ServiceStack.DataAnnotations;
 
 namespace ForestSpirit.Framework.Equipments.Records;
@@ -14,4 +15,7 @@ public class EquipmentRecord : AbstractRecord
 
     [Alias("OutpostId")]
     public int OutpostId { get; set; }
+
+    [Ignore]
+    public OutpostRecord Outpost { get; set; }
 }

@@ -1,4 +1,5 @@
 ﻿using ForestSpirit.Framework.Data.Builders;
+using ForestSpirit.Framework.Outposts.Records;
 using System.Data;
 
 namespace ForestSpirit.Framework.Equipments.Records.Builders;
@@ -27,16 +28,20 @@ public class EquipmentRecordBuilder : AbstractRecordBuilder<IEquipmentRecordBuil
 
     public IEquipmentRecordBuilder Name(string value)
     {
-        throw new NotImplementedException();
+        this.Record.Name = value;
+        return this.GetNext();
     }
 
-    public IEquipmentRecordBuilder OutpostId(int value)
+    public IEquipmentRecordBuilder Outpost(OutpostRecord value)
     {
-        throw new NotImplementedException();
+        this.Record.Outpost = value;
+        this.Record.OutpostId = value.Id;
+        return this.GetNext();
     }
 
     public IEquipmentRecordBuilder SerialNumber(string value)
     {
-        throw new NotImplementedException();
+        this.Record.SerialNumber = value;
+        return this.GetNext();
     }
 }

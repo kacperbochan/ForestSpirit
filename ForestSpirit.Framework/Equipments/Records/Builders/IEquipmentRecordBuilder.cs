@@ -1,4 +1,5 @@
 ﻿using ForestSpirit.Framework.Data.Builders;
+using ForestSpirit.Framework.Outposts.Records;
 
 namespace ForestSpirit.Framework.Equipments.Records.Builders;
 public interface IEquipmentRecordBuilder : IAbstractRecordBuilder<IEquipmentRecordBuilder>,
@@ -6,5 +7,5 @@ public interface IEquipmentRecordBuilder : IAbstractRecordBuilder<IEquipmentReco
 {
     IEquipmentRecordBuilder Name(string value);
     IEquipmentRecordBuilder SerialNumber(string value);
-    IEquipmentRecordBuilder OutpostId(int value);
+    IEquipmentRecordBuilder Outpost(OutpostRecord value);
 }
