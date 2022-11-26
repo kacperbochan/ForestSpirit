@@ -8,11 +8,11 @@ namespace ForestSpirit.Framework.Outposts.Records;
 public class OutpostRecord : AbstractRecord
 {
     [Alias("Text")]
-    public string Name { get; set; }
+    public virtual string Name { get; set; }
 
     [Alias("Rating")]
-    public double Latitude { get; set; }
+    public virtual double Latitude { get; set; }
 
     [Alias("CustomerId")]
-    public double Longitude { get; set; }
+    public virtual double Longitude { get; set; }
 }

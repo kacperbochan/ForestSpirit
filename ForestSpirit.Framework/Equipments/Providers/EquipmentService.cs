@@ -64,7 +64,7 @@ public class EquipmentService : IEquipmentService
         }
 
         // pobranie danych
-        var data = this.db.Equipment().Where(x => x.Id == id);
+        var data = this.db.Equipment().Where(x => x.ID == id);
         var result = this.db.Get(data).FirstOrDefault();
         return result;
     }

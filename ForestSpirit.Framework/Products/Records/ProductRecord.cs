@@ -7,20 +7,20 @@ namespace ForestSpirit.Framework.Products.Records;
 public class ProductRecord : AbstractRecord
 {
     [Alias("Name")]
-    public string Name { get; set; }
+    public virtual string Name { get; set; }
 
     [Alias("Procentage")]
-    public int Procentage { get; set; }
+    public virtual int Procentage { get; set; }
 
     [Alias("Price")]
-    public float Price { get; set; }
+    public virtual float Price { get; set; }
 
     [Alias("Ingridience")]
-    public string Ingridience { get; set; }
+    public virtual string Ingridience { get; set; }
 
     [Alias("Rating")]
-    public int Rating { get; set; }
+    public virtual int Rating { get; set; }
 
     [Alias("Number_Of_Opinions")]
-    public int OpinionCount { get; set; }
+    public virtual int OpinionCount { get; set; }
 }

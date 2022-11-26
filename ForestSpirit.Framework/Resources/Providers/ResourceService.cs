@@ -64,7 +64,7 @@ public class ResourceService : IResourceService
         }
 
         // pobranie danych
-        var data = this.db.Resources().Where(x => x.Id == id);
+        var data = this.db.Resources().Where(x => x.ID == id);
         var result = this.db.Get(data).FirstOrDefault();
         return result;
     }

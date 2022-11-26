@@ -7,14 +7,14 @@ namespace ForestSpirit.Framework.Products.Records;
 public class WorkerRecord : AbstractRecord
 {
     [Alias("Name")]
-    public string Name { get; set; }
+    public virtual string Name { get; set; }
 
     [Alias("Wage")]
-    public float Wage { get; set; }
+    public virtual float Wage { get; set; }
 
     [Alias("Type")]
-    public short Type { get; set; }
+    public virtual short Type { get; set; }
 
     [Alias("Status")]
-    public short Status { get; set; }
+    public virtual short Status { get; set; }
 }

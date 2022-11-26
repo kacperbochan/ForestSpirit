@@ -65,7 +65,7 @@ public class WorkerService : IWorkerService
         }
 
         // pobranie danych
-        var data = this.db.Worker().Where(x => x.Id == id);
+        var data = this.db.Worker().Where(x => x.ID == id);
         var result = this.db.Get(data).FirstOrDefault();
         return result;
     }

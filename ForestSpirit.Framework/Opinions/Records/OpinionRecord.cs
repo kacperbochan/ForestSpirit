@@ -9,16 +9,16 @@ namespace ForestSpirit.Framework.Opinions.Records;
 public class OpinionRecord : AbstractRecord
 {
     [Alias("Text")]
-    public string Text { get; set; }
+    public virtual string Text { get; set; }
 
     [Alias("Rating")]
-    public int Rating { get; set; }
+    public virtual int Rating { get; set; }
 
     [Alias("CustomerId")]
-    public int CustomerId { get; set; }
+    public virtual int CustomerId { get; set; }
 
     [Alias("ProductId")]
-    public int ProductId { get; set; }
+    public virtual int ProductId { get; set; }
 
     [Ignore]
     public CustomerRecord Customer { get; set; }

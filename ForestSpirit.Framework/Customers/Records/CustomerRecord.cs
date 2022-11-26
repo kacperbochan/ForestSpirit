@@ -7,8 +7,8 @@ namespace ForestSpirit.Framework.Customers.Records;
 public class CustomerRecord : AbstractRecord
 {
     [Alias("Name")]
-    public string Name { get; set; }
+    public virtual string Name { get; set; }
 
     [Alias("PublicName")]
-    public string PublicName { get; set; }
+    public virtual string PublicName { get; set; }
 }

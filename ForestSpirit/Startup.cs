@@ -15,6 +15,12 @@ using ForestSpirit.Framework.Connection;
 using ServiceStack;
 using ForestSpirit.Framework.Products;
 using ForestSpirit.Framework.Products.Providers;
+using static System.Formats.Asn1.AsnWriter;
+using ForestSpirit.Framework.Products.Records;
+using FluentNHibernate;
+using FluentNHibernate.Cfg.Db;
+using FluentNHibernate.Cfg;
+using NHibernate;
 
 namespace ForestSpirit;
 
@@ -95,6 +101,25 @@ public class Startup
 
         // Walidacja
         //services.AddScoped<IValidator<ServiceModel.MeterRequest>, MeterRequestValidator>();
+
+        var sessionFactory = Fluently.Configure()
+          .Database(
+            MsSqlConfiguration.MsSql2012.ConnectionString(settings.Db.ConnectionString))
+          .Mappings(m => m.FluentMappings.Add<ProductMap>())
+          .BuildSessionFactory();
+
+       /* using (var session = sessionFactory.OpenSession())
+        {
+            using (var transaction = session.BeginTransaction())
+            {
+                var barginBasin = new ProductRecord { Name = "Bargin Basin", Price = 69, Procentage = 21, CreatedBy = "kupa", ChangedBy = "kupa", CreatedDate = DateTime.Now, ChangedDate = DateTime.Now };
+
+                // save both stores, this saves everything else via cascading
+                session.Save(barginBasin,69);
+
+                transaction.Commit();
+            }
+        }*/
     }
 
     /// <summary>

@@ -8,19 +8,19 @@ namespace ForestSpirit.Framework.Orders.Records;
 public class OrderRecord : AbstractRecord
 {
     [Alias("OrderDate")]
-    public DateTime OrderDate { get; set; }
+    public virtual DateTime OrderDate { get; set; }
 
     [Alias("CustomerId")]
-    public int CustomerId { get; set; }
+    public virtual int CustomerId { get; set; }
 
     [Alias("Price")]
-    public float Price { get; set; }
+    public virtual float Price { get; set; }
 
     [Alias("Status")]
-    public short Status { get; set; }
+    public virtual short Status { get; set; }
 
     [Alias("PredictedDeliveryDate")]
-    public DateTime PredictedDeliveryDate { get; set; }
+    public virtual DateTime PredictedDeliveryDate { get; set; }
 
     [Ignore]
     public CustomerRecord Customer { get; set; }

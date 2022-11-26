@@ -47,7 +47,7 @@ public class ResourceRecordBuilder : AbstractRecordBuilder<IResourceRecordBuilde
     public IResourceRecordBuilder Outpost(OutpostRecord value)
     {
         this.Record.Outpost = value;
-        this.Record.OutpostId = value.Id;
+        this.Record.OutpostId = value.ID;
         return this.GetNext();
     }
 

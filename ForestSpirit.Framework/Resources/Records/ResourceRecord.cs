@@ -8,19 +8,19 @@ namespace ForestSpirit.Framework.Resources.Records;
 public class ResourceRecord : AbstractRecord
 {
     [Alias("Name")]
-    public string Name { get; set; }
+    public virtual string Name { get; set; }
 
     [Alias("Quantity")]
-    public int Quantity { get; set; }
+    public virtual int Quantity { get; set; }
 
     [Alias("ExpirationDate")]
-    public DateTime ExpirationDate { get; set; }
+    public virtual DateTime ExpirationDate { get; set; }
 
     [Alias("BuyDate")]
-    public DateTime BuyDate { get; set; }
+    public virtual DateTime BuyDate { get; set; }
 
     [Alias("OutpostId")]
-    public int OutpostId { get; set; }
+    public virtual int OutpostId { get; set; }
 
     [Ignore]
     public OutpostRecord Outpost { get; set; }

@@ -20,6 +20,6 @@ public static class RecordExtensions
             throw new ArgumentNullException(nameof(record));
         }
 
-        return record.Id <= 0;
+        return record.ID <= 0;
     }
 }

@@ -8,13 +8,13 @@ namespace ForestSpirit.Framework.Equipments.Records;
 public class EquipmentRecord : AbstractRecord
 {
     [Alias("Name")]
-    public string Name { get; set; }
+    public virtual string Name { get; set; }
 
     [Alias("SerialNumber")]
-    public string SerialNumber { get; set; }
+    public virtual string SerialNumber { get; set; }
 
     [Alias("OutpostId")]
-    public int OutpostId { get; set; }
+    public virtual int OutpostId { get; set; }
 
     [Ignore]
     public OutpostRecord Outpost { get; set; }

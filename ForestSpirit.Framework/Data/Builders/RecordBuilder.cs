@@ -106,7 +106,7 @@ public abstract class RecordBuilder<TBuilder, TRecord> : IRecordBuilder, IExtend
             {
                 if (this.Record is IRecord record)
                 {
-                    record.Id = (int)id;
+                    record.ID = (int)id;
                 }
             }
         }
