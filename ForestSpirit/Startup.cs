@@ -13,6 +13,8 @@ using AppSettings = ForestSpirit.Settings.AppSettings;
 using SqlKata.Compilers;
 using ForestSpirit.Framework.Connection;
 using ServiceStack;
+using ForestSpirit.Framework.Products;
+using ForestSpirit.Framework.Products.Providers;
 
 namespace ForestSpirit;
 
@@ -85,6 +87,8 @@ public class Startup
         {
             configure.Title = "API aplikacji bazodanowej ForestSpirit";
         });
+
+        services.AddScoped<IProductService, ProductService>();
 
         // File system
         this.InstallFileSystem(services, settings);

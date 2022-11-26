@@ -32,28 +32,28 @@ public abstract class AbstractRecordBuilder<TBuilder, TRecord> : RecordBuilder<T
     /// <inheritdoc />
     public TBuilder CreatedAt(DateTime value)
     {
-        Record.CreatedDate = value;
-        return ChangedAt(value);
+        this.Record.CreatedDate = value;
+        return this.GetNext();
     }
 
     /// <inheritdoc />
     public TBuilder CreatedBy(string value)
     {
-        Record.CreatedBy = value ?? throw new ArgumentNullException(nameof(value));
-        return ChangedBy(value);
+        this.Record.CreatedBy = value ?? throw new ArgumentNullException(nameof(value));
+        return this.GetNext();
     }
 
     /// <inheritdoc />
     public TBuilder ChangedBy(string value)
     {
-        Record.ChangedBy = value ?? throw new ArgumentNullException(nameof(value));
-        return GetNext();
+        this.Record.ChangedBy = value ?? throw new ArgumentNullException(nameof(value));
+        return this.GetNext();
     }
 
     /// <inheritdoc />
     public TBuilder ChangedAt(DateTime value)
     {
-        Record.ChangedDate = value;
-        return GetNext();
+        this.Record.ChangedDate = value;
+        return this.GetNext();
     }
 }

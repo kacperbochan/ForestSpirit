@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 
-using ForestSpirit.Core.Validators;
 using ForestSpirit.Framework.Products;
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.ServiceModel.Products;

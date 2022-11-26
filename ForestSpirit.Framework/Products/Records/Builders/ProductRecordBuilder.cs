@@ -27,31 +27,37 @@ public class ProductRecordBuilder : AbstractRecordBuilder<IProductRecordBuilder,
 
     public IProductRecordBuilder Ingridience(string value)
     {
-        throw new NotImplementedException();
+        this.Record.Ingridience = value;
+        return this.GetNext();
     }
 
     public IProductRecordBuilder Name(string value)
     {
-        throw new NotImplementedException();
+        this.Record.Name = value;
+        return this.GetNext();
     }
 
     public IProductRecordBuilder OpinionCount(int value)
     {
-        throw new NotImplementedException();
+        this.Record.OpinionCount = value;
+        return this.GetNext();
     }
 
     public IProductRecordBuilder Price(float value)
     {
-        throw new NotImplementedException();
+        this.Record.Price = value;
+        return this.GetNext();
     }
 
     public IProductRecordBuilder Procentage(int value)
     {
-        throw new NotImplementedException();
+        this.Record.Procentage = value;
+        return this.GetNext();
     }
 
     public IProductRecordBuilder Rating(int value)
     {
-        throw new NotImplementedException();
+        this.Record.Rating = value;
+        return this.GetNext();
     }
 }

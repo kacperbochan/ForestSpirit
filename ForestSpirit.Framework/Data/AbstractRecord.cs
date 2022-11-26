@@ -7,10 +7,10 @@ public abstract class AbstractRecord : IRecord
     [Alias("Id")]
     public int Id { get; set; }
 
-    [Alias("Created_Date")]
+    [Alias("Created_At")]
     public DateTime CreatedDate { get; set; }
 
-    [Alias("Changed_Date")]
+    [Alias("Changed_At")]
     public DateTime ChangedDate { get; set; }
 
     [Alias("Created_By")]
