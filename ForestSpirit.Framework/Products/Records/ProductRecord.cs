@@ -1,26 +1,52 @@
 ﻿using ForestSpirit.Framework.Data;
+using ForestSpirit.Framework.Opinions.Records;
+using ForestSpirit.Framework.Outposts.Records;
 using ServiceStack.DataAnnotations;
 
 namespace ForestSpirit.Framework.Products.Records;
 
-[Alias("Product")]
+/// <summary>
+/// Rekord porduktu.
+/// </summary>
 public class ProductRecord : AbstractRecord
 {
-    [Alias("Name")]
+    /// <summary>
+    /// Nazwa.
+    /// </summary>
     public virtual string Name { get; set; }
 
-    [Alias("Procentage")]
+    /// <summary>
+    /// Procent alkocholu w produkcie.
+    /// </summary>
     public virtual int Procentage { get; set; }
 
-    [Alias("Price")]
+    /// <summary>
+    /// Cena produktu.
+    /// </summary>
     public virtual float Price { get; set; }
 
-    [Alias("Ingridience")]
+    /// <summary>
+    /// Skłądniki.
+    /// </summary>
     public virtual string Ingridience { get; set; }
 
-    [Alias("Rating")]
+    /// <summary>
+    /// Ocena.
+    /// </summary>
     public virtual int Rating { get; set; }
 
-    [Alias("Number_Of_Opinions")]
+    /// <summary>
+    /// Ilość opinii.
+    /// </summary>
     public virtual int OpinionCount { get; set; }
+
+    /// <summary>
+    /// Lista przypisań produktu do placówki.
+    /// </summary>
+    public virtual IList<OutpostProductRecord> OutpostProducts { get; set; }
+
+    /// <summary>
+    /// List opinii.
+    /// </summary>
+    public virtual IList<OpinionRecord> Opinions { get; set; }
 }

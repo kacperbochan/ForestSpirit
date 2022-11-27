@@ -1,27 +1,40 @@
 ﻿using ForestSpirit.Framework.Data;
 using ForestSpirit.Framework.Outposts.Records;
-using ServiceStack.DataAnnotations;
 
 namespace ForestSpirit.Framework.Resources.Records;
 
-[Alias("Resource")]
+/// <summary>
+/// Rekord zasobu.
+/// </summary>
 public class ResourceRecord : AbstractRecord
 {
-    [Alias("Name")]
+    /// <summary>
+    /// Nazwa.
+    /// </summary>
     public virtual string Name { get; set; }
 
-    [Alias("Quantity")]
+    /// <summary>
+    /// Ilość.
+    /// </summary>
     public virtual int Quantity { get; set; }
 
-    [Alias("ExpirationDate")]
+    /// <summary>
+    /// Data przeterminowania.
+    /// </summary>
     public virtual DateTime ExpirationDate { get; set; }
 
-    [Alias("BuyDate")]
+    /// <summary>
+    /// Data zakupu.
+    /// </summary>
     public virtual DateTime BuyDate { get; set; }
 
-    [Alias("OutpostId")]
+    /// <summary>
+    /// Identyfikator placówki.
+    /// </summary>
     public virtual int OutpostId { get; set; }
 
-    [Ignore]
-    public OutpostRecord Outpost { get; set; }
+    /// <summary>
+    /// Placówka.
+    /// </summary>
+    public virtual OutpostRecord Outpost { get; set; }
 }

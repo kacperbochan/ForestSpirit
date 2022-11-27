@@ -1,21 +1,30 @@
 ﻿using ForestSpirit.Framework.Data;
 using ForestSpirit.Framework.Outposts.Records;
-using ServiceStack.DataAnnotations;
 
 namespace ForestSpirit.Framework.Equipments.Records;
 
-[Alias("Equipment")]
+/// <summary>
+/// Rekord ekwipunku.
+/// </summary>
 public class EquipmentRecord : AbstractRecord
 {
-    [Alias("Name")]
+    /// <summary>
+    /// Nazwa ekwipunku.
+    /// </summary>
     public virtual string Name { get; set; }
 
-    [Alias("SerialNumber")]
+    /// <summary>
+    /// Numer seryjny.
+    /// </summary>
     public virtual string SerialNumber { get; set; }
 
-    [Alias("OutpostId")]
+    /// <summary>
+    /// Identyfikator placówki.
+    /// </summary>
     public virtual int OutpostId { get; set; }
 
-    [Ignore]
-    public OutpostRecord Outpost { get; set; }
+    /// <summary>
+    /// Placówka.
+    /// </summary>
+    public virtual OutpostRecord Outpost { get; set; }
 }

@@ -1,29 +1,41 @@
 ﻿using ForestSpirit.Framework.Customers.Records;
 using ForestSpirit.Framework.Data;
 using ForestSpirit.Framework.Products.Records;
-using ServiceStack.DataAnnotations;
 
 namespace ForestSpirit.Framework.Opinions.Records;
 
-[Alias("Opinion")]
+/// <summary>
+/// Rekord opinii.
+/// </summary>
 public class OpinionRecord : AbstractRecord
 {
-    [Alias("Text")]
+    /// <summary>
+    /// Treść opinii.
+    /// </summary>
     public virtual string Text { get; set; }
 
-    [Alias("Rating")]
+    /// <summary>
+    /// Ocena.
+    /// </summary>
     public virtual int Rating { get; set; }
 
-    [Alias("CustomerId")]
+    /// <summary>
+    /// Identyfikator klienta.
+    /// </summary>
     public virtual int CustomerId { get; set; }
 
-    [Alias("ProductId")]
+    /// <summary>
+    /// Identyfikator produktu.
+    /// </summary>
     public virtual int ProductId { get; set; }
 
-    [Ignore]
-    public CustomerRecord Customer { get; set; }
+    /// <summary>
+    /// Klient który zostawił opinię.
+    /// </summary>
+    public virtual CustomerRecord Customer { get; set; }
 
-    [Ignore]
-    public ProductRecord Product { get; set; }
-
+    /// <summary>
+    /// Oceniany produkt.
+    /// </summary>
+    public virtual ProductRecord Product { get; set; }
 }

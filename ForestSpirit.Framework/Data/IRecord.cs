@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ForestSpirit.Framework.Data;
 
-namespace ForestSpirit.Framework.Data;
+/// <summary>
+/// Interfejs rekordu.
+/// </summary>
 public interface IRecord : ICloneable
 {
     /// <summary>
@@ -21,6 +19,7 @@ public interface IRecord : ICloneable
     /// Data ostatniej modyfikacji.
     /// </summary>
     DateTime ChangedDate { get; set; }
+
     /// <summary>
     /// Imię, nazwisko użytkownika, który utworzył rekord.
     /// </summary>

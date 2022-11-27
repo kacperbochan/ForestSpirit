@@ -1,27 +1,45 @@
 ﻿using ForestSpirit.Framework.Customers.Records;
 using ForestSpirit.Framework.Data;
-using ServiceStack.DataAnnotations;
 
 namespace ForestSpirit.Framework.Orders.Records;
 
-[Alias("Order")]
+/// <summary>
+/// Rekord zamówienia.
+/// </summary>
 public class OrderRecord : AbstractRecord
 {
-    [Alias("OrderDate")]
+    /// <summary>
+    /// Data złożenia zamówienia.
+    /// </summary>
     public virtual DateTime OrderDate { get; set; }
 
-    [Alias("CustomerId")]
+    /// <summary>
+    /// Identyfikator klienta.
+    /// </summary>
     public virtual int CustomerId { get; set; }
 
-    [Alias("Price")]
+    /// <summary>
+    /// Cena.
+    /// </summary>
     public virtual float Price { get; set; }
 
-    [Alias("Status")]
+    /// <summary>
+    /// Status zamówienia.
+    /// </summary>
     public virtual short Status { get; set; }
 
-    [Alias("PredictedDeliveryDate")]
+    /// <summary>
+    /// Przewidziana data dostawy.
+    /// </summary>
     public virtual DateTime PredictedDeliveryDate { get; set; }
 
-    [Ignore]
-    public CustomerRecord Customer { get; set; }
+    /// <summary>
+    /// Klient który złożył zamówienie.
+    /// </summary>
+    public virtual CustomerRecord Customer { get; set; }
+
+    /// <summary>
+    /// Lista obiektów zamówień podpiętych do zamówienia.
+    /// </summary>
+    public virtual IList<OrderItemRecord> OrderItems { get; set; }
 }

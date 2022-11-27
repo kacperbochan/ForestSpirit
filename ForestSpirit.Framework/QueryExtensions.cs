@@ -155,4 +155,22 @@ public static class QueryExtensions
     {
         return db.Select(query);
     }
+
+    /// <summary>
+    /// Tabela instalacji inwentarza.
+    /// </summary>
+    /// <param name="db">Połączenie z repozytorium.</param>
+    /// <returns>Tabela danych.</returns>
+    public static SqlExpression<RequestRecord> Request(this IDbConnection db) => db.From<RequestRecord>();
+
+    /// <summary>
+    /// Pobranie listy inwentarzy.
+    /// </summary>
+    /// <param name="db">Połączenie z repozytorium.</param>
+    /// <param name="query">Kryteria filtrowania.</param>
+    /// <returns>Lista inwentarzy.</returns>
+    public static List<RequestRecord> Get(this IDbConnection db, SqlExpression<RequestRecord> query)
+    {
+        return db.Select(query);
+    }
 }

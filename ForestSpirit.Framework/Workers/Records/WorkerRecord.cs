@@ -1,20 +1,34 @@
 ﻿using ForestSpirit.Framework.Data;
-using ServiceStack.DataAnnotations;
 
 namespace ForestSpirit.Framework.Products.Records;
 
-[Alias("Worker")]
+/// <summary>
+/// Rekord pracownika.
+/// </summary>
 public class WorkerRecord : AbstractRecord
 {
-    [Alias("Name")]
+    /// <summary>
+    /// Nazwa pracownika.
+    /// </summary>
     public virtual string Name { get; set; }
 
-    [Alias("Wage")]
+    /// <summary>
+    /// Płaca.
+    /// </summary>
     public virtual float Wage { get; set; }
 
-    [Alias("Type")]
+    /// <summary>
+    /// Typ.
+    /// </summary>
     public virtual short Type { get; set; }
 
-    [Alias("Status")]
+    /// <summary>
+    /// Status.
+    /// </summary>
     public virtual short Status { get; set; }
+
+    /// <summary>
+    /// Zgłoszenia użytkownika.
+    /// </summary>
+    public virtual IList<RequestRecord> Requests { get; set; }
 }

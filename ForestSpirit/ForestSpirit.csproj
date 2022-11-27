@@ -35,6 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ForestSpirit.Core\ForestSpirit.Core.csproj" />
     <ProjectReference Include="..\ForestSpirit.Framework\ForestSpirit.Framework.csproj" />
     <ProjectReference Include="..\ForestSpirit.ServiceModel\ForestSpirit.ServiceModel.csproj" />

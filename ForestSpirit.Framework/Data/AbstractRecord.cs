@@ -2,21 +2,34 @@
 
 namespace ForestSpirit.Framework.Data;
 
+/// <summary>
+/// Akstrakcyjna klasa rekordu przechowująca podstawowe dane.
+/// </summary>
 public abstract class AbstractRecord : IRecord
 {
-    [Alias("Id")]
+    /// <summary>
+    /// Identyfikator rekordu.
+    /// </summary>
     public virtual int Id { get; set; }
 
-    [Alias("Created_At")]
+    /// <summary>
+    /// Data stworzenia.
+    /// </summary>
     public virtual DateTime CreatedDate { get; set; }
 
-    [Alias("Changed_At")]
+    /// <summary>
+    /// Data modyfikacji.
+    /// </summary>
     public virtual DateTime ChangedDate { get; set; }
 
-    [Alias("Created_By")]
+    /// <summary>
+    /// Kto stworzył rekord.
+    /// </summary>
     public virtual string CreatedBy { get; set; }
 
-    [Alias("Changed_By")]
+    /// <summary>
+    /// Kto zmodyfikował rekord.
+    /// </summary>
     public virtual string ChangedBy { get; set; }
 
     /// <inheritdoc />
