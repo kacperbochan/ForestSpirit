@@ -5,7 +5,7 @@ namespace ForestSpirit.Framework.Data;
 public abstract class AbstractRecord : IRecord
 {
     [Alias("Id")]
-    public virtual int ID { get; set; }
+    public virtual int Id { get; set; }
 
     [Alias("Created_At")]
     public virtual DateTime CreatedDate { get; set; }

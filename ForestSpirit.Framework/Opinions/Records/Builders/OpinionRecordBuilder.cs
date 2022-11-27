@@ -28,7 +28,7 @@ public class OpinionRecordBuilder : AbstractRecordBuilder<IOpinionRecordBuilder,
     public IOpinionRecordBuilder Customer(CustomerRecord value)
     {
         this.Record.Customer = value;
-        this.Record.CustomerId = value.ID;
+        this.Record.CustomerId = value.Id;
         return this.GetNext();
     }
 
@@ -37,7 +37,7 @@ public class OpinionRecordBuilder : AbstractRecordBuilder<IOpinionRecordBuilder,
     public IOpinionRecordBuilder Product(ProductRecord value)
     {
         this.Record.Product = value;
-        this.Record.ProductId = value.ID;
+        this.Record.ProductId = value.Id;
         return this.GetNext();
     }
 

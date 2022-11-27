@@ -10,7 +10,7 @@ public interface IRecord : ICloneable
     /// <summary>
     /// Identyfikator rekordu.
     /// </summary>
-    int ID { get; set; }
+    int Id { get; set; }
 
     /// <summary>
     /// Data utworzenia.

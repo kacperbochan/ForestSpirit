@@ -28,7 +28,7 @@ public class OrderRecordBuilder : AbstractRecordBuilder<IOrderRecordBuilder, Ord
     public IOrderRecordBuilder Customer(CustomerRecord value)
     {
         this.Record.Customer = value;
-        this.Record.CustomerId = value.ID;
+        this.Record.CustomerId = value.Id;
         return this.GetNext();
     }
 

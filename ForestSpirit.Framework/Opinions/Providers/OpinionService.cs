@@ -64,7 +64,7 @@ public class OpinionService : IOpinionService
         }
 
         // pobranie danych
-        var data = this.db.Opinion().Where(x => x.ID == id);
+        var data = this.db.Opinion().Where(x => x.Id == id);
         var result = this.db.Get(data).FirstOrDefault();
         return result;
     }

@@ -64,7 +64,7 @@ public class OutpostService : IOutpostService
         }
 
         // pobranie danych
-        var data = this.db.Outpost().Where(x => x.ID == id);
+        var data = this.db.Outpost().Where(x => x.Id == id);
         var result = this.db.Get(data).FirstOrDefault();
         return result;
     }

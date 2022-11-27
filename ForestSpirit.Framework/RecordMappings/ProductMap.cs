@@ -6,7 +6,7 @@ public class ProductMap : ClassMap<ProductRecord>
     public ProductMap()
     {
         this.Table("Product");
-        this.Id(x => x.ID).Column("ID");
+        this.Id(x => x.Id);
         this.Map(x => x.Name);
         this.Map(x => x.Procentage);
         this.Map(x => x.Price);
