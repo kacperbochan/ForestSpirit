@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ShopComponent } from './shop/shop.component';
 import { BasketComponent } from './basket/basket.component';
@@ -19,13 +18,13 @@ import { ProductListComponent } from './shop/product-list/product-list.component
 import { OpinionComponent } from './product/opinion/opinion.component';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
 import { SimilarProductComponent } from './product/similar-product/similar-product.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AboutComponent,
     AdresFormComponent,
     AppComponent,
-    CounterComponent,
     BasketComponent,
     FetchDataComponent,
     HomeComponent,
@@ -36,7 +35,8 @@ import { SimilarProductComponent } from './product/similar-product/similar-produ
     ProductListComponent,
     OpinionComponent,
     ProductInfoComponent,
-    SimilarProductComponent
+    SimilarProductComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -45,7 +45,7 @@ import { SimilarProductComponent } from './product/similar-product/similar-produ
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
+      { path: 'contact', component: ContactComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'about', component: AboutComponent },
       { path: 'shop', component: ShopComponent },
