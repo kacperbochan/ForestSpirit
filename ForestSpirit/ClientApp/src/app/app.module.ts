@@ -13,8 +13,12 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ShopComponent } from './shop/shop.component';
 import { BasketComponent } from './basket/basket.component';
 import { AdresFormComponent } from './basket/adres-form/adres-form.component';
-import {SummaryComponent} from './basket/summary/summary.component'
+import { SummaryComponent } from './basket/summary/summary.component'
 import { ProductComponent } from './product/product.component';
+import { ProductListComponent } from './shop/product-list/product-list.component';
+import { OpinionComponent } from './product/opinion/opinion.component';
+import { ProductInfoComponent } from './product/product-info/product-info.component';
+import { SimilarProductComponent } from './product/similar-product/similar-product.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { ProductComponent } from './product/product.component';
     NavMenuComponent,
     ShopComponent,
     ProductComponent,
-    SummaryComponent
+    SummaryComponent,
+    ProductListComponent,
+    OpinionComponent,
+    ProductInfoComponent,
+    SimilarProductComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
