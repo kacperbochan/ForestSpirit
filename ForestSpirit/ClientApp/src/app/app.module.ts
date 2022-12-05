@@ -10,9 +10,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ShopComponent } from './shop/shop.component';
-import { BasketComponent } from './basket/basket.component';
-import { AdresFormComponent } from './basket/adres-form/adres-form.component';
-import { SummaryComponent } from './basket/summary/summary.component'
+import { CartComponent } from './cart/cart.component';
+import { AdresFormComponent } from './cart/adres-form/adres-form.component';
+import { SummaryComponent } from './cart/summary/summary.component'
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './shop/product-list/product-list.component';
 import { OpinionComponent } from './product/opinion/opinion.component';
@@ -25,7 +25,7 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     AdresFormComponent,
     AppComponent,
-    BasketComponent,
+    CartComponent,
     FetchDataComponent,
     HomeComponent,
     NavMenuComponent,
@@ -49,7 +49,7 @@ import { ContactComponent } from './contact/contact.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'about', component: AboutComponent },
       { path: 'shop', component: ShopComponent },
-      { path: 'basket', component: BasketComponent },
+      { path: 'cart', component: CartComponent },
       { path: 'product', component: ProductComponent },
     ])
   ],
