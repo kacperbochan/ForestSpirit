@@ -46,7 +46,7 @@ code {
   background-color: var(--secondary-color);
 }
 
-
+.horisontal:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
 
 @font-face {
   font-family: 'fontello';

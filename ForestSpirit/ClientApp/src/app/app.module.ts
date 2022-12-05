@@ -54,6 +54,7 @@ import { from } from 'rxjs';
       { path: 'shop', component: ShopComponent },
       { path: 'cart', component: CartComponent },
       { path: 'product', component: ProductComponent },
+      { path: 'footer-test', component: SummaryComponent },
     ])
   ],
   providers: [],
