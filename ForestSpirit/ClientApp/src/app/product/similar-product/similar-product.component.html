@@ -1,29 +1,9 @@
-<h3>Podobne produkty</h3>
-<div class="similar_product" style="display:inline-block;">
+<div *ngFor="let produkt of produkty;index as i" class="similar_product" style="display:inline-block;">
   <div class="similar_img" style="display:inline-block;">
-    <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria">
+    <img src={{produkt.zdjecie}} alt="zdjecie_kategoria">
   </div>
   <div class="similar_text" style="display:inline-block;">
-    <h5>PRODUKT 1</h5>
-    <p>100 zł</p>
+    <h5>{{produkt.nazwa}}</h5>
+    <p>{{produkt.cena}} zł</p>
   </div>
 </div>
-<div class="similar_product" style="display:inline-block;">
-  <div class="similar_img" style="display:inline-block;">
-    <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria">
-  </div>
-  <div class="similar_text" style="display:inline-block;">
-    <h5>PRODUKT 2</h5>
-    <p>100 zł</p>
-  </div>
-</div>
-<div class="similar_product" style="display:inline-block;">
-  <div class="similar_img" style="display:inline-block;">
-    <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria">
-  </div>
-  <div class="similar_text" style="display:inline-block;">
-    <h5>PRODUKT 3</h5>
-    <p>100 zł</p>
-  </div>
-</div>
-
