@@ -12,13 +12,15 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ShopComponent } from './shop/shop.component';
 import { BasketComponent } from './basket/basket.component';
 import { AdresFormComponent } from './basket/adres-form/adres-form.component';
-import { SummaryComponent } from './basket/summary/summary.component'
+import {SummaryComponent} from './basket/summary/summary.component';
 import { ProductComponent } from './product/product.component';
 import { OpinionComponent } from './product/opinion/opinion.component';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
 import { SimilarProductComponent } from './product/similar-product/similar-product.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductListComponent } from './shop/product-list/product-list.component';
+import { FooterComponent } from './footer/footer.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { ProductListComponent } from './shop/product-list/product-list.component
     FetchDataComponent,
     HomeComponent,
     NavMenuComponent,
+    FooterComponent,
     ShopComponent,
     ProductComponent,
     SummaryComponent,
