@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "ForestSpirit"
+  "defaultProject": "ForestSpirit",
+  "cli": {
+    "analytics": false
+  }
 }
