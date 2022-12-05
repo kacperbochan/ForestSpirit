@@ -1,0 +1,23 @@
+
+.space{
+   
+    margin: 50px;
+    border: 0.2 solid var(--primary-color);
+    opacity: 0.8;
+}
+
+  h1{
+    color: white;
+  }
+    
+  h2{
+    color: var(--primary-color);
+  }
+
+p{
+    color: var(--primary-color);
+}
+
+.image {
+  border: 2px solid var(--main-color);
+}
