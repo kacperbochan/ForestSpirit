@@ -1,0 +1,38 @@
+<h3>Płatność</h3>
+<hr>
+<form #f="ngForm">
+
+
+  <div class="delivery-section">
+    <label for="blik" class="delivery-option row" [ngClass]="{'delivery-selected':payment==1}">
+      <div class="radio-circle col-1">
+        <input class="radio-custom" type="radio" name="options" id="blik" [(ngModel)]="payment"  value="1">
+        <span class="checkmark"></span>
+      </div>
+      <div class="col-8">
+        <h5 class="text-main">BLiK</h5>
+        <span class="text-main">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
+      </div>
+      <div class="col-3">
+        <img class="imgBlik" src="assets/BLIK.png" alt="zdjecie produkt">
+      </div>
+    </label>
+
+  <hr>
+
+    <label for="PayPal" class="delivery-option row" [ngClass]="{'delivery-selected':payment==2}">
+      <div class="radio-circle col-1">
+        <input class="radio-custom" type="radio" name="options" id="PayPal" [(ngModel)]="payment" value="2">
+        <span class="checkmark"></span>
+      </div>
+      <div class="col-8">
+        <h5 class="text-main">PayPal</h5>
+        <span class="text-main">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</span>
+      </div>
+      <div class="col-3">
+        <img class="imgPayPal" src="assets/PayPal.png" alt="zdjecie produkt">
+      </div>
+    </label>
+
+  </div>
+</form>

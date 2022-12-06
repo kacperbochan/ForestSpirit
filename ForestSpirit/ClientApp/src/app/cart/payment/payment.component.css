@@ -1,28 +1,28 @@
+.imgPayPal{
+  width: 122px;
+  height: 39px;
+  opacity: 60%;
+  margin-top: 15%;
+}
+.imgBlik{
+  width: 101px;
+  height: 48px;
+  opacity: 39%;
+  margin-top: 10%;
+}
 .form-control{
   border-color: var(--main-color);
 }
 .form-group{
   padding-bottom: 0.5rem;
 }
-.separator{
-  margin-right: 1rem;
-}
 .delivery-option{
   padding: 1rem;
-  width: 48%;
   border: 1px solid;
   border-color: var(--main-color);
-  float: left;
 }
 .delivery-selected{
   background-color: #ebebeb;
-}
-.radio-part{
-  float: left;
-}
-.radio-circle{
-  width: 3rem;
-  padding:1rem;
 }
 .radio-text{
   padding-left:1rem;
@@ -36,7 +36,6 @@
 .form{
   width: 100%;
 }
-
 /* Customize the label (the container) */
 .radio-circle {
   display: block;

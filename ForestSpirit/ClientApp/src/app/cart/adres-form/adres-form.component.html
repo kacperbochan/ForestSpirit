@@ -1,6 +1,6 @@
-  <h3>Szczegóły dostawy</h3>
-  <hr>
-<form>
+<h3>Szczegóły dostawy</h3>
+<hr>
+<form #f="ngForm">
   <div class="form-horizontal row">
     <div class="form-group col-md-6">
       <label for="firstName">Imię</label>
@@ -49,19 +49,21 @@
     </div>
   </div>
   <hr>
-  <div class="delivery-section">
-      <label for="darmowa" class="delivery-option separator">
+  <div class="form-row delivery-section">
+      <label for="darmowa" class="delivery-option separator" [ngClass]="{'delivery-selected':delivery==1}">
         <div class="radio-part radio-circle">
-          <input type="radio" name="options" id="darmowa" autocomplete="off" value="1">
+          <input class="radio-custom" type="radio" name="options" id="darmowa" [(ngModel)]="delivery" autocomplete="off" value="1">
+          <span class="checkmark"></span>
         </div>
         <div class="radio-part radio-text">
           <h5 class="text-main">Darmowa dostawa</h5>
           <span class="text-main">będzie kiedy będzie</span>
         </div>
       </label>
-      <label class="delivery-option" for="jutro">
+      <label for="jutro" class="delivery-option" [ngClass]="{'delivery-selected':delivery==2}">
         <div class="radio-part radio-circle">
-          <input type="radio" name="options" id="jutro" autocomplete="off" value="2">
+          <input class="radio-custom" type="radio" name="options" id="jutro" [(ngModel)]="delivery" autocomplete="off" value="2">
+          <span class="checkmark"></span>
         </div>
         <div class="radio-part radio-text">
           <h5 class="text-main">Dostawa na jutro 20zł</h5>
@@ -69,7 +71,4 @@
         </div>
       </label>
   </div>
-  <hr>
-  <button type="submit" class="btn btn-primary custom-button continue">Dalej</button>
-  <button type="reset" class="btn btn-primary custom-button cancel">Anuluj</button>
 </form>

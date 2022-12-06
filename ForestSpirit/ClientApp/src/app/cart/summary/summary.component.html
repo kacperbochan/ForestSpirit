@@ -1,1 +1,45 @@
-<p>summary works!</p>
+<h3>Podsumowanie</h3>
+<hr>
+<div *ngFor="let element of produkty;index as i">
+  <div class="row" *ngIf="element?.ilosc">
+    <div class="col-4">
+      <img src= {{element.produkt.zdjecie}} alt="zdjecie produkt">
+    </div>
+    <div class="col-8">
+      <div >{{element.produkt.nazwa|uppercase}}</div>
+      <div>{{element.ilosc}}x{{element.produkt.cena}} ZŁ</div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-6">MASZ KOD RABATOWY?</div>
+  <div class="col-4 value"><span class="icon-down-dir"></span></div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-5">
+    PODSUMOWANIE
+  </div>
+  <div class="col-5 value">
+    {{podsumowanie}} ZŁ
+  </div>
+</div>
+<div class="row">
+  <div class="col-5">
+    DOSTAWA
+  </div>
+  <div class="col-5 value">
+    {{dostawa.cena}} ZŁ
+  </div>
+</div>
+<hr>
+<div class="row summary">
+  <div class="col-5">
+    SUMA
+  </div>
+  <div class="col-5 value">
+    {{suma}} ZŁ
+  </div>
+</div>
+

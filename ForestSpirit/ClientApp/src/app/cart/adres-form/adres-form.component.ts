@@ -11,6 +11,7 @@ export class AdresFormComponent implements OnInit {
 
   countries: Country[] = ListOfCountries;
   phones: PhoneDir[] = ListOfDirectories;
+  public delivery: number = -1;
 
   constructor() {   }
 
