@@ -1,24 +1,20 @@
 ﻿using ForestSpirit.Framework.Data.Records;
 using ForestSpirit.Framework.Opinions.Records;
 using ForestSpirit.Framework.Opinions.Records.Builders;
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Opinions.Providers;
-public class OpinionService : IOpinionService
+public class OpinionService : AbstractService<OpinionRecord>, IOpinionService
 {
-    /// <summary>
-    /// Połączenie z bazą danych.
-    /// </summary>
-    private readonly IDbConnection db;
-
-    public OpinionService(IDbConnection db)
+    public OpinionService(ISessionFactory db)
+        : base(db)
     {
-        this.db = db ?? throw new ArgumentNullException(nameof(db));
     }
 
     public IOpinionRecordBuilder Create()
     {
-        var builder = new OpinionRecordBuilder(this.db);
+        var builder = new OpinionRecordBuilder(this.Db);
         DateTime timestamp = DateTime.UtcNow;
         return builder.CreatedAt(timestamp).CreatedBy("SYSTEM").ChangedAt(timestamp).ChangedBy("SYSTEM");
     }
@@ -53,26 +49,6 @@ public class OpinionService : IOpinionService
 
     public IOpinionRecordBuilder Update(OpinionRecord item)
     {
-        return new OpinionRecordBuilder(this.db, item);
-    }
-
-    public OpinionRecord Get(int id)
-    {
-        if (id <= 0)
-        {
-            return null;
-        }
-
-        // pobranie danych
-        var data = this.db.Opinion().Where(x => x.Id == id);
-        var result = this.db.Get(data).FirstOrDefault();
-        return result;
-    }
-
-    public List<OpinionRecord> GetAll()
-    {
-        // pobranie danych
-        var data = this.db.Opinion();
-        return this.db.Get(data);
+        return new OpinionRecordBuilder(this.Db, item);
     }
 }

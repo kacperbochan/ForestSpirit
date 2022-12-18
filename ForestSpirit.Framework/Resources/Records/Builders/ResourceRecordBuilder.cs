@@ -1,5 +1,6 @@
 ﻿using ForestSpirit.Framework.Data.Builders;
 using ForestSpirit.Framework.Outposts.Records;
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Resources.Records.Builders;
@@ -9,7 +10,7 @@ public class ResourceRecordBuilder : AbstractRecordBuilder<IResourceRecordBuilde
     /// Initializes a new instance of the <see cref="ResourceRecordBuilder"/> class.
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
-    public ResourceRecordBuilder(IDbConnection db)
+    public ResourceRecordBuilder(ISessionFactory db)
         : base(db)
     {
     }
@@ -19,7 +20,7 @@ public class ResourceRecordBuilder : AbstractRecordBuilder<IResourceRecordBuilde
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
     /// <param name="record">Rekord danych.</param>
-    public ResourceRecordBuilder(IDbConnection db, ResourceRecord record)
+    public ResourceRecordBuilder(ISessionFactory db, ResourceRecord record)
         : base(db, record)
     {
     }

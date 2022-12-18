@@ -1,6 +1,7 @@
 ﻿using ForestSpirit.Framework.Customers.Records;
 using ForestSpirit.Framework.Data.Builders;
 using ForestSpirit.Framework.Products.Records;
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Opinions.Records.Builders;
@@ -10,7 +11,7 @@ public class OpinionRecordBuilder : AbstractRecordBuilder<IOpinionRecordBuilder,
     /// Initializes a new instance of the <see cref="OpinionRecordBuilder"/> class.
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
-    public OpinionRecordBuilder(IDbConnection db)
+    public OpinionRecordBuilder(ISessionFactory db)
         : base(db)
     {
     }
@@ -20,7 +21,7 @@ public class OpinionRecordBuilder : AbstractRecordBuilder<IOpinionRecordBuilder,
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
     /// <param name="record">Rekord danych.</param>
-    public OpinionRecordBuilder(IDbConnection db, OpinionRecord record)
+    public OpinionRecordBuilder(ISessionFactory db, OpinionRecord record)
         : base(db, record)
     {
     }

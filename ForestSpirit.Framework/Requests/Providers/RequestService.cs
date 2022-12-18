@@ -2,24 +2,21 @@
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.Framework.Requests.Records;
 using ForestSpirit.Framework.Requests.Records.Builders;
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Requests.Providers;
-public class RequestService : IRequestService
+public class RequestService : AbstractService<RequestRecord>, IRequestService
 {
-    /// <summary>
-    /// Połączenie z bazą danych.
-    /// </summary>
-    private readonly IDbConnection db;
 
-    public RequestService(IDbConnection db)
+    public RequestService(ISessionFactory db)
+        :base(db)
     {
-        this.db = db ?? throw new ArgumentNullException(nameof(db));
     }
 
     public IRequestRecordBuilder Create()
     {
-        var builder = new RequestRecordBuilder(this.db);
+        var builder = new RequestRecordBuilder(this.Db);
         DateTime timestamp = DateTime.UtcNow;
         return builder.CreatedAt(timestamp).CreatedBy("SYSTEM").ChangedAt(timestamp).ChangedBy("SYSTEM");
     }
@@ -54,39 +51,6 @@ public class RequestService : IRequestService
 
     public IRequestRecordBuilder Update(RequestRecord item)
     {
-        return new RequestRecordBuilder(this.db, item);
-    }
-
-    public RequestRecord Get(int id)
-    {
-        if (id <= 0)
-        {
-            return null;
-        }
-
-        // pobranie danych
-        var data = this.db.Request().Where(x => x.Id == id);
-        var result = this.db.Get(data).FirstOrDefault();
-        return result;
-    }
-
-    public RequestRecord Get(string Title)
-    {
-        if (string.IsNullOrEmpty(Title))
-        {
-            return null;
-        }
-
-        // pobranie danych
-        var data = this.db.Request().Where(x => x.Title == Title);
-        var result = this.db.Get(data).FirstOrDefault();
-        return result;
-    }
-
-    public List<RequestRecord> GetAll()
-    {
-        // pobranie danych
-        var data = this.db.Request();
-        return this.db.Get(data);
+        return new RequestRecordBuilder(this.Db, item);
     }
 }

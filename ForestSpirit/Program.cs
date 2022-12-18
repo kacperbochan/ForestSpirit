@@ -16,7 +16,7 @@ public class Program
     public static void Main(string[] args)
     {
         // licence
-        ServiceStack.Licensing.RegisterLicense(LicenceKeys.ServiceStack);
+        //ServiceStack.Licensing.RegisterLicense(LicenceKeys.ServiceStack);
 
         var culture = CultureInfo.GetCultureInfo("pl-PL");
         CultureInfo.DefaultThreadCurrentCulture = culture;
@@ -29,9 +29,9 @@ public class Program
         string volumePath = AppContext.BaseDirectory;
 
         // logger
-        var logFactory = NLogBuilder.ConfigureNLog(Path.Combine(volumePath, "config", "log.config"));
-        var logger = logFactory.GetLogger("ForestSpirit");
-        ServiceStack.Logging.LogManager.LogFactory = new ServiceStack.Logging.NLogger.NLogFactory();
+        //var logFactory = NLogBuilder.ConfigureNLog(Path.Combine(volumePath, "config", "log.config"));
+       // var logger = logFactory.GetLogger("ForestSpirit");
+       // ServiceStack.Logging.LogManager.LogFactory = new ServiceStack.Logging.NLogger.NLogFactory();
 
         try
         {
@@ -41,10 +41,10 @@ public class Program
                     (builderContext, config) =>
                     {
                         config.SetBasePath(volumePath)
-                            .AddJsonFile(Path.Combine("config", "settings.json"))
-                            .AddEnvironmentVariables();
+                            .AddJsonFile(Path.Combine("config", "settings.json"));
+                            //.AddEnvironmentVariables();
                     })
-                .UseNLog()
+                //.UseNLog()
                 .Build();
 
             // run
@@ -52,13 +52,13 @@ public class Program
         }
         catch (Exception ex)
         {
-            logger.Fatal(ex, "Unhandled application exception.");
+            //logger.Fatal(ex, "Unhandled application exception.");
             throw;
         }
         finally
         {
             // flush logger
-            NLog.LogManager.Shutdown();
+            //NLog.LogManager.Shutdown();
         }
     }
 }

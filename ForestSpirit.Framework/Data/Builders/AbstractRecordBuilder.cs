@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using NHibernate;
+using System.Data;
 
 namespace ForestSpirit.Framework.Data.Builders;
 public abstract class AbstractRecordBuilder<TBuilder, TRecord> : RecordBuilder<TBuilder, TRecord>, IAbstractRecordBuilder<TBuilder>
@@ -9,14 +10,14 @@ public abstract class AbstractRecordBuilder<TBuilder, TRecord> : RecordBuilder<T
     /// Initializes a new instance of the <see cref="AbstractRecordBuilder{TBuilder, TRecord}"/> class.
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
-    protected AbstractRecordBuilder(IDbConnection db)
-            : base(db)
+    protected AbstractRecordBuilder(ISessionFactory db)
+    : base(db)
     {
         DateTime timestamp = DateTime.Now;
-        Record.CreatedDate = timestamp;
-        Record.CreatedBy = BuildInMembers.System;
-        Record.ChangedDate = timestamp;
-        Record.ChangedBy = BuildInMembers.System;
+        this.Record.CreatedDate = timestamp;
+        this.Record.CreatedBy = BuildInMembers.System;
+        this.Record.ChangedDate = timestamp;
+        this.Record.ChangedBy = BuildInMembers.System;
     }
 
     /// <summary>
@@ -24,9 +25,16 @@ public abstract class AbstractRecordBuilder<TBuilder, TRecord> : RecordBuilder<T
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
     /// <param name="record">Obiekt rekordu.</param>
-    protected AbstractRecordBuilder(IDbConnection db, TRecord record)
+    protected AbstractRecordBuilder(ISessionFactory db, TRecord record)
         : base(db, record)
     {
+    }
+
+    /// <inheritdoc />
+    public TBuilder Id(int value)
+    {
+        this.Record.Id = value;
+        return this.GetNext();
     }
 
     /// <inheritdoc />

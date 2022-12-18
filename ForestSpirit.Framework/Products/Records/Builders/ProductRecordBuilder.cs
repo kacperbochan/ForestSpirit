@@ -1,4 +1,5 @@
 ﻿using ForestSpirit.Framework.Data.Builders;
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Products.Records.Builders;
@@ -8,7 +9,7 @@ public class ProductRecordBuilder : AbstractRecordBuilder<IProductRecordBuilder,
     /// Initializes a new instance of the <see cref="ProductRecordBuilder"/> class.
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
-    public ProductRecordBuilder(IDbConnection db)
+    public ProductRecordBuilder(ISessionFactory db)
         : base(db)
     {
     }
@@ -18,7 +19,7 @@ public class ProductRecordBuilder : AbstractRecordBuilder<IProductRecordBuilder,
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
     /// <param name="record">Rekord danych.</param>
-    public ProductRecordBuilder(IDbConnection db, ProductRecord record)
+    public ProductRecordBuilder(ISessionFactory db, ProductRecord record)
         : base(db, record)
     {
     }

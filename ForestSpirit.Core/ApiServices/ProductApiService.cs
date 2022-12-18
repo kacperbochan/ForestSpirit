@@ -1,18 +1,17 @@
 ﻿using AutoMapper;
-
 using ForestSpirit.Framework.Products;
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.ServiceModel.Products;
-
-using ServiceStack;
-using ServiceStack.FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ForestSpirit.Core.ApiServices;
 
 /// <summary>
 /// Serwis api produktów.
 /// </summary>
-public class ProductApiService : Service
+[Route("/api/products")]
+[ApiController]
+public class ProductApiService : Controller
 {
     /// <summary>
     /// Serwis produktów.
@@ -40,7 +39,9 @@ public class ProductApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(ProductListRequest request)
+    [HttpGet]
+    [Route("/api/products/list")]
+    public object Get()
     {
         var products = this.productService.GetAll();
         var data = this.mapper.Map<List<ProductRecord>, ProductData[]>(products);
@@ -52,13 +53,15 @@ public class ProductApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(ProductGetRequest request)
+    [HttpGet]
+    [Route("/api/products/get")]
+    public object Get([FromQuery] int key)
     {
-        var product = this.productService.Get(request.Id);
+        var product = this.productService.Get(key);
 
         if (product == null)
         {
-            throw new NullReferenceException($"Couldn't find item with id {request.Id}");
+            throw new NullReferenceException($"Couldn't find item with id {key}");
         }
 
         var data = this.mapper.Map<ProductRecord, ProductData>(product);
@@ -70,16 +73,47 @@ public class ProductApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [HttpPost]
+    [Route("/api/products/create")]
     public object Any(ProductCreateRequest request)
     {
-        var validation = this.Request.TryResolve<IValidator<ProductCreateRequest>>().Validate(request);
+        //var validation = this.Request.TryResolve<IValidator<ProductCreateRequest>>().Validate(request);
 
-        if (!validation.IsValid)
-        {
-            throw new ValidationException($"Invalid object");
-        }
+        /* if (!validation.IsValid)
+         {
+             throw new ValidationException($"Invalid object");
+         }*/
 
         var builder = this.productService.Create()
+            .Name(request.Name)
+            .Procentage(request.Procentage)
+            .Price(request.Price);
+
+        var record = this.productService.Save(builder);
+
+        var data = this.mapper.Map<ProductRecord, ProductData>(record);
+        return data;
+    }
+
+    /// <summary>
+    /// Dodanie noweg produktu do systemu.
+    /// </summary>
+    /// <param name="request">Wartość rządania.</param>
+    /// <returns>Odpowiedź.</returns>
+    [HttpPost]
+    [Route("/api/products/update")]
+    public object Any([FromQuery] int key, [FromBody] ProductUpdateRequest request)
+    {
+        //var validation = this.Request.TryResolve<IValidator<ProductCreateRequest>>().Validate(request);
+
+        /* if (!validation.IsValid)
+         {
+             throw new ValidationException($"Invalid object");
+         }*/
+
+        var product = this.productService.Get(key);
+
+        var builder = this.productService.Update(product)
             .Name(request.Name)
             .Procentage(request.Procentage)
             .Price(request.Price);

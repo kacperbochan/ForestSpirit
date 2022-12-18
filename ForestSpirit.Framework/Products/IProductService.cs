@@ -7,5 +7,4 @@ public interface IProductService : IBuildableService<IProductRecordBuilder, Prod
 {
     List<ProductRecord> GetAll();
     ProductRecord Get(int id);
-    ProductRecord Get(string name);
 }

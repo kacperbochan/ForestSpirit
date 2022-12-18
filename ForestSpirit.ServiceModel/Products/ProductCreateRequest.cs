@@ -2,8 +2,7 @@
 
 namespace ForestSpirit.ServiceModel.Products;
 
-[Route("/products/create", "POST")]
-public class ProductCreateRequest : IReturn<ProductData>
+public class ProductCreateRequest
 {
     public string Name { get; set; }
 

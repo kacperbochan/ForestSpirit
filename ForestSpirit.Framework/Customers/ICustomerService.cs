@@ -7,5 +7,4 @@ public interface ICustomerService : IBuildableService<ICustomerRecordBuilder, Cu
 {
     List<CustomerRecord> GetAll();
     CustomerRecord Get(int id);
-    CustomerRecord Get(string name);
 }

@@ -8,5 +8,4 @@ public interface IRequestService : IBuildableService<IRequestRecordBuilder, Requ
 {
     List<RequestRecord> GetAll();
     RequestRecord Get(int id);
-    RequestRecord Get(string Title);
 }

@@ -1,6 +1,6 @@
 ﻿using ForestSpirit.Framework.Data.Builders;
 using ForestSpirit.Framework.Products.Records;
-
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Workers.Records.Builders;
@@ -10,7 +10,7 @@ public class WorkerRecordBuilder : AbstractRecordBuilder<IWorkerRecordBuilder, W
     /// Initializes a new instance of the <see cref="WorkerRecordBuilder"/> class.
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
-    public WorkerRecordBuilder(IDbConnection db)
+    public WorkerRecordBuilder(ISessionFactory db)
         : base(db)
     {
     }
@@ -20,7 +20,7 @@ public class WorkerRecordBuilder : AbstractRecordBuilder<IWorkerRecordBuilder, W
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
     /// <param name="record">Rekord danych.</param>
-    public WorkerRecordBuilder(IDbConnection db, WorkerRecord record)
+    public WorkerRecordBuilder(ISessionFactory db, WorkerRecord record)
         : base(db, record)
     {
     }

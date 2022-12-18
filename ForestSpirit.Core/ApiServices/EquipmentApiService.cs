@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+
 using ForestSpirit.Framework.Equipments;
 using ForestSpirit.Framework.Equipments.Records;
 using ForestSpirit.Framework.Outposts;

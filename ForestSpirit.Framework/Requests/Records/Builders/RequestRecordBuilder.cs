@@ -1,6 +1,6 @@
 ﻿using ForestSpirit.Framework.Data.Builders;
 using ForestSpirit.Framework.Products.Records;
-
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Requests.Records.Builders;
@@ -10,7 +10,7 @@ public class RequestRecordBuilder : AbstractRecordBuilder<IRequestRecordBuilder,
     /// Initializes a new instance of the <see cref="RequestRecordBuilder"/> class.
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
-    public RequestRecordBuilder(IDbConnection db)
+    public RequestRecordBuilder(ISessionFactory db)
         : base(db)
     {
     }
@@ -20,7 +20,7 @@ public class RequestRecordBuilder : AbstractRecordBuilder<IRequestRecordBuilder,
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
     /// <param name="record">Rekord danych.</param>
-    public RequestRecordBuilder(IDbConnection db, RequestRecord record)
+    public RequestRecordBuilder(ISessionFactory db, RequestRecord record)
         : base(db, record)
     {
     }

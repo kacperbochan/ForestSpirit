@@ -7,5 +7,4 @@ public interface IOutpostService : IBuildableService<IOutpostRecordBuilder, Outp
 {
     List<OutpostRecord> GetAll();
     OutpostRecord Get(int id);
-    OutpostRecord Get(string name);
 }

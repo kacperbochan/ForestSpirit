@@ -9,6 +9,13 @@ public interface IAbstractRecordBuilder<out TBuilder> : IRecordBuilder
     where TBuilder : IRecordBuilder
 {
     /// <summary>
+    /// Ustawienie identyfikatora utworzenia rekordu.
+    /// </summary>
+    /// <param name="value">Identyfikator utworzenia rekordu.</param>
+    /// <returns>Kreator rekordu.</returns>
+    TBuilder Id(int value);
+
+    /// <summary>
     /// Ustawienie daty i czasu utworzenia rekordu.
     /// </summary>
     /// <param name="value">Data i czas utworzenia rekordu.</param>

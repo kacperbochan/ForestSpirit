@@ -47,15 +47,14 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         // logging
-        var logFactory = new ServiceStack.Logging.NLogger.NLogFactory();
-        ServiceStack.Logging.LogManager.LogFactory = logFactory;
+        // var logFactory = new ServiceStack.Logging.NLogger.NLogFactory();
+        // ServiceStack.Logging.LogManager.LogFactory = logFactory;
 
         // Configuration
         var settings = this.configuration.Get<AppSettings>();
         services.AddSingleton<Microsoft.Extensions.Options.IOptions<AppSettings>>(provider => new OptionsWrapper<AppSettings>(settings));
         services.AddSingleton<Microsoft.Extensions.Options.IOptions<ResourcesSettings>>(provider => new OptionsWrapper<ResourcesSettings>(settings.Resources));
 
-        services.AddMvc(options => options.EnableEndpointRouting = false);
 
         this.InstallDb(services, settings);
 
@@ -112,14 +111,20 @@ public class Startup
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
         }
 
+        app.UseRouting();
         app.UseCors("default");
         app.UseStaticFiles();
 
-        app.UseServiceStack(new AppHost(env.ApplicationName, this.configuration));
+        // app.UseServiceStack(new AppHost(env.ApplicationName, this.configuration));
 
-        app.UseMvcWithDefaultRoute();
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
     }
 
     /// <summary>
@@ -129,7 +134,7 @@ public class Startup
     /// <param name="settings">Ustawienia aplikacji.</param>
     private void InstallDb(IServiceCollection services, AppSettings settings)
     {
-        var connectionManager = new DbConnectionManager();
+        /*var connectionManager = new DbConnectionManager();
 
         var factory = this.CreateDbFactory(settings.Db, true);
         connectionManager.Register("default", factory);
@@ -138,7 +143,7 @@ public class Startup
         services.AddSingleton<IDbConnectionFactory>(factory);
         services.AddSingleton(factory);
         services.AddScoped(x => factory.OpenDbConnection());
-        services.AddSingleton<Compiler, SqlServerCompiler>();
+        services.AddSingleton<Compiler, SqlServerCompiler>();*/
 
         var sessionFactory = Fluently.Configure()
           .Database(
@@ -157,55 +162,8 @@ public class Startup
                 session.Save(barginBasin, 70);
 
                 transaction.Commit();
-             }
+            }
         }*/
-    }
-
-    /// <summary>
-    /// Utworzenie fabryki połączenia do bazy danych.
-    /// </summary>
-    /// <param name="config">Konfiguracja bazy danych.</param>
-    /// <param name="isDefault">Czy jest do domyślne połączenie do bazy danych.</param>
-    /// <returns>Fabryka połączeń do repozytorium.</returns>
-    private OrmLiteConnectionFactory CreateDbFactory(DBSettings config, bool isDefault)
-    {
-        string providerType = "ServiceStack.OrmLite.";
-
-        switch (config.Dialect)
-        {
-            case "SqlServer":
-                providerType += "SqlServer.SqlServerOrmLiteDialectProvider, ServiceStack.OrmLite.SqlServer";
-                break;
-            case "SqlServer2012":
-                providerType += "SqlServer.SqlServer2012OrmLiteDialectProvider, ServiceStack.OrmLite.SqlServer";
-                break;
-            case "SqlServer2014":
-                providerType += "SqlServer.SqlServer2014OrmLiteDialectProvider, ServiceStack.OrmLite.SqlServer";
-                break;
-            case "SqlServer2016":
-                providerType += "SqlServer.SqlServer2016OrmLiteDialectProvider, ServiceStack.OrmLite.SqlServer";
-                break;
-
-            default:
-                // throw new ConfigurationErrorsException($"Unknown dialect provider '{config.Dialect}'");
-                break;
-        }
-
-        var type = Type.GetType(providerType);
-        if (type == null)
-        {
-            // throw new ConfigurationErrorsException($"Unknown dialect provider type '{providerType}'.");
-        }
-
-        var provider = (IOrmLiteDialectProvider?)Activator.CreateInstance(type);
-
-        if (provider == null)
-        {
-            throw new ArgumentNullException($"Provider was null.");
-        }
-
-        provider.RegisterConverter<DateTime>(new SqlServerDateTime2Converter());
-        return new OrmLiteConnectionFactory(config.ConnectionString, provider, isDefault);
     }
 
     /// <summary>

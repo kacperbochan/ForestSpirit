@@ -1,24 +1,20 @@
 ﻿using ForestSpirit.Framework.Data.Records;
 using ForestSpirit.Framework.Orders.Records;
 using ForestSpirit.Framework.Orders.Records.Builders;
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Orders.Providers;
-public class OrderService : IOrderService
+public class OrderService : AbstractService<OrderRecord>, IOrderService
 {
-    /// <summary>
-    /// Połączenie z bazą danych.
-    /// </summary>
-    private readonly IDbConnection db;
-
-    public OrderService(IDbConnection db)
+    public OrderService(ISessionFactory db)
+        : base(db)
     {
-        this.db = db ?? throw new ArgumentNullException(nameof(db));
     }
 
     public IOrderRecordBuilder Create()
     {
-        var builder = new OrderRecordBuilder(this.db);
+        var builder = new OrderRecordBuilder(this.Db);
         DateTime timestamp = DateTime.UtcNow;
         return builder.CreatedAt(timestamp).CreatedBy("SYSTEM").ChangedAt(timestamp).ChangedBy("SYSTEM");
     }
@@ -53,26 +49,6 @@ public class OrderService : IOrderService
 
     public IOrderRecordBuilder Update(OrderRecord item)
     {
-        return new OrderRecordBuilder(this.db, item);
-    }
-
-    public OrderRecord Get(int id)
-    {
-        if (id <= 0)
-        {
-            return null;
-        }
-
-        // pobranie danych
-        var data = this.db.Order().Where(x => x.Id == id);
-        var result = this.db.Get(data).FirstOrDefault();
-        return result;
-    }
-
-    public List<OrderRecord> GetAll()
-    {
-        // pobranie danych
-        var data = this.db.Order();
-        return this.db.Get(data);
+        return new OrderRecordBuilder(this.Db, item);
     }
 }

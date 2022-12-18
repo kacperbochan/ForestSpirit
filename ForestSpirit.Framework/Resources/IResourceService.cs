@@ -7,5 +7,4 @@ public interface IResourceService : IBuildableService<IResourceRecordBuilder, Re
 {
     List<ResourceRecord> GetAll();
     ResourceRecord Get(int id);
-    ResourceRecord Get(string name);
 }

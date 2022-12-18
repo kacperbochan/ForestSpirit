@@ -2,24 +2,20 @@
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.Framework.Workers.Records;
 using ForestSpirit.Framework.Workers.Records.Builders;
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Workers.Providers;
-public class WorkerService : IWorkerService
+public class WorkerService : AbstractService<WorkerRecord>, IWorkerService
 {
-    /// <summary>
-    /// Połączenie z bazą danych.
-    /// </summary>
-    private readonly IDbConnection db;
 
-    public WorkerService(IDbConnection db)
+    public WorkerService(ISessionFactory db) : base(db)
     {
-        this.db = db ?? throw new ArgumentNullException(nameof(db));
     }
 
     public IWorkerRecordBuilder Create()
     {
-        var builder = new WorkerRecordBuilder(this.db);
+        var builder = new WorkerRecordBuilder(this.Db);
         DateTime timestamp = DateTime.UtcNow;
         return builder.CreatedAt(timestamp).CreatedBy("SYSTEM").ChangedAt(timestamp).ChangedBy("SYSTEM");
     }
@@ -54,20 +50,7 @@ public class WorkerService : IWorkerService
 
     public IWorkerRecordBuilder Update(WorkerRecord item)
     {
-        return new WorkerRecordBuilder(this.db, item);
-    }
-
-    public WorkerRecord Get(int id)
-    {
-        if (id <= 0)
-        {
-            return null;
-        }
-
-        // pobranie danych
-        var data = this.db.Worker().Where(x => x.Id == id);
-        var result = this.db.Get(data).FirstOrDefault();
-        return result;
+        return new WorkerRecordBuilder(this.Db, item);
     }
 
     public WorkerRecord Get(string name)
@@ -78,15 +61,9 @@ public class WorkerService : IWorkerService
         }
 
         // pobranie danych
-        var data = this.db.Worker().Where(x => x.Name == name);
-        var result = this.db.Get(data).FirstOrDefault();
-        return result;
-    }
-
-    public List<WorkerRecord> GetAll()
-    {
-        // pobranie danych
-        var data = this.db.Worker();
-        return this.db.Get(data);
+        using (var session = this.Db.OpenSession())
+        {
+            return session.Query<WorkerRecord>().Where(x => x.Name == name).FirstOrDefault();
+        }
     }
 }

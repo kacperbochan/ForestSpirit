@@ -5,7 +5,7 @@ namespace ForestSpirit.Framework.Orders.Records;
 
 /// <summary>
 /// Rekord łączący zamówienie z produktem placówki.
-/// </summary>
+/// </summary>A
 public class OrderItemRecord : AbstractRecord
 {
     /// <summary>

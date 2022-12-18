@@ -1,24 +1,20 @@
 ﻿using ForestSpirit.Framework.Data.Records;
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.Framework.Products.Records.Builders;
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Products.Providers;
-public class ProductService : IProductService
+public class ProductService : AbstractService<ProductRecord>, IProductService
 {
-    /// <summary>
-    /// Połączenie z bazą danych.
-    /// </summary>
-    private readonly IDbConnection db;
-
-    public ProductService(IDbConnection db)
+    public ProductService(ISessionFactory db)
+        : base(db)
     {
-        this.db = db ?? throw new ArgumentNullException(nameof(db));
     }
 
     public IProductRecordBuilder Create()
     {
-        var builder = new ProductRecordBuilder(this.db);
+        var builder = new ProductRecordBuilder(this.Db);
         DateTime timestamp = DateTime.UtcNow;
         return builder.CreatedAt(timestamp).CreatedBy("SYSTEM").ChangedAt(timestamp).ChangedBy("SYSTEM");
     }
@@ -34,7 +30,7 @@ public class ProductService : IProductService
         // Jezeli rekord jest nowy.
         if (builder.Peek().IsNew())
         {
-            record = builder.Save();
+            record = builder.Id(this.GetNewId()).Save();
         }
         else
         {
@@ -53,20 +49,7 @@ public class ProductService : IProductService
 
     public IProductRecordBuilder Update(ProductRecord item)
     {
-        return new ProductRecordBuilder(this.db, item);
-    }
-
-    public ProductRecord Get(int id)
-    {
-        if (id <= 0)
-        {
-            return null;
-        }
-
-        // pobranie danych
-        var data = this.db.Product().Where(x => x.Id == id);
-        var result = this.db.Get(data).FirstOrDefault();
-        return result;
+        return new ProductRecordBuilder(this.Db, item);
     }
 
     public ProductRecord Get(string name)
@@ -77,15 +60,9 @@ public class ProductService : IProductService
         }
 
         // pobranie danych
-        var data = this.db.Product().Where(x => x.Name == name);
-        var result = this.db.Get(data).FirstOrDefault();
-        return result;
-    }
-
-    public List<ProductRecord> GetAll()
-    {
-        // pobranie danych
-        var data = this.db.Product();
-        return this.db.Get(data);
+        using (var session = this.Db.OpenSession())
+        {
+            return session.Query<ProductRecord>().Where(x => x.Name == name).FirstOrDefault();
+        }
     }
 }

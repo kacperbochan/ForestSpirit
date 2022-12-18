@@ -7,5 +7,4 @@ public interface IEquipmentService : IBuildableService<IEquipmentRecordBuilder, 
 {
     List<EquipmentRecord> GetAll();
     EquipmentRecord Get(int id);
-    EquipmentRecord Get(string name);
 }

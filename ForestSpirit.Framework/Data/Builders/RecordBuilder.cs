@@ -1,4 +1,6 @@
 ﻿using ForestSpirit.Framework.Data.Records;
+using NHibernate;
+using ServiceStack;
 using ServiceStack.OrmLite;
 using System.Data;
 using System.Linq.Expressions;
@@ -10,13 +12,13 @@ public abstract class RecordBuilder<TBuilder, TRecord> : IRecordBuilder, IExtend
     where TBuilder : IRecordBuilder
     where TRecord : class, ICloneable, new()
 {
-    public IDbConnection Db { get; }
+    public ISessionFactory Db { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="RecordBuilder{TBuilder, TRecord}"/> class.
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
-    protected RecordBuilder(IDbConnection db)
+    protected RecordBuilder(ISessionFactory db)
     {
         this.Db = db ?? throw new ArgumentNullException(nameof(db));
         this.Record = new TRecord();
@@ -27,7 +29,7 @@ public abstract class RecordBuilder<TBuilder, TRecord> : IRecordBuilder, IExtend
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
     /// <param name="record">Obiekt rekordu.</param>
-    protected RecordBuilder(IDbConnection db, TRecord record)
+    protected RecordBuilder(ISessionFactory db, TRecord record)
     {
         this.Db = db ?? throw new ArgumentNullException(nameof(db));
         this.Record = record ?? throw new ArgumentNullException(nameof(record));
@@ -96,18 +98,9 @@ public abstract class RecordBuilder<TBuilder, TRecord> : IRecordBuilder, IExtend
     {
         if (this.IsNew())
         {
-            var definition = ModelDefinition<TRecord>.Definition;
-            var pk = definition.PrimaryKey;
-            bool selectIdentity = pk.AutoIncrement && string.IsNullOrEmpty(pk.Sequence);
-            long id = this.Db.Insert(this.Record, selectIdentity);
-
-            // ustawienie PK
-            if (pk.AutoIncrement)
+            using (var session = this.Db.OpenSession())
             {
-                if (this.Record is IRecord record)
-                {
-                    record.Id = (int)id;
-                }
+                object id = session.Save(this.Record);
             }
         }
         else if (this.HasChanged())
@@ -137,40 +130,18 @@ public abstract class RecordBuilder<TBuilder, TRecord> : IRecordBuilder, IExtend
     }
 
     /// <inheritdoc />
-    protected int ExecuteUpdate()
+    protected void ExecuteUpdate()
     {
-        var definition = ModelDefinition<TRecord>.Definition;
-        var parameter = Expression.Parameter(typeof(TRecord), "x");
-        var body = this.Where(definition, parameter);
-        var expression = Expression.Lambda<Func<TRecord, bool>>(body, parameter);
-        int updated;
-
-        updated = this.ForceAll
-                      ? this.Db.Update(this.Record, expression)
-                      : this.Db.UpdateOnlyFields(this.Record, this.Columns.ToArray(), expression);
-
-        if (updated == 0)
+        try
         {
-            //this.ThrowNotFoundException();
+            using (var session = this.Db.OpenSession())
+            {
+                session.Update(this.Record);
+            }
         }
-
-        return updated;
-    }
-
-    /// <summary>
-    /// Utworzenie warunku WHERE do aktualizacji rekordu.
-    /// </summary>
-    /// <param name="definition">Definicja mapowania ORM.</param>
-    /// <param name="x">Parametr lambda.</param>
-    /// <remarks>Podstawowym warunkiem aktualizacji jest porównanie klucza <see cref="IDataRecord{TKey}.Id"/>.</remarks>
-    /// <returns>Wyrażenie do aktualizacji rekordu.</returns>
-    protected virtual BinaryExpression Where(ModelDefinition definition, ParameterExpression x)
-    {
-        // utworzenie wyrazenia x => x.Id == @id
-        var key = definition.PrimaryKey;
-        var member = Expression.Property(x, key.PropertyInfo);
-        var right = Expression.Property(Expression.Constant(this.Record), key.PropertyInfo);
-        BinaryExpression body = Expression.Equal(member, right);
-        return body;
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message); // NIE UŻYWAC Exception
+        }
     }
 }

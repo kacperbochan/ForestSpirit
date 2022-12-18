@@ -1,5 +1,6 @@
 ﻿using ForestSpirit.Framework.Data.Builders;
 using ForestSpirit.Framework.Outposts.Records;
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Equipments.Records.Builders;
@@ -9,7 +10,7 @@ public class EquipmentRecordBuilder : AbstractRecordBuilder<IEquipmentRecordBuil
     /// Initializes a new instance of the <see cref="EquipmentRecordBuilder"/> class.
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
-    public EquipmentRecordBuilder(IDbConnection db)
+    public EquipmentRecordBuilder(ISessionFactory db)
         : base(db)
     {
     }
@@ -19,7 +20,7 @@ public class EquipmentRecordBuilder : AbstractRecordBuilder<IEquipmentRecordBuil
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
     /// <param name="record">Rekord danych.</param>
-    public EquipmentRecordBuilder(IDbConnection db, EquipmentRecord record)
+    public EquipmentRecordBuilder(ISessionFactory db, EquipmentRecord record)
         : base(db, record)
     {
     }

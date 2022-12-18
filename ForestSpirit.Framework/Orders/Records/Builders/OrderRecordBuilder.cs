@@ -1,6 +1,6 @@
 ﻿using ForestSpirit.Framework.Customers.Records;
 using ForestSpirit.Framework.Data.Builders;
-
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Orders.Records.Builders;
@@ -10,7 +10,7 @@ public class OrderRecordBuilder : AbstractRecordBuilder<IOrderRecordBuilder, Ord
     /// Initializes a new instance of the <see cref="OrderRecordBuilder"/> class.
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
-    public OrderRecordBuilder(IDbConnection db)
+    public OrderRecordBuilder(ISessionFactory db)
         : base(db)
     {
     }
@@ -20,7 +20,7 @@ public class OrderRecordBuilder : AbstractRecordBuilder<IOrderRecordBuilder, Ord
     /// </summary>
     /// <param name="db">Połączenie z repozytorium.</param>
     /// <param name="record">Rekord danych.</param>
-    public OrderRecordBuilder(IDbConnection db, OrderRecord record)
+    public OrderRecordBuilder(ISessionFactory db, OrderRecord record)
         : base(db, record)
     {
     }

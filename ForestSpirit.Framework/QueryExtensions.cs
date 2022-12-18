@@ -5,7 +5,7 @@ using ForestSpirit.Framework.Orders.Records;
 using ForestSpirit.Framework.Outposts.Records;
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.Framework.Resources.Records;
-
+using NHibernate;
 using ServiceStack.OrmLite;
 using System.Data;
 

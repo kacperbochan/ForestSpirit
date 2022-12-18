@@ -1,24 +1,19 @@
 ﻿using ForestSpirit.Framework.Data.Records;
 using ForestSpirit.Framework.Outposts.Records;
 using ForestSpirit.Framework.Outposts.Records.Builders;
+using NHibernate;
 using System.Data;
 
 namespace ForestSpirit.Framework.Outposts.Providers;
-public class OutpostService : IOutpostService
+public class OutpostService : AbstractService<OutpostRecord>, IOutpostService
 {
-    /// <summary>
-    /// Połączenie z bazą danych.
-    /// </summary>
-    private readonly IDbConnection db;
-
-    public OutpostService(IDbConnection db)
+    public OutpostService(ISessionFactory db):base(db)
     {
-        this.db = db ?? throw new ArgumentNullException(nameof(db));
     }
 
     public IOutpostRecordBuilder Create()
     {
-        var builder = new OutpostRecordBuilder(this.db);
+        var builder = new OutpostRecordBuilder(this.Db);
         DateTime timestamp = DateTime.UtcNow;
         return builder.CreatedAt(timestamp).CreatedBy("SYSTEM").ChangedAt(timestamp).ChangedBy("SYSTEM");
     }
@@ -53,39 +48,6 @@ public class OutpostService : IOutpostService
 
     public IOutpostRecordBuilder Update(OutpostRecord item)
     {
-        return new OutpostRecordBuilder(this.db, item);
-    }
-
-    public OutpostRecord Get(int id)
-    {
-        if (id <= 0)
-        {
-            return null;
-        }
-
-        // pobranie danych
-        var data = this.db.Outpost().Where(x => x.Id == id);
-        var result = this.db.Get(data).FirstOrDefault();
-        return result;
-    }
-
-    public OutpostRecord Get(string name)
-    {
-        if (string.IsNullOrEmpty(name))
-        {
-            return null;
-        }
-
-        // pobranie danych
-        var data = this.db.Outpost().Where(x => x.Name == name);
-        var result = this.db.Get(data).FirstOrDefault();
-        return result;
-    }
-
-    public List<OutpostRecord> GetAll()
-    {
-        // pobranie danych
-        var data = this.db.Outpost();
-        return this.db.Get(data);
+        return new OutpostRecordBuilder(this.Db, item);
     }
 }
