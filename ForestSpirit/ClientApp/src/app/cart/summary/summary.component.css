@@ -1,0 +1,27 @@
+img{
+  border: 1px solid var(--main-color);
+	width: 111px;
+	height: 84px;
+}
+.row{
+  padding: 10px;
+  vertical-align: text-top;
+}
+:host{
+  color: #355723;
+	font-weight: 300;
+	font-size: 16px;
+}
+.value{
+  text-align: right;
+}
+.icon-down-dir{
+  font-weight: bold;
+}
+hr{
+  width: 80%;
+  margin: 5px;
+}
+.summary{
+  font-size: 23px;
+}

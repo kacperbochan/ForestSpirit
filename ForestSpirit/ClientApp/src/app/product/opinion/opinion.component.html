@@ -1,0 +1,22 @@
+<table >
+  <col style="width:10%">
+  <col style="width:20%">
+  <col style="width:50%">
+  <col style="width:20%">
+  <tr  *ngFor="let opinia of opinie;index as i">
+    <td>
+      <img src={{opinia.zdjecie}} alt="zdjecie_kategoria">
+    </td>
+    <td>
+      <b>{{opinia.nazwa | uppercase}}</b>
+      <p>{{opinia.data | date}}</p>
+      <p>{{opinia.ocena}}</p>
+    </td>
+    <td>
+      <p>{{opinia.opis}}</p>
+    </td>
+    <td>
+      <p>ocena: {{opinia.ocena}}</p>
+    </td>
+  </tr>
+</table>

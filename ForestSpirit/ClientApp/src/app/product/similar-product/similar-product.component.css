@@ -1,0 +1,8 @@
+.similar_product{
+  padding: 40px;
+}
+
+.similar h3{
+  text-align: center;
+  color: var(--main-color);
+}
