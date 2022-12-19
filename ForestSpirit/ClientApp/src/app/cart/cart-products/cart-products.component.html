@@ -1,0 +1,20 @@
+<h3>Twój koszyk</h3>
+<hr>
+<form #f="ngForm">
+  <div  *ngFor="let element of produkty;index as i" >
+    <div class="row" *ngIf="element.ilosc>0">
+      <div class="col-2">
+        <img src= {{element.produkt.zdjecie}} alt="zdjecie produkt">
+      </div>
+      <div class="col-7">
+        <div class="product-title">{{element.produkt.nazwa|uppercase}}</div>
+        <div>{{element.produkt.opis}}</div>
+        <div>{{element.produkt.cena}} ZŁ</div>
+      </div>
+
+      <div class="col-1">
+        <input type="number" min="1" [(ngModel)]="element.ilosc" name="ilosc" class="form-control">
+      </div>
+    </div>
+  </div>
+</form>

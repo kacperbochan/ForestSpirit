@@ -1,0 +1,26 @@
+<div class="product_img">
+  <img src={{produkt1.zdjecie}} alt="zdjecie_kategoria">
+</div>
+
+<div class="product_info">
+  <h3>{{produkt1.nazwa}}</h3>
+  <p>opinie.lenght opinii</p>
+  <p>ocena: {{produkt1.ocena}}</p>
+  <h4>{{produkt1.cena}} zł</h4>
+  <label for="smak">Wybierz smak: </label>
+
+  <select name="smaki" id="smaki" class="form-control">
+    <option value="" disabled selected>Wybierz</option>
+    <option *ngFor="let smak of produkt1.smaki;index as i" value={{smak}}>
+      {{smak}}
+    </option>
+  </select>
+  <hr>
+  <p>{{produkt1.opis}}</p>
+  <hr>
+  <button class="button">dodaj do koszyka</button>
+</div>
+
+
+
+
