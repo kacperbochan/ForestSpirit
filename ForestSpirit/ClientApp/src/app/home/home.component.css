@@ -35,6 +35,25 @@
     border: 2px solid var(--main-color);
   }
 
+  .image3{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+    size: 20%;
+
+
+    border: 2px solid var(--main-color);
+  }
+  .image4{
+    display: block;
+
+    height: 60vh;
+
+    border: 2px solid var(--main-color);
+  }
+
 .undertext{
     text-align: center;
     color: var(--main-color);
@@ -56,4 +75,8 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+  }
+
+  .test{
+    border: 1px solid red;
   }
