@@ -1,24 +1,39 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.Options;
-using ServiceStack.Auth;
-using ServiceStack.Data;
-using ServiceStack.IO;
-using ServiceStack.OrmLite.SqlServer.Converters;
-using ServiceStack.OrmLite;
-using System.Text.Json.Serialization;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
-using ForestSpirit.Mappings;
-using ForestSpirit.Settings;
-using AppSettings = ForestSpirit.Settings.AppSettings;
-using SqlKata.Compilers;
-using ForestSpirit.Framework.Connection;
-using ServiceStack;
+
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+
+using ForestSpirit.Framework.Customers;
+using ForestSpirit.Framework.Customers.Providers;
+using ForestSpirit.Framework.Equipments;
+using ForestSpirit.Framework.Equipments.Providers;
+using ForestSpirit.Framework.Opinions;
+using ForestSpirit.Framework.Opinions.Providers;
+using ForestSpirit.Framework.Orders;
+using ForestSpirit.Framework.Orders.Providers;
 using ForestSpirit.Framework.Products;
 using ForestSpirit.Framework.Products.Providers;
-using FluentNHibernate.Cfg.Db;
-using FluentNHibernate.Cfg;
+using ForestSpirit.Framework.Requests;
+using ForestSpirit.Framework.Requests.Providers;
+using ForestSpirit.Framework.Resources;
+using ForestSpirit.Framework.Resources.Providers;
+using ForestSpirit.Framework.Workers;
+using ForestSpirit.Framework.Workers.Providers;
+using ForestSpirit.Mappings;
+using ForestSpirit.Settings;
+
+using Microsoft.Extensions.Options;
+
 using NHibernate;
-using ForestSpirit.Framework.Products.Records;
+
+using ServiceStack;
+using ServiceStack.Auth;
+using ServiceStack.IO;
+
+using System.Text.Json.Serialization;
+
+using AppSettings = ForestSpirit.Settings.AppSettings;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace ForestSpirit;
 
@@ -91,7 +106,14 @@ public class Startup
             configure.Title = "API aplikacji bazodanowej ForestSpirit";
         });
 
+        services.AddScoped<ICustomerService, CustomerService>();
+        services.AddScoped<IEquipmentService, EquipmentService>();
+        services.AddScoped<IOpinionService, OpinionService>();
+        services.AddScoped<IOrderService, OrderService>();
         services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<IRequestService, RequestService>();
+        services.AddScoped<IResourceService, ResourceService>();
+        services.AddScoped<IWorkerService, WorkerService>();
 
         // File system
         this.InstallFileSystem(services, settings);
@@ -152,18 +174,6 @@ public class Startup
           .BuildSessionFactory();
 
         services.AddSingleton(sessionFactory);
-        /*using (var session = sessionFactory.OpenSession())
-        {
-            using (var transaction = session.BeginTransaction())
-            {
-                var barginBasin = new ProductRecord { Name = "Bargin Basin", Price = 69, Procentage = 21, CreatedBy = "kupa", ChangedBy = "kupa", CreatedDate = DateTime.Now, ChangedDate = DateTime.Now };
-
-                // save both stores, this saves everything else via cascading
-                session.Save(barginBasin, 70);
-
-                transaction.Commit();
-            }
-        }*/
     }
 
     /// <summary>

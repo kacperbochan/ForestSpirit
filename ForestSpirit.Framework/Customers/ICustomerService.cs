@@ -6,5 +6,6 @@ namespace ForestSpirit.Framework.Customers;
 public interface ICustomerService : IBuildableService<ICustomerRecordBuilder, CustomerRecord>
 {
     List<CustomerRecord> GetAll();
+
     CustomerRecord Get(int id);
 }

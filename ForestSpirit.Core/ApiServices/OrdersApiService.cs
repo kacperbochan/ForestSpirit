@@ -4,15 +4,15 @@ using ForestSpirit.Framework.Orders;
 using ForestSpirit.Framework.Orders.Records;
 using ForestSpirit.ServiceModel.Orders;
 
-using ServiceStack;
-using ServiceStack.FluentValidation;
-
+using Microsoft.AspNetCore.Mvc;
 namespace ForestSpirit.Core.Controllers;
 
 /// <summary>
 /// Serwis api produktów.
 /// </summary>
-public class OrdersApiService : Service
+[Route("/api/orders")]
+[ApiController]
+public class OrdersApiService : Controller
 {
     /// <summary>
     /// Serwis produktów.
@@ -46,6 +46,8 @@ public class OrdersApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [HttpGet]
+    [Route("/api/workers/list")]
     public object Get(OrderListRequest request)
     {
         var products = this.ordersService.GetAll();
@@ -58,13 +60,15 @@ public class OrdersApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(OrderGetRequest request)
+    [HttpGet]
+    [Route("/api/workers")]
+    public object Get([FromQuery] int key)
     {
-        var product = this.ordersService.Get(request.Id);
+        var product = this.ordersService.Get(key);
 
         if (product == null)
         {
-            throw new NullReferenceException($"Couldn't find item with id {request.Id}");
+            throw new NullReferenceException($"Couldn't find item with id {key}");
         }
 
         var data = this.mapper.Map<OrderRecord, OrderData>(product);
@@ -76,14 +80,16 @@ public class OrdersApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [HttpPost]
+    [Route("/api/customers/create")]
     public object Any(OrderCreateRequest request)
     {
-        var validation = this.Request.TryResolve<IValidator<OrderCreateRequest>>().Validate(request);
+        /*var validation = this.Request.TryResolve<IValidator<OrderCreateRequest>>().Validate(request);
 
         if (!validation.IsValid)
         {
             throw new ValidationException($"Invalid object");
-        }
+        }*/
 
         var customer = this.customerService.Get(request.CustomerId);
 
