@@ -10,13 +10,15 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ShopComponent } from './shop/shop.component';
-import { BasketComponent } from './basket/basket.component';
-import { AdresFormComponent } from './basket/adres-form/adres-form.component';
-import {SummaryComponent} from './basket/summary/summary.component';
+import { CartComponent } from './cart/cart.component';
+import { CartProductsComponent } from './cart/cart-products/cart-products.component';
+import { AdresFormComponent } from './cart/adres-form/adres-form.component';
+import { SummaryComponent } from './cart/summary/summary.component'
 import { ProductComponent } from './product/product.component';
 import { OpinionComponent } from './product/opinion/opinion.component';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
 import { SimilarProductComponent } from './product/similar-product/similar-product.component';
+import { PaymentComponent } from './cart/payment/payment.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductListComponent } from './shop/product-list/product-list.component';
 import { FooterComponent } from './footer/footer.component';
@@ -27,13 +29,15 @@ import { from } from 'rxjs';
     AboutComponent,
     AdresFormComponent,
     AppComponent,
-    BasketComponent,
+    CartComponent,
+    CartProductsComponent,
     FetchDataComponent,
     HomeComponent,
     NavMenuComponent,
     FooterComponent,
     ShopComponent,
     ProductComponent,
+    PaymentComponent,
     SummaryComponent,
     OpinionComponent,
     ProductInfoComponent,
@@ -52,9 +56,9 @@ import { from } from 'rxjs';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'about', component: AboutComponent },
       { path: 'shop', component: ShopComponent },
-      { path: 'basket', component: BasketComponent },
+      { path: 'cart', component: CartComponent },
       { path: 'product', component: ProductComponent },
-      
+      { path: 'footer-test', component: SummaryComponent },
     ], {scrollPositionRestoration: 'enabled'}),
   ],
   providers: [],

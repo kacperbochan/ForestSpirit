@@ -1,0 +1,74 @@
+<h3>Szczegóły dostawy</h3>
+<hr>
+<form #f="ngForm">
+  <div class="form-horizontal row">
+    <div class="form-group col-md-6">
+      <label for="firstName">Imię</label>
+      <input type="text" class="form-control" id="firstName" placeholder="np. Jan">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputSurname">Nazwisko</label>
+      <input type="text" class="form-control" id="inputSurname" placeholder="np. Kowalski">
+    </div>
+  </div>
+
+  <div class="form-horizontal row">
+    <div class="form-group col-md-3">
+      <label for="addressBook-phoneNumberWithPrefix.prefix">Kierunkowy</label>
+      <select id="addressBook-phoneNumberWithPrefix.prefix" class="form-control" name="phoneNumberWithPrefix.prefix">
+        <option *ngFor="let phone of phones" value={{phone.numb}}>{{phone.code}} (+{{phone.numb}})</option>
+        </select>
+    </div>
+    <div class="form-group col-md-9">
+      <label for="inputPhone">Telefon</label>
+      <input type="text" class="form-control" id="inputPhone" placeholder="np. 000000000">
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <label for="addressLine">Ulica i numer</label>
+    <input type="text" class="form-control" id="addressLine" placeholder="np. Miła 6/9">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputCity">Miejscowość</label>
+      <input type="text" class="form-control" id="inputCity" placeholder="Grudziądz">
+    </div>
+    <div class="form-horizontal row">
+      <div class="form-group col-md-4">
+        <label for="inputZip">Kod pocztowy</label>
+        <input type="text" class="form-control" id="inputZip" placeholder="11-500">
+      </div>
+      <div class="form-group col-md-8">
+        <label for="countryCode">Kraj</label>
+        <select id="countryCode" name="countryCode" class="form-control">
+            <option value="" disabled selected>Wybierz</option>
+            <option *ngFor="let country of countries" value={{country.code}}>{{country.name}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="form-row delivery-section">
+      <label for="darmowa" class="delivery-option separator" [ngClass]="{'delivery-selected':delivery==1}">
+        <div class="radio-part radio-circle">
+          <input class="radio-custom" type="radio" name="options" id="darmowa" [(ngModel)]="delivery" autocomplete="off" value="1">
+          <span class="checkmark"></span>
+        </div>
+        <div class="radio-part radio-text">
+          <h5 class="text-main">Darmowa dostawa</h5>
+          <span class="text-main">będzie kiedy będzie</span>
+        </div>
+      </label>
+      <label for="jutro" class="delivery-option" [ngClass]="{'delivery-selected':delivery==2}">
+        <div class="radio-part radio-circle">
+          <input class="radio-custom" type="radio" name="options" id="jutro" [(ngModel)]="delivery" autocomplete="off" value="2">
+          <span class="checkmark"></span>
+        </div>
+        <div class="radio-part radio-text">
+          <h5 class="text-main">Dostawa na jutro 20zł</h5>
+          <span class="text-main">24h (mamy nadzieję)</span>
+        </div>
+      </label>
+  </div>
+</form>

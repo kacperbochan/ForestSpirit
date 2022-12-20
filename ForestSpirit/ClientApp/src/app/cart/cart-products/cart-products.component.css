@@ -1,0 +1,22 @@
+img{
+  border: 1px solid var(--main-color);
+	width: 111px;
+	height: 84px;
+}
+.row{
+  padding: 10px;
+  vertical-align: text-top;
+}
+.product-title{
+  font-size: 23px;
+	font-weight: 300;
+}
+.form-control{
+  width: 100px;
+  text-align: center;
+  border-color: var(--main-color);
+}
+input::-webkit-inner-spin-button {
+	opacity: 1;
+  color: var(--main-color);
+}
