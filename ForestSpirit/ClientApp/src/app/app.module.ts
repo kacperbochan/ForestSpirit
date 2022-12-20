@@ -59,7 +59,7 @@ import { from } from 'rxjs';
       { path: 'about', component: AboutComponent },
       { path: 'shop', component: ShopComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'product', component: ProductComponent },
+      { path: 'product/:id', component: ProductComponent },
       { path: 'footer-test', component: SummaryComponent },
     ])
   ],
