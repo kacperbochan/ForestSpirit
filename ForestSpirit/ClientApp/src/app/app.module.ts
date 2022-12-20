@@ -21,6 +21,7 @@ import { SimilarProductComponent } from './product/similar-product/similar-produ
 import { PaymentComponent } from './cart/payment/payment.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductListComponent } from './shop/product-list/product-list.component';
+import { StarSystemComponent } from './utils/star-system/star-system.component';
 import { FooterComponent } from './footer/footer.component';
 import { from } from 'rxjs';
 
@@ -39,6 +40,7 @@ import { from } from 'rxjs';
     ProductComponent,
     PaymentComponent,
     SummaryComponent,
+    StarSystemComponent,
     OpinionComponent,
     ProductInfoComponent,
     SimilarProductComponent,
