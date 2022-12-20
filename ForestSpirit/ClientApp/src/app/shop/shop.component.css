@@ -98,6 +98,10 @@ button{
   opacity: 1;
 }
 
+.selected{
+  opacity: 1;
+}
+
 .text {
   color: white;
   font-size: 20px;

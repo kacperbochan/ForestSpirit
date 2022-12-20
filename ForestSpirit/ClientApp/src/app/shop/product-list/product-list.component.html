@@ -2,17 +2,17 @@
   <col style="width:10%">
   <col style="width:70%">
   <col style="width:20%">
-  <tr *ngFor="let produkt of produkty;index as i" class="lista" >
+  <tr *ngFor="let produkt of produktyListed;index as i" [routerLink]="['/product/'+produkt.id]" class="lista" >
     <td>
       <img src= {{produkt.zdjecie}} alt="zdjecie_kategoria">
     </td>
-    <td>
+    <td class="content">
       <h3>{{produkt.nazwa}}</h3>
       <p>{{produkt.opis}}</p>
     </td>
     <td>
       <h4>{{produkt.cena}} zł</h4>
-      <p>{{produkt.ocena}}</p>
+      <app-star-system [score]="produkt.ocena"></app-star-system>
     </td>
   </tr>
 </table>

@@ -16,7 +16,7 @@
       <div class="column">
         <div class="container">
           <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay">
+          <div class="overlay" [ngClass]="{'selected': selected===0}" (click)="selectCategory(0)">
             <div class="text">WSZYSTKO</div>
           </div>
         </div>
@@ -25,7 +25,7 @@
       <div class="column">
         <div class="container">
           <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay">
+          <div class="overlay" [ngClass]="{'selected': selected===1}" (click)="selectCategory(1)">
             <div class="text">ALKOHOL</div>
           </div>
         </div>
@@ -34,7 +34,7 @@
       <div class="column">
         <div class="container">
           <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay">
+          <div class="overlay" [ngClass]="{'selected': selected===2}" (click)="selectCategory(2)">
             <div class="text">ALKOHOL 0%</div>
           </div>
         </div>
@@ -43,7 +43,7 @@
       <div class="column">
         <div class="container">
           <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay">
+          <div class="overlay" [ngClass]="{'selected': selected===3}" (click)="selectCategory(3)">
             <div class="text">AKCESORIA</div>
           </div>
         </div>
@@ -52,7 +52,7 @@
       <div class="column">
         <div class="container">
           <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay">
+          <div class="overlay" [ngClass]="{'selected': selected===5}" (click)="selectCategory(5)">
             <div class="text">ZESTAWY PREZENTOWE</div>
           </div>
         </div>
@@ -63,7 +63,7 @@
 
 
   <div class="list" width="100%">
-    <app-product-list></app-product-list>
+    <app-product-list [selected]="selected"></app-product-list>
   </div>
 
 
