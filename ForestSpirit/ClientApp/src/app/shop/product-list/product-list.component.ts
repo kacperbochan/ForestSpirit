@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Produkt_incoming } from 'src/Models/produkt_incoming';
+import { ShopService } from 'src/app/services/shop/shop.service';
+import { Produkt } from 'src/Models/produkt';
 
 @Component({
   selector: 'app-product-list',

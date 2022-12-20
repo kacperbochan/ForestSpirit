@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Opinia } from 'src/Models/opinia';
 
 @Component({
   selector: 'app-opinion',

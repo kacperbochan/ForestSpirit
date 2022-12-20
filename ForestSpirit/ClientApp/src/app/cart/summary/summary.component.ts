@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Produkt } from 'src/types/produkt';
-import { Dostawa } from 'src/types/dostawa';
-import { orderElem } from 'src/types/order';
+import { Produkt } from 'src/Models/produkt';
+import { Dostawa } from 'src/Models/dostawa';
+import { orderElem } from 'src/Models/order';
 
 @Component({
   selector: 'app-summary',
