@@ -54,7 +54,8 @@ import { from } from 'rxjs';
       { path: 'shop', component: ShopComponent },
       { path: 'basket', component: BasketComponent },
       { path: 'product', component: ProductComponent },
-    ])
+      
+    ], {scrollPositionRestoration: 'enabled'}),
   ],
   providers: [],
   bootstrap: [AppComponent]

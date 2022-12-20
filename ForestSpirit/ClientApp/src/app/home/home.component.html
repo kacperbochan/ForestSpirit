@@ -1,69 +1,92 @@
 <body style="background-color: rgba(255, 255, 255, 0);">
 <div class="header" >
-  ;<img src="assets/Logo.png" alt="logo" class="display: block; width: 70%">
-  <h1 style="color: white;">Poczuj bliskość natury!</h1>
-  <hr>
-    <button class="button">Sklep</button>
+  <!--<div style="background-color: rgba(255, 255, 255, 0.2); border-radius: 50%;">-->
+    <img src="assets/LogoCentered.png" alt="logo" class="display: block; width: 70%" style="background-color: rgba(255, 255, 255, 1); border-radius: 50%;border: 2px solid rgba(255, 255, 255, 1)">
+  <!--</div>-->
+  <div style="margin: 40px;">
+    <h1 style="color: white;">Poczuj bliskość natury!</h1>
+    <hr>
+    <a class="nav-link nav-link-custom" [routerLink]="['/shop']"><button class="button">Sklep</button></a>
+  </div>
 </div>
 
-<div class="hpp">
+<div class="hpp" style="width: 100%;">
   <div style="margin-bottom: 40px;">
-    <h2 >Polecane produkty</h2>
+    <h2 >Soczki Tygodnia</h2>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-sm hpi">
-      
-      <p class="undertext">Bimberek Sosnowy</p>
-      <p class="undertext">45zl</p>
+      <img src="assets/products/bimber_miodowy.jpg" alt="zdjecie_kategoria" class="panelImage">
+      <div style="margin: 20px;">
+        <p class="undertext">Bimberek Miodowy</p>
+        <p class="undertext">45zl</p>
+      </div>
     </div>
     <div class="col-sm hpi">
-      
-      <p class="undertext">Bimberek Sosnowy</p>
-      <p class="undertext">45zl</p>
+      <img src="assets/products/bimber_zbozowy_3.jpg" alt="zdjecie_kategoria" class="panelImage">
+      <div style="margin: 20px;">
+        <p class="undertext">Bimberek Zbożowy</p>
+        <p class="undertext">95zl</p>
+      </div>
     </div>
   </div>
 </div>
 </div>
-<img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image hpi" >
 
-<div class="container">
+<div class="container" style="margin-top: 100px;margin-bottom: 150px;">
+  <div style="text-align: center;">
+    <h2 style="color: white;margin: 50px;"> Bestsellery</h2>
+  </div>
   <div class="row">
-    <div class="col-sm-4 panel">
+    <div class="col-sm-4 panel" style="padding: 0%;">
+      <div style="margin-top: 20px;">
+        <h3 class="undertext" style="margin: 10px;"> Nr.1 </h3>
       <div class="panel">
-      <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image"> -->
+        <img src="assets/products/bimber_owocowy_1.jpg" alt="zdjecie_kategoria" class="panelImageBig">
+      </div>
+      <div style="margin: 30px;">
+        <h3 class="undertext">Bimberek Jabłkowy</h3>
+        <h3 class="undertext">65zl</h3>
+      </div>
     </div>
-      <p class="undertext">Bimberek Sosnowy</p>
-      <p class="undertext">45zl</p>
-    </div>
-    <div class="col-sm test">
-      <div class="container">
+  </div>
+    <div class="col-sm " style="padding: 0px;">
+      <div>
         <div class="columns">
-          <div class="col-sm test panel" style="vertical-align: middle;">
-            <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image3">
-      <p class="undertext">Bimberek Sosnowy</p>
-      <p class="undertext">45zl</p>
+          <div class="col-sm test panel" style="margin-bottom: 3px;">
+            <div style="height: 300px; margin: 40px;">
+              <img src="assets/products/bimber_ziemniaczany_1.jpg" alt="zdjecie_kategoria" class="panelImageSmall">
+              <p class="undertext">Bimberek Ziemniaczany</p>
+              <p class="undertext">666zl</p>
+            </div>
           </div>
-          <div class="col-sm test panel" style="vertical-align: middle;margin: 20px;">
-            <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image3">
-      <p class="undertext">Bimberek Sosnowy</p>
-      <p class="undertext">45zl</p>
+          <div class="col-sm test panel" style="margin-top: 3px;">
+            <div style="height: 300px; margin: 40px;">
+              <img src="assets/products/bimber_owocowy_2.jpg" alt="zdjecie_kategoria" class="panelImageSmall">
+              <p class="undertext">Bimberek Gruszkowy</p>
+              <p class="undertext">45zl</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm test">
-      <div class="container">
+    <div class="col-sm " style="padding: 0px;">
+      <div>
         <div class="columns">
-          <div class="col-sm test panel">
-            <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image3">
-      <p class="undertext">Bimberek Sosnowy</p>
-      <p class="undertext">45zl</p>
+          <div class="col-sm test panel" style="margin-bottom: 3px;">
+            <div style="height: 300px; margin: 40px;">
+              <img src="assets/products/bimber_zbozowy_3.jpg" alt="zdjecie_kategoria" class="panelImageSmall">
+              <p class="undertext">Bimberek Zbożowy</p>
+              <p class="undertext">89zl</p>
+            </div>
           </div>
-          <div class="col-sm test panel">
-            <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image3">
-      <p class="undertext">Bimberek Sosnowy</p>
-      <p class="undertext">45zl</p>
+          <div class="col-sm test panel" style="margin-top: 3px;">
+            <div style="height: 300px; margin: 40px;">
+              <img src="assets/products/bimber_owocowy_6.jpg" alt="zdjecie_kategoria" class="panelImageSmall">
+              <p class="undertext">Bimberek Śliwkowy</p>
+              <p class="undertext">79zl</p>
+            </div>
           </div>
         </div>
       </div>
