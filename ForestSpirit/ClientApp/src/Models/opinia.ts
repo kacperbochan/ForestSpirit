@@ -1,14 +1,14 @@
-export  class Produkt {
+export class Opinia {
   private _nazwa: string;
   private _opis: string;
-  private _cena: number;
+  private _data: Date;
   private _ocena: number;
   private _zdjecie: string;
 
-  constructor(nazwa:string, opis:string, cena:number, ocena:number, zdjecie:string){
+  constructor(nazwa:string, opis:string, data: Date, ocena:number, zdjecie:string){
     this._nazwa = nazwa;
     this._opis = opis;
-    this._cena = cena;
+    this._data = data;
     this._ocena = ocena;
     this._zdjecie=zdjecie;
   }
@@ -31,12 +31,12 @@ export  class Produkt {
       this._opis = theOpis;
   }
 
-  public get cena() : number{
-      return this._cena;
+  public get data() : Date{
+      return this._data;
   }
 
-  public set cena(theCena: number) {
-      this._cena = theCena;
+  public set data(theData: Date) {
+      this._data = theData;
   }
 
   public get ocena() : number {
