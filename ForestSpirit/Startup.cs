@@ -67,14 +67,7 @@ public class Startup
                     "default",
                     policy =>
                     {
-                        policy.WithOrigins(new string[]
-                        {
-                                "http://localhost:4200","http://localhost:44415","http://localhost:44315", "http://localhost:5000", "http://localhost:80",
-                                "http://localhost",
-                        })
-                            .AllowAnyHeader()
-                            .AllowAnyMethod()
-                            .AllowCredentials();
+                        policy.WithOrigins("*");
                     });
             });
 
