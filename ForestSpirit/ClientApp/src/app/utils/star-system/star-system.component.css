@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+.rating {
+  width: 120px;
+  height: 24px;
+  position: relative;
+  background-color: white;
+}
+
+.rating progress.rating-bg {
+  -webkit-appearance: none;
+  -moz-appearence: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  height: 24px;
+  width: 100%;
+  color: var(--main-color);
+}
+
+.rating progress.rating-bg::-webkit-progress-value {
+  background-color: var(--main-color);
+}
+
+.rating progress.rating-bg::-moz-progress-bar {
+  background-color: var(--main-color);
+}
+
+.rating svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
