@@ -60,8 +60,8 @@ import { from } from 'rxjs';
       { path: 'shop', component: ShopComponent },
       { path: 'cart', component: CartComponent },
       { path: 'product/:id', component: ProductComponent },
-      { path: 'footer-test', component: SummaryComponent },
-    ])
+      { path: 'footer-test', component: SummaryComponent },   
+    ], {scrollPositionRestoration: 'enabled'}),
   ],
   providers: [],
   bootstrap: [AppComponent]

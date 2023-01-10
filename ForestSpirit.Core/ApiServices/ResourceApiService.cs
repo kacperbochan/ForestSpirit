@@ -3,16 +3,16 @@ using ForestSpirit.Framework.Outposts;
 using ForestSpirit.Framework.Resources;
 using ForestSpirit.Framework.Resources.Records;
 using ForestSpirit.ServiceModel.Resources;
-
-using ServiceStack;
-using ServiceStack.FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ForestSpirit.Core.ApiServices;
 
 /// <summary>
 /// Serwis api produktów.
 /// </summary>
-public class ResourceApiService : Service
+[Route("/api/resources")]
+[ApiController]
+public class ResourceApiService : Controller
 {
     /// <summary>
     /// Serwis produktów.
@@ -46,7 +46,9 @@ public class ResourceApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(ResourceListRequest request)
+    [HttpGet]
+    [Route("/api/workers/list")]
+    public object Get()
     {
         var products = this.resourceService.GetAll();
         var data = this.mapper.Map<List<ResourceRecord>, ResourceData[]>(products);
@@ -58,13 +60,15 @@ public class ResourceApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(ResourceGetRequest request)
+    [HttpGet]
+    [Route("/api/workers")]
+    public object Get([FromQuery] int key)
     {
-        var product = this.resourceService.Get(request.Id);
+        var product = this.resourceService.Get(key);
 
         if (product == null)
         {
-            throw new NullReferenceException($"Couldn't find item with id {request.Id}");
+            throw new NullReferenceException($"Couldn't find item with id {key}");
         }
 
         var data = this.mapper.Map<ResourceRecord, ResourceData>(product);
@@ -76,15 +80,17 @@ public class ResourceApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [HttpPost]
+    [Route("/api/customers/create")]
     public object Any(ResourceCreateRequest request)
     {
-        var validation = this.Request.TryResolve<IValidator<ResourceCreateRequest>>().Validate(request);
+        /*var validation = this.Request.TryResolve<IValidator<ResourceCreateRequest>>().Validate(request);
 
         if (!validation.IsValid)
         {
             throw new ValidationException($"Invalid object");
         }
-
+*/
         var outpost = this.outpostService.Get(request.OutpostId);
 
         if (outpost == null)

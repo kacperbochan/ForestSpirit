@@ -3,18 +3,17 @@ using ForestSpirit.Framework.Customers;
 using ForestSpirit.Framework.Opinions;
 using ForestSpirit.Framework.Opinions.Records;
 using ForestSpirit.Framework.Products;
-using ForestSpirit.Framework.Products.Providers;
 using ForestSpirit.ServiceModel.Opinions;
-
-using ServiceStack;
-using ServiceStack.FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ForestSpirit.Core.ApiServices;
 
 /// <summary>
 /// Serwis api produktów.
 /// </summary>
-public class OpinionsApiService : Service
+[Route("/api/opinions")]
+[ApiController]
+public class OpinionsApiService : Controller
 {
     /// <summary>
     /// Serwis produktów.
@@ -54,6 +53,8 @@ public class OpinionsApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [HttpGet]
+    [Route("/api/opinions/list")]
     public object Get(OpinionListRequest request)
     {
         var products = this.opinionsService.GetAll();
@@ -66,13 +67,15 @@ public class OpinionsApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(OpinionGetRequest request)
+    [HttpGet]
+    [Route("/api/opinions")]
+    public object Get([FromQuery] int key)
     {
-        var product = this.opinionsService.Get(request.Id);
+        var product = this.opinionsService.Get(key);
 
         if (product == null)
         {
-            throw new NullReferenceException($"Couldn't find item with id {request.Id}");
+            throw new NullReferenceException($"Couldn't find item with id {key}");
         }
 
         var data = this.mapper.Map<OpinionRecord, OpinionData>(product);
@@ -84,14 +87,16 @@ public class OpinionsApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [HttpPost]
+    [Route("/api/customers/create")]
     public object Any(OpinionCreateRequest request)
     {
-        var validation = this.Request.TryResolve<IValidator<OpinionCreateRequest>>().Validate(request);
+      /*  var validation = this.Request.TryResolve<IValidator<OpinionCreateRequest>>().Validate(request);
 
         if (!validation.IsValid)
         {
             throw new ValidationException($"Invalid object");
-        }
+        }*/
 
         var product = this.productService.Get(request.ProductId);
 

@@ -2,16 +2,16 @@
 using ForestSpirit.Framework.Customers;
 using ForestSpirit.Framework.Customers.Records;
 using ForestSpirit.ServiceModel.Customers;
-
-using ServiceStack;
-using ServiceStack.FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ForestSpirit.Core.ApiServices;
 
 /// <summary>
 /// Serwis api produktów.
 /// </summary>
-public class CustomersApiService : Service
+[Route("/api/customers")]
+[ApiController]
+public class CustomersApiService : Controller
 {
     /// <summary>
     /// Serwis produktów.
@@ -39,7 +39,9 @@ public class CustomersApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(CustomerListRequest request)
+    [HttpGet]
+    [Route("/api/customers/list")]
+    public object Get()
     {
         var products = this.customerService.GetAll();
         var data = this.mapper.Map<List<CustomerRecord>, CustomerData[]>(products);
@@ -51,13 +53,15 @@ public class CustomersApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(CustomerGetRequest request)
+    [HttpGet]
+    [Route("/api/customers")]
+    public object Get([FromQuery]int key)
     {
-        var product = this.customerService.Get(request.Id);
+        var product = this.customerService.Get(key);
 
         if (product == null)
         {
-            throw new NullReferenceException($"Couldn't find item with id {request.Id}");
+            throw new NullReferenceException($"Couldn't find item with id {key}");
         }
 
         var data = this.mapper.Map<CustomerRecord, CustomerData>(product);
@@ -69,14 +73,16 @@ public class CustomersApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Any(CustomerCreateRequest request)
+    [HttpPost]
+    [Route("/api/customers/create")]
+    public object Any([FromBody]CustomerCreateRequest request)
     {
-        var validation = this.Request.TryResolve<IValidator<CustomerCreateRequest>>().Validate(request);
+        /*var validation = this.Request.TryResolve<IValidator<CustomerCreateRequest>>().Validate(request);
 
         if (!validation.IsValid)
         {
             throw new ValidationException($"Invalid object");
-        }
+        }*/
 
         var builder = this.customerService.Create()
             .Name(request.Name)

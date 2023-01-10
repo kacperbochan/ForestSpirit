@@ -3,16 +3,16 @@
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.Framework.Workers;
 using ForestSpirit.ServiceModel.Workers;
-
-using ServiceStack;
-using ServiceStack.FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ForestSpirit.Core.ApiServices;
 
 /// <summary>
 /// Serwis api produktów.
 /// </summary>
-public class WorkerApiService : Service
+[Route("/api/workers")]
+[ApiController]
+public class WorkerApiService : Controller
 {
     /// <summary>
     /// Serwis produktów.
@@ -40,7 +40,9 @@ public class WorkerApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(WorkerListRequest request)
+    [HttpGet]
+    [Route("/api/workers/list")]
+    public object Get()
     {
         var products = this.workersService.GetAll();
         var data = this.mapper.Map<List<WorkerRecord>, WorkerData[]>(products);
@@ -52,13 +54,15 @@ public class WorkerApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(WorkerGetRequest request)
+    [HttpGet]
+    [Route("/api/workers")]
+    public object Get([FromQuery]int key)
     {
-        var product = this.workersService.Get(request.Id);
+        var product = this.workersService.Get(key);
 
         if (product == null)
         {
-            throw new NullReferenceException($"Couldn't find item with id {request.Id}");
+            throw new NullReferenceException($"Couldn't find item with id {key}");
         }
 
         var data = this.mapper.Map<WorkerRecord, WorkerData>(product);
@@ -70,14 +74,16 @@ public class WorkerApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [HttpPost]
+    [Route("/api/workers/create")]
     public object Any(WorkerCreateRequest request)
     {
-        var validation = this.Request.TryResolve<IValidator<WorkerCreateRequest>>().Validate(request);
+        /*var validation = this.Request.TryResolve<IValidator<WorkerCreateRequest>>().Validate(request);
 
         if (!validation.IsValid)
         {
             throw new ValidationException($"Invalid object");
-        }
+        }*/
 
         var builder = this.workersService.Create()
             .Name(request.Name)

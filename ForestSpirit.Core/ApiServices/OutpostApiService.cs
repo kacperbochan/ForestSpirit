@@ -2,16 +2,16 @@
 using ForestSpirit.Framework.Outposts;
 using ForestSpirit.Framework.Outposts.Records;
 using ForestSpirit.ServiceModel.Outposts;
-
-using ServiceStack;
-using ServiceStack.FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ForestSpirit.Core.ApiServices;
 
 /// <summary>
 /// Serwis api produktów.
 /// </summary>
-public class OutpostApiService : Service
+[Route("/api/outposts")]
+[ApiController]
+public class OutpostApiService : Controller
 {
     /// <summary>
     /// Serwis produktów.
@@ -39,6 +39,8 @@ public class OutpostApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [HttpGet]
+    [Route("/api/workers/list")]
     public object Get(OutpostListRequest request)
     {
         var products = this.outpostService.GetAll();
@@ -51,13 +53,15 @@ public class OutpostApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
-    public object Get(OutpostGetRequest request)
+    [HttpGet]
+    [Route("/api/workers")]
+    public object Get([FromQuery] int key)
     {
-        var product = this.outpostService.Get(request.Id);
+        var product = this.outpostService.Get(key);
 
         if (product == null)
         {
-            throw new NullReferenceException($"Couldn't find item with id {request.Id}");
+            throw new NullReferenceException($"Couldn't find item with id {key}");
         }
 
         var data = this.mapper.Map<OutpostRecord, OutpostData>(product);
@@ -69,15 +73,17 @@ public class OutpostApiService : Service
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [HttpPost]
+    [Route("/api/customers/create")]
     public object Any(OutpostCreateRequest request)
     {
-        var validation = this.Request.TryResolve<IValidator<OutpostCreateRequest>>().Validate(request);
+        /*var validation = this.Request.TryResolve<IValidator<OutpostCreateRequest>>().Validate(request);
 
         if (!validation.IsValid)
         {
             throw new ValidationException($"Invalid object");
         }
-
+*/
         var builder = this.outpostService.Create()
             .Name(request.Name)
             .Latitude(request.Latitude)

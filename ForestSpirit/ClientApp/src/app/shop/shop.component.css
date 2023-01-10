@@ -34,6 +34,9 @@ button{
 .categories{
   margin-top: 100px;
   text-align: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .categories h2{
@@ -94,7 +97,7 @@ button{
   background-color: var(--main-color);
 }
 
-.container:hover .overlay {
+.container .overlay:hover {
   opacity: 1;
 }
 

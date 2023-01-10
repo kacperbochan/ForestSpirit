@@ -1,37 +1,39 @@
-<div class="cart-header">
-  <div class="row">
-    <div class="col-3 stage-title" (click)="goToPage(0)">1. Twój koszyk</div>
-    <div class="col-1"></div>
-    <div class="col-3 stage-title" (click)="goToPage(1)">2. Szczegóły dostawy</div>
-    <div class="col-1"></div>
-    <div class="col-3 stage-title" (click)="goToPage(2)">3. Płatność</div>
-  </div>
-  <div class="row">
-    <div class="col-3 line"><hr [ngClass]="{'horisontal-highlight':page==0}"></div>
-    <div class="col-1 line"><hr></div>
-    <div class="col-3 line"><hr [ngClass]="{'horisontal-highlight':page==1}"></div>
-    <div class="col-1 line"><hr></div>
-    <div class="col-3 line"><hr [ngClass]="{'horisontal-highlight':page==2}"></div>
-  </div>
-</div>
-<div class="cart-body">
-  <div class="row">
-    <div class="col-7">
-      <ng-container [ngSwitch]="page">
-        <app-cart-products *ngSwitchCase="0" [produkty]="produkty"></app-cart-products>
-        <app-adres-form *ngSwitchCase="1"></app-adres-form>
-        <app-payment *ngSwitchCase="2"></app-payment>
-      </ng-container>
-      <hr>
-      <button type="submit" class="btn btn-primary shadow-none custom-button continue" (click)="nextPage()">
-        <span *ngIf="page!=2">Dalej</span>
-        <span *ngIf="page==2">Zapłać</span>
-      </button>
-      <button type="reset" class="btn btn-primary shadow-none custom-button cancel" (click)="previousPage()">Wstecz</button>
+<body class="container page">
+    <div class="cart-header">
+      <div class="row">
+        <div class="col-3 stage-title" (click)="goToPage(0)">1. Twój koszyk</div>
+        <div class="col-1"></div>
+        <div class="col-3 stage-title" (click)="goToPage(1)">2. Szczegóły dostawy</div>
+        <div class="col-1"></div>
+        <div class="col-3 stage-title" (click)="goToPage(2)">3. Płatność</div>
+      </div>
+      <div class="row">
+        <div class="col-3 line"><hr [ngClass]="{'horisontal-highlight':page==0}"></div>
+        <div class="col-1 line"><hr></div>
+        <div class="col-3 line"><hr [ngClass]="{'horisontal-highlight':page==1}"></div>
+        <div class="col-1 line"><hr></div>
+        <div class="col-3 line"><hr [ngClass]="{'horisontal-highlight':page==2}"></div>
+      </div>
     </div>
-    <div class="col-1"></div>
-    <div class="col-4">
-      <app-summary [produkty]="produkty"></app-summary>
+    <div class="cart-body">
+      <div class="row">
+        <div class="col-7">
+          <ng-container [ngSwitch]="page">
+            <app-cart-products *ngSwitchCase="0" [produkty]="produkty"></app-cart-products>
+            <app-adres-form *ngSwitchCase="1"></app-adres-form>
+            <app-payment *ngSwitchCase="2"></app-payment>
+          </ng-container>
+          <hr>
+          <button type="submit" class="btn btn-primary shadow-none custom-button continue" (click)="nextPage()">
+            <span *ngIf="page!=2">Dalej</span>
+            <span *ngIf="page==2">Zapłać</span>
+          </button>
+          <button type="reset" class="btn btn-primary shadow-none custom-button cancel" (click)="previousPage()">Wstecz</button>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-4">
+          <app-summary [produkty]="produkty"></app-summary>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+</body>
