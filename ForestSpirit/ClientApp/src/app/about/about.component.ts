@@ -19,7 +19,7 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnDestroy(){
-    document.body.style.backgroundImage = "none";
+    
   }
 
 }
