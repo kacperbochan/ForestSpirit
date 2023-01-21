@@ -1,0 +1,85 @@
+
+.panel{
+	background-image: url('../../../../assets/foggy-pine-forest-background-vector.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	min-height:800px;
+}
+
+.panel .inbox{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.panel .inbox .side_panel{
+	margin: 15px 0 15px 15px;
+}
+
+.panel .inbox .side_panel ul{
+	list-style: none;
+}
+
+.panel .inbox .side_panel ul li{
+	background-color: white;
+	margin: 2px;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.panel .inbox .side_panel ul li a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.panel .inbox .messages{
+	width: 70%;
+	margin: 15px 15px 15px 0;
+}
+
+.panel .inbox .messages .message{
+	margin: 10px;
+	padding: 10px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.panel .inbox .messages .message img{
+	margin-left: 20px;
+	margin-right: 20px;
+	max-height: 150px;
+}
+
+.panel .inbox .messages .message a{
+	border: 2px #ddd solid;
+	border-radius: 10px;
+	margin: 5px 0 5px 20px;
+	padding: 0px 10px 0px 10px;
+	text-align: right;
+	color: inherit;
+	text-decoration: none;
+}
+.panel .inbox .messages .message a:hover{
+	background-color: #ccc;
+}
+
+.panel .inbox .messages .message .contents .title{
+	font-size: 30px;
+	padding-bottom: 10px;
+	padding-top: 5px;
+}
+
+.panel .inbox .messages .message .contents .content{
+	text-align: justify;
+	text-justify: inter-word;
+	font-size: 15px;
+	padding-bottom: 5px;
+}
+
+.panel .inbox .messages .message .contents .date{
+	font-size: 15px;
+}
+
+.panel .inbox .messages .message .contents .sender{
+	font-size: 15px;
+}

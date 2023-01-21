@@ -1,0 +1,99 @@
+<div class="secondary_menu">
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+  <ul class="d-flex justify-content-center">
+    <li ><a [routerLink]="['/workers-account']">Konta</a></li>
+    <li style="background-color: #ddd; border-radius: 10px;"><a [routerLink]="['/workers-schedule']">Harmonogramy</a></li>
+    <li style="border-right: none;"><a [routerLink]="['/workers-received']">Wiadomości</a></li>
+  </ul>
+</div>
+<div class="panel">
+
+  <div class="separator"> </div>
+  <div class="forms">
+    <form>
+      <div class="group">
+        <select class="form-select" aria-label="Destylarnia">
+          <option selected>Destylarnia</option>
+          <option value="0001">destylarnia 1</option>
+          <option value="0002">destylarnia 2</option>
+          <option value="0003">destylarnia 3</option>
+          <option value="0004">destylarnia 4</option>
+          <option value="0005">destylarnia 5</option>
+        </select>
+      </div>
+      <div class="group">
+        <div class="form-group">
+          <label for="day-from">Od:</label>
+          <input type="text" class="form-control" id="day-from">
+        </div>
+        <div class="form-group">
+          <label for="day-to">Do:</label>
+          <input type="text" class="form-control" id="day-to">
+        </div>
+      </div>
+      <hr style="height: 2px; border-width: 0; color: gray; background-color: gray;">
+      <div class="group">
+        <div class="form-group">
+          <label for="time">Czas:</label>
+          <input type="number" class="form-control" id="time">
+        </div>
+        <div class="form-group">
+          <label for="task">Zadanie:</label>
+          <input type="text" class="form-control" id="task">
+        </div>
+      </div>
+      <div class="group">
+        <div class="form-group">
+          <label for="time">Czas:</label>
+          <input type="number" class="form-control" id="time">
+        </div>
+        <div class="form-group">
+          <label for="task">Zadanie:</label>
+          <input type="text" class="form-control" id="task">
+        </div>
+      </div>
+      <div class="group">
+        <div class="form-group">
+          <label for="time">Czas:</label>
+          <input type="number" class="form-control" id="time">
+        </div>
+        <div class="form-group">
+          <label for="task">Zadanie:</label>
+          <input type="text" class="form-control" id="task">
+        </div>
+      </div>
+      <div class="group">
+        <div class="form-group">
+          <label for="time">Czas:</label>
+          <input type="number" class="form-control" id="time">
+        </div>
+        <div class="form-group">
+          <label for="task">Zadanie:</label>
+          <input type="text" class="form-control" id="task">
+        </div>
+      </div>
+      <div class="group">
+        <div class="form-group">
+          <label for="time">Czas:</label>
+          <input type="number" class="form-control" id="time">
+        </div>
+        <div class="form-group">
+          <label for="task">Zadanie:</label>
+          <input type="text" class="form-control" id="task">
+        </div>
+      </div>
+      <hr style="height: 2px; border-width: 0; color: gray; background-color: gray;">
+
+      <div class="group">
+        <div class="form-group">
+          <label for="note">Notatka:</label>
+          <textarea class="form-control" id="note" rows="5"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-dark">Dodaj</button>
+      </div>
+    </form>
+  </div>
+  <div class="separator"> </div>
+</div>

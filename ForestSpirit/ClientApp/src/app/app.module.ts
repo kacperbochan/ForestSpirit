@@ -28,12 +28,18 @@ import { AdminNavMenuComponent } from './leyouts/admin-nav-menu/admin-nav-menu.c
 import { UserNavMenuComponent } from './leyouts/user-nav-menu/user-nav-menu.component';
 import { UserLeyoutComponent } from './leyouts/user-leyout/user-leyout.component';
 import { AdminComponent } from './admin/admin/admin.component';
-import { CustomersComponent } from './admin/customers/customers.component';
+import { CustomersComponent } from './admin/customers/customers/customers.component';
 import { IssuesComponent } from './admin/issues/issues.component';
 import { PlacesComponent } from './admin/places/places.component';
 import { ShopOrdersComponent } from './admin/shop-orders/shop-orders.component';
-import { WorkersComponent } from './admin/workers/workers.component';
+import { WorkersAccountComponent } from './admin/workers/workers-account/workers-account.component';
 import { ProductsViewComponent } from './admin/products-view/products-view.component';
+import { WorkersBinComponent } from './admin/workers/workers-bin/workers-bin.component';
+import { WorkersModifyComponent } from './admin/workers/workers-modify/workers-modify.component';
+import { WorkersNewComponent } from './admin/workers/workers-new/workers-new.component';
+import { WorkersReceivedComponent } from './admin/workers/workers-received/workers-received.component';
+import { WorkersSentComponent } from './admin/workers/workers-sent/workers-sent.component';
+import { WorkersScheduleComponent } from './admin/workers/workers-schedule/workers-schedule.component';
 
 
 @NgModule({
@@ -65,8 +71,14 @@ import { ProductsViewComponent } from './admin/products-view/products-view.compo
     IssuesComponent,
     PlacesComponent,
     ShopOrdersComponent,
-    WorkersComponent,
-    ProductsViewComponent
+    WorkersAccountComponent,
+    ProductsViewComponent,
+    WorkersBinComponent,
+    WorkersModifyComponent,
+    WorkersNewComponent,
+    WorkersReceivedComponent,
+    WorkersSentComponent,
+    WorkersScheduleComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -109,9 +121,33 @@ import { ProductsViewComponent } from './admin/products-view/products-view.compo
         children: [
           {path: '', component: AdminComponent}
       ] },
-      { path: 'workers', component: AdminLeyoutComponent,
+      { path: 'workers-account', component: AdminLeyoutComponent,
       children: [
-        {path: '', component: WorkersComponent}
+        {path: '', component: WorkersAccountComponent}
+      ] },
+      { path: 'workers-bin', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: WorkersBinComponent}
+      ] },
+      { path: 'workers-modify', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: WorkersModifyComponent}
+      ] },
+      { path: 'workers-new', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: WorkersNewComponent}
+      ] },
+      { path: 'workers-received', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: WorkersReceivedComponent}
+      ] },
+      { path: 'workers-schedule', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: WorkersScheduleComponent}
+      ] },
+      { path: 'workers-sent', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: WorkersSentComponent}
       ] },
       { path: 'customers', component: AdminLeyoutComponent,
       children: [
