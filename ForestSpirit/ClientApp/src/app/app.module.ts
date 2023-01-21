@@ -29,7 +29,7 @@ import { UserNavMenuComponent } from './leyouts/user-nav-menu/user-nav-menu.comp
 import { UserLeyoutComponent } from './leyouts/user-leyout/user-leyout.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { CustomersComponent } from './admin/customers/customers/customers.component';
-import { PlacesComponent } from './admin/places/places.component';
+import { PlacesComponent } from './admin/places/places/places.component';
 import { ShopOrdersComponent } from './admin/shop-orders/shop-orders/shop-orders.component';
 import { WorkersAccountComponent } from './admin/workers/workers-account/workers-account.component';
 import { WorkersBinComponent } from './admin/workers/workers-bin/workers-bin.component';
@@ -46,6 +46,13 @@ import { ProductsViewComponent } from './admin/products-view/products-view/produ
 import { ProductsViewAddComponent } from './admin/products-view/products-view-add/products-view-add.component';
 import { ProductsViewModifyComponent } from './admin/products-view/products-view-modify/products-view-modify.component';
 import { ShopPromotionComponent } from './admin/shop-orders/shop-promotion/shop-promotion.component';
+import { PlacesAddComponent } from './admin/places/places-add/places-add.component';
+import { PlacesModifyComponent } from './admin/places/places-modify/places-modify.component';
+import { StuffAddComponent } from './admin/places/stuff-add/stuff-add.component';
+import { StuffComponent } from './admin/places/stuff/stuff.component';
+import { StuffModifyComponent } from './admin/places/stuff-modify/stuff-modify.component';
+import { SuppliesComponent } from './admin/places/supplies/supplies.component';
+import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.component';
 
 
 @NgModule({
@@ -91,6 +98,13 @@ import { ShopPromotionComponent } from './admin/shop-orders/shop-promotion/shop-
     ProductsViewAddComponent,
     ProductsViewModifyComponent,
     ShopPromotionComponent,
+    PlacesAddComponent,
+    PlacesModifyComponent,
+    StuffAddComponent,
+    StuffComponent,
+    StuffModifyComponent,
+    SuppliesComponent,
+    SuppliesAddComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -196,6 +210,34 @@ import { ShopPromotionComponent } from './admin/shop-orders/shop-promotion/shop-
       { path: 'places', component: AdminLeyoutComponent,
       children: [
         {path: '', component: PlacesComponent}
+      ] },
+      { path: 'places-add', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: PlacesAddComponent}
+      ] },
+      { path: 'places-modify', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: PlacesModifyComponent}
+      ] },
+      { path: 'stuff', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: StuffComponent}
+      ] },
+      { path: 'stuff-add', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: StuffAddComponent}
+      ] },
+      { path: 'stuff-modify', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: StuffModifyComponent}
+      ] },
+      { path: 'supplies', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: SuppliesComponent}
+      ] },
+      { path: 'supplies-add', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: SuppliesAddComponent}
       ] },
       { path: 'shop-orders', component: AdminLeyoutComponent,
       children: [
