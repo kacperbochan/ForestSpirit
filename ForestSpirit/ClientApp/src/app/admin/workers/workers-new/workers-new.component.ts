@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-workers-new',
   templateUrl: './workers-new.component.html',
-  styleUrls: ['./workers-new.component.css']
+  styleUrls: ['../../../../styles.css']
 })
 export class WorkersNewComponent implements OnInit {
 

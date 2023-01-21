@@ -29,17 +29,23 @@ import { UserNavMenuComponent } from './leyouts/user-nav-menu/user-nav-menu.comp
 import { UserLeyoutComponent } from './leyouts/user-leyout/user-leyout.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { CustomersComponent } from './admin/customers/customers/customers.component';
-import { IssuesComponent } from './admin/issues/issues.component';
 import { PlacesComponent } from './admin/places/places.component';
-import { ShopOrdersComponent } from './admin/shop-orders/shop-orders.component';
+import { ShopOrdersComponent } from './admin/shop-orders/shop-orders/shop-orders.component';
 import { WorkersAccountComponent } from './admin/workers/workers-account/workers-account.component';
-import { ProductsViewComponent } from './admin/products-view/products-view.component';
 import { WorkersBinComponent } from './admin/workers/workers-bin/workers-bin.component';
 import { WorkersModifyComponent } from './admin/workers/workers-modify/workers-modify.component';
 import { WorkersNewComponent } from './admin/workers/workers-new/workers-new.component';
 import { WorkersReceivedComponent } from './admin/workers/workers-received/workers-received.component';
 import { WorkersSentComponent } from './admin/workers/workers-sent/workers-sent.component';
 import { WorkersScheduleComponent } from './admin/workers/workers-schedule/workers-schedule.component';
+import { CustomersModifyComponent } from './admin/customers/customers-modify/customers-modify.component';
+import { IssuesAddComponent } from './admin/issues/issues-add/issues-add.component';
+import { IssuesMyComponent } from './admin/issues/issues-my/issues-my.component';
+import { IssuesReceivedComponent } from './admin/issues/issues-received/issues-received.component';
+import { ProductsViewComponent } from './admin/products-view/products-view/products-view.component';
+import { ProductsViewAddComponent } from './admin/products-view/products-view-add/products-view-add.component';
+import { ProductsViewModifyComponent } from './admin/products-view/products-view-modify/products-view-modify.component';
+import { ShopPromotionComponent } from './admin/shop-orders/shop-promotion/shop-promotion.component';
 
 
 @NgModule({
@@ -68,17 +74,23 @@ import { WorkersScheduleComponent } from './admin/workers/workers-schedule/worke
     UserLeyoutComponent,
     AdminComponent,
     CustomersComponent,
-    IssuesComponent,
     PlacesComponent,
     ShopOrdersComponent,
     WorkersAccountComponent,
-    ProductsViewComponent,
     WorkersBinComponent,
     WorkersModifyComponent,
     WorkersNewComponent,
     WorkersReceivedComponent,
     WorkersSentComponent,
     WorkersScheduleComponent,
+    CustomersModifyComponent,
+    IssuesAddComponent,
+    IssuesMyComponent,
+    IssuesReceivedComponent,
+    ProductsViewComponent,
+    ProductsViewAddComponent,
+    ProductsViewModifyComponent,
+    ShopPromotionComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -153,13 +165,33 @@ import { WorkersScheduleComponent } from './admin/workers/workers-schedule/worke
       children: [
         {path: '', component: CustomersComponent}
       ] },
+      { path: 'customers-modify', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: CustomersModifyComponent}
+      ] },
       { path: 'issues', component: AdminLeyoutComponent,
       children: [
-        {path: '', component: IssuesComponent}
+        {path: '', component: IssuesMyComponent}
+      ] },
+      { path: 'issues-add', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: IssuesAddComponent}
+      ] },
+      { path: 'issues-received', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: IssuesReceivedComponent}
       ] },
       { path: 'products-view', component: AdminLeyoutComponent,
       children: [
         {path: '', component: ProductsViewComponent}
+      ] },
+      { path: 'products-view-add', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: ProductsViewAddComponent}
+      ] },
+      { path: 'products-view-modify', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: ProductsViewModifyComponent}
       ] },
       { path: 'places', component: AdminLeyoutComponent,
       children: [
@@ -168,6 +200,10 @@ import { WorkersScheduleComponent } from './admin/workers/workers-schedule/worke
       { path: 'shop-orders', component: AdminLeyoutComponent,
       children: [
         {path: '', component: ShopOrdersComponent}
+      ] },
+      { path: 'shop-promotions', component: AdminLeyoutComponent,
+      children: [
+        {path: '', component: ShopPromotionComponent}
       ] },
     ], {scrollPositionRestoration: 'enabled'}),
   ],
