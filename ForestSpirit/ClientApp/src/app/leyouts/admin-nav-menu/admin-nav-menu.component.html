@@ -1,0 +1,72 @@
+<header>
+  <nav
+    class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm bg-white border-bottom box-shadow"
+  >
+    <div class="container">
+      <a class="navbar-brand link-active-custom no-padding" [routerLink]="['/admin']">
+        <img src="assets/LogoLong.png" width="300px" height="100px" alt="ikona" class="image">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active-custom']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link nav-link-custom" [routerLink]="['/admin']">Admin</a>
+          </li>
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/workers']">
+              Pracownicy
+            </a>
+          </li>
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/customers']">
+              Klienci
+            </a>
+          </li>
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/issues']">
+              Wnioski
+            </a>
+          </li>
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/products-view']">
+              Produkty
+            </a>
+          </li>
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/places']">
+              Placówki
+            </a>
+          </li>
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/shop-orders']">
+              Sklep
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
