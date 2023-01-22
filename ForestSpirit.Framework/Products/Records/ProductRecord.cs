@@ -11,6 +11,11 @@ namespace ForestSpirit.Framework.Products.Records;
 public class ProductRecord : AbstractRecord
 {
     /// <summary>
+    /// Id.
+    /// </summary>
+    public virtual int Id { get; set; }
+
+    /// <summary>
     /// Nazwa.
     /// </summary>
     public virtual string Name { get; set; }
