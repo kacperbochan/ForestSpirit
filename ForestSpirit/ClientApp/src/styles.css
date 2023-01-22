@@ -1,18 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
-
-
 :root {
   --main-color: #4c7a34;
   --primary-color: #355723;
   --secondary-color: #243e16;
 }
-/* Provide sufficient contrast against white background */
+
+body {
+  background-image: url('/assets/foggy-pine-forest-background-vector.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 a {
   color: #0366d6;
 }
 
 .page{
   padding-top: 73px;
+}
+
+.page_solid {
+  background: white;
 }
 
 code {
@@ -122,14 +131,6 @@ code {
 .secondary_menu ul li:hover{
 	background-color: #ccc;
 	border-radius: 10px;
-}
-
-.panel{
-	background-image: url('/assets/foggy-pine-forest-background-vector.jpg');
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100% 100%;
-	min-height:800px;
 }
 
 .panel .statistics table{

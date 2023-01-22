@@ -1,20 +1,16 @@
-<body>
+<div class="container page page_solid">
+  <div class="product">
+    <app-product-info [produkt]="produkt"></app-product-info>
+  </div>
+
+  <div class="similar">
+    <h3>PODOBNE PRODUKTY</h3>
+    <app-similar-product></app-similar-product>
+  </div>
 
 
-<div class="product">
-  <app-product-info [produkt]="produkt"></app-product-info>
+  <div class="opinion">
+    <h3>OPINIE</h3>
+    <app-opinion></app-opinion>
+  </div>
 </div>
-
-<div class="similar">
-  <h3>PODOBNE PRODUKTY</h3>
-  <app-similar-product></app-similar-product>
-</div>
-
-
-<div class="opinion">
-  <h3>OPINIE</h3>
-  <app-opinion></app-opinion>
-</div>
-
-
-</body>

@@ -1,11 +1,3 @@
-.panel{
-	background-image: url('../../../assets/foggy-pine-forest-background-vector.jpg');
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100% 100%;
-	min-height:800px;
-}
-
 .panel .statistics table{
 	font-size: 40px;
 	position: absolute;
