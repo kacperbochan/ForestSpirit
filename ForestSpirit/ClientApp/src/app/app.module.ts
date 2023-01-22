@@ -21,6 +21,7 @@ import { SimilarProductComponent } from './product/similar-product/similar-produ
 import { PaymentComponent } from './cart/payment/payment.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductListComponent } from './shop/product-list/product-list.component';
+import { StarSystemComponent } from './utils/star-system/star-system.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { AdminLeyoutComponent } from './leyouts/admin-leyout/admin-leyout.component';
@@ -70,6 +71,7 @@ import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.c
     ProductComponent,
     PaymentComponent,
     SummaryComponent,
+    StarSystemComponent,
     OpinionComponent,
     ProductInfoComponent,
     SimilarProductComponent,
@@ -135,7 +137,7 @@ import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.c
       children: [
         {path: '', component: CartComponent}
       ] },
-      { path: 'product', component: UserLeyoutComponent,
+      { path: 'product/:id', component: UserLeyoutComponent,
       children: [
         {path: '', component: ProductComponent}
       ] },

@@ -2,6 +2,7 @@
 using ForestSpirit.Framework.Products;
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.ServiceModel.Products;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ForestSpirit.Core.ApiServices;
@@ -11,6 +12,7 @@ namespace ForestSpirit.Core.ApiServices;
 /// </summary>
 [Route("/api/products")]
 [ApiController]
+[EnableCors("default")]
 public class ProductApiService : Controller
 {
     /// <summary>
@@ -39,13 +41,14 @@ public class ProductApiService : Controller
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [EnableCors]
     [HttpGet]
     [Route("/api/products/list")]
-    public object Get()
+    public IActionResult Get()
     {
         var products = this.productService.GetAll();
         var data = this.mapper.Map<List<ProductRecord>, ProductData[]>(products);
-        return data;
+        return Ok(data);
     }
 
     /// <summary>
@@ -53,9 +56,10 @@ public class ProductApiService : Controller
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [EnableCors]
     [HttpGet]
     [Route("/api/products/get")]
-    public object Get([FromQuery] int key)
+    public IActionResult Get([FromQuery] int key)
     {
         var product = this.productService.Get(key);
 
@@ -65,7 +69,7 @@ public class ProductApiService : Controller
         }
 
         var data = this.mapper.Map<ProductRecord, ProductData>(product);
-        return data;
+        return Ok(data);
     }
 
     /// <summary>
@@ -73,9 +77,10 @@ public class ProductApiService : Controller
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [EnableCors]
     [HttpPost]
     [Route("/api/products/create")]
-    public object Any(ProductCreateRequest request)
+    public IActionResult Any(ProductCreateRequest request)
     {
         //var validation = this.Request.TryResolve<IValidator<ProductCreateRequest>>().Validate(request);
 
@@ -92,7 +97,7 @@ public class ProductApiService : Controller
         var record = this.productService.Save(builder);
 
         var data = this.mapper.Map<ProductRecord, ProductData>(record);
-        return data;
+        return Ok(data);
     }
 
     /// <summary>
@@ -100,9 +105,10 @@ public class ProductApiService : Controller
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
+    [EnableCors]
     [HttpPost]
     [Route("/api/products/update")]
-    public object Any([FromQuery] int key, [FromBody] ProductUpdateRequest request)
+    public IActionResult Any([FromQuery] int key, [FromBody] ProductUpdateRequest request)
     {
         //var validation = this.Request.TryResolve<IValidator<ProductCreateRequest>>().Validate(request);
 
@@ -121,6 +127,6 @@ public class ProductApiService : Controller
         var record = this.productService.Save(builder);
 
         var data = this.mapper.Map<ProductRecord, ProductData>(record);
-        return data;
+        return Ok(data);
     }
 }
