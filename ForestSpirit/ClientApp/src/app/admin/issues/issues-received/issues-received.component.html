@@ -1,9 +1,9 @@
 <div class="secondary_menu">
   <hr style="height:2px;border-width:0;color:gray;background-color:gray">
   <ul class="d-flex justify-content-center">
-    <li><a href="moje.html">Moje</a></li>
-    <li style="background-color: #ddd; border-radius: 10px;"><a href="przeslane.html">Przysłane</a></li>
-    <li style="border-right: none;"><a href="dodaj.html">Dodaj</a></li>
+    <li><a [routerLink]="['/issues']">Moje</a></li>
+    <li style="background-color: #ddd; border-radius: 10px;"><a [routerLink]="['/issues-received']">Przysłane</a></li>
+    <li style="border-right: none;"><a [routerLink]="['/issues-add']">Dodaj</a></li>
   </ul>
 </div>
 <div class="panel">
