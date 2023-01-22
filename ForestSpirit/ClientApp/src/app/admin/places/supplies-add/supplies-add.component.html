@@ -1,0 +1,39 @@
+<div class="secondary_menu">
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+  <ul class="d-flex justify-content-center">
+    <li ><a [routerLink]="['/places']">Przeglądaj</a></li>
+    <li><a [routerLink]="['/places-add']">Dodaj placówkę</a></li>
+    <li><a [routerLink]="['/stuff']">Sprzęt</a></li>
+    <li><a [routerLink]="['/stuff-add']">Dodaj sprzęt</a></li>
+    <li><a [routerLink]="['/supplies']">Zaopatrzenie</a></li>
+    <li style="background-color: #ddd; border-radius: 10px;"><a [routerLink]="['/supplies-add']">Dodaj zaopatrzenie</a></li>
+  </ul>
+</div>
+<div class="panel">
+
+  <div class="separator"> </div>
+  <div class="forms">
+    <form>
+        <div class="form-group">
+          <label for="picture">Zdjęcie:</label>
+          <input type="file" class="form-control-file" id="picture">
+        </div>
+        <div class="form-group">
+          <label for="name">Nazwa:</label>
+          <input type="text" class="form-control" id="applience_name">
+        </div>
+        <div class="form-group">
+          <label for="quantity">Ilośc:</label>
+          <input type="text" class="form-control" id="quantity">
+        </div>
+        <div class="form-group">
+          <label for="date">Data:</label>
+          <input type="text" class="form-control" id="date">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-outline-dark">Dodaj</button>
+        </div>
+    </form>
+  </div>
+
+</div>
