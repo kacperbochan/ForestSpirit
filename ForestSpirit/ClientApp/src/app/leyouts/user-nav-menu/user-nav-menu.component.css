@@ -1,0 +1,38 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+.nav-link-custom,
+.nav-link-custom:visited{
+  color: var(--main-color);
+  text-align: center;
+  width: 6.8rem;
+}
+.nav-link-custom:hover{
+  color: var(--main-color);
+  font-weight: bold;
+  opacity: 0.8;
+}
+.link-active-custom, .link-active-custom:hover{
+  color: var(--main-color);
+  font-weight: bold;
+  opacity: 1;
+}
+
+.no-padding{
+  padding: 0;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.vl {
+  padding: .5rem;
+  font-weight: bold;
+  opacity: .6;
+}
+
+

@@ -97,7 +97,11 @@ button{
   background-color: var(--main-color);
 }
 
-.container:hover .overlay {
+.container .overlay:hover {
+  opacity: 1;
+}
+
+.selected{
   opacity: 1;
 }
 

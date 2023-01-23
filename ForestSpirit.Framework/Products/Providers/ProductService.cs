@@ -65,4 +65,18 @@ public class ProductService : AbstractService<ProductRecord>, IProductService
             return session.Query<ProductRecord>().Where(x => x.Name == name).FirstOrDefault();
         }
     }
+
+    public ProductRecord Get(int id)
+    {
+        if (id<0)
+        {
+            return null;
+        }
+
+        // pobranie danych
+        using (var session = this.Db.OpenSession())
+        {
+            return session.Query<ProductRecord>().Where(x => x.Id == id).FirstOrDefault();
+        }
+    }
 }

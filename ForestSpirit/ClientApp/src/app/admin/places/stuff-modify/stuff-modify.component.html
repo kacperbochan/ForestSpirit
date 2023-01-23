@@ -1,0 +1,40 @@
+<div class="secondary_menu">
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+  <ul class="d-flex justify-content-center">
+    <li><a [routerLink]="['/places']">Przeglądaj</a></li>
+    <li><a [routerLink]="['/places-add']">Dodaj placówkę</a></li>
+    <li><a [routerLink]="['/stuff']">Sprzęt</a></li>
+    <li><a [routerLink]="['/stuff-add']">Dodaj sprzęt</a></li>
+    <li><a [routerLink]="['/supplies']">Zaopatrzenie</a></li>
+    <li style="border-right: none;"><a [routerLink]="['/supplies-add']">Dodaj zaopatrzenie</a></li>
+  </ul>
+</div>
+<div class="panel">
+
+  <div class="separator"> </div>
+  <div class="forms">
+    <form>
+        <div class="form-group">
+          <label for="picture">Zdjęcie:</label>
+          <input type="file" class="form-control-file" id="picture">
+        </div>
+        <div class="form-group">
+          <label for="applience_name">Nazwa:</label>
+          <input type="text" class="form-control" id="applience_name" value="Destylarnia A">
+        </div>
+        <div class="form-group">
+          <label for="applience_id">ID sprzętu:</label>
+          <input type="text" class="form-control" id="applience_id" value="g6w4576e45yte4s5f">
+        </div>
+        <div class="form-group">
+          <label for="applience_address">ID adresu:</label>
+          <input type="text" class="form-control" id="applience_address" value="69420213742069">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-outline-dark">Wprowadź zmiany</button>
+        </div>
+    </form>
+  </div>
+  <div class="separator"> </div>
+
+</div>

@@ -7,18 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit{
 
-  constructor() { 
-    document.body.style.backgroundImage =  "url('../../assets/foggy-pine-forest-background-vector.jpg')";
-    document.body.style.backgroundPosition = "center";
-    document.body.style.backgroundRepeat = "no repeat";
-    document.body.style.backgroundAttachment = "fixed";
-    document.body.style.backgroundSize = "cover"; 
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  ngOnDestroy(){
-    document.body.style.backgroundImage = "none";
-  }
 }

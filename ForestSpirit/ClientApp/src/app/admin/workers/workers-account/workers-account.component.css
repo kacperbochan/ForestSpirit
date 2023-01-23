@@ -1,0 +1,81 @@
+.secondary_menu{
+	position: -webkit-sticky;
+	position: sticky;
+	top: 105px;
+	background: white;
+	padding-bottom: 5px;
+}
+
+.secondary_menu ul{
+	padding: 5px;
+	list-style: none;
+}
+
+.secondary_menu ul li{
+	float: left;
+	border-right: 2px solid #aaa;
+	padding: 0 20px 0 20px;
+}
+
+.secondary_menu ul li a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.secondary_menu ul li:hover{
+	background-color: #ccc;
+	border-radius: 10px;
+}
+
+
+.panel .people{
+	padding: 50px 300px 50px 300px;
+}
+
+.panel .people .person{
+	margin: 10px;
+	padding: 10px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.panel .people .person img{
+	margin-left: 30px;
+	margin-right: 20px;
+	max-height: 150px;
+	border-radius: 10px;
+}
+
+.panel .people .person .data .name{
+	font-size: 30px;
+	padding-bottom: 55px;
+	padding-top: 5px;
+}
+
+.panel .people .person .data .position{
+	font-size: 15px;
+}
+
+.panel .people .person .data .workplace{
+	font-size: 15px;
+}
+
+.panel .people .person .buttons{
+	padding-right: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.panel .people .person .buttons a{
+	border: 2px #ddd solid;
+	border-radius: 10px;
+	margin: 5px;
+	padding: 0px 10px 0px 10px;
+	text-align: right;
+	color: inherit;
+	text-decoration: none;
+}
+
+.panel .people .person .buttons a:hover{
+	background-color: #ccc;
+}
