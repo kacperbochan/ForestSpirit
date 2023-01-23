@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ForestSpirit.Core.Controllers;
 using ForestSpirit.Framework.Customers;
 using ForestSpirit.Framework.Customers.Records;
 using ForestSpirit.ServiceModel.Customers;
@@ -11,7 +12,7 @@ namespace ForestSpirit.Core.ApiServices;
 /// </summary>
 [Route("/api/customers")]
 [ApiController]
-public class CustomersApiService : Controller
+public class CustomersController : AbstractController
 {
     /// <summary>
     /// Serwis produktów.
@@ -19,19 +20,14 @@ public class CustomersApiService : Controller
     private readonly ICustomerService customerService;
 
     /// <summary>
-    /// Silnik mapujący.
-    /// </summary>
-    private readonly IMapper mapper;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="CustomersApiService"/> class.
+    /// Initializes a new instance of the <see cref="CustomersController"/> class.
     /// </summary>
     /// <param name="customerService">Serwis produktów.</param>
     /// <param name="mapper">Silnik mapujący.</param>
-    public CustomersApiService(ICustomerService customerService, IMapper mapper)
+    public CustomersController(ICustomerService customerService, IMapper mapper)
+        : base(mapper)
     {
         this.customerService = customerService;
-        this.mapper = mapper;
     }
 
     /// <summary>
@@ -55,7 +51,7 @@ public class CustomersApiService : Controller
     /// <returns>Odpowiedź.</returns>
     [HttpGet]
     [Route("/api/customers")]
-    public object Get([FromQuery]int key)
+    public object Get([FromQuery] int key)
     {
         var product = this.customerService.Get(key);
 
@@ -75,7 +71,7 @@ public class CustomersApiService : Controller
     /// <returns>Odpowiedź.</returns>
     [HttpPost]
     [Route("/api/customers/create")]
-    public object Any([FromBody]CustomerCreateRequest request)
+    public object Any([FromBody] CustomerCreateRequest request)
     {
         /*var validation = this.Request.TryResolve<IValidator<CustomerCreateRequest>>().Validate(request);
 

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ForestSpirit.Core.Controllers;
 using ForestSpirit.Framework.Customers;
 using ForestSpirit.Framework.Opinions;
 using ForestSpirit.Framework.Opinions.Records;
@@ -13,7 +14,7 @@ namespace ForestSpirit.Core.ApiServices;
 /// </summary>
 [Route("/api/opinions")]
 [ApiController]
-public class OpinionsApiService : Controller
+public class OpinionsController : AbstractController
 {
     /// <summary>
     /// Serwis produktów.
@@ -31,21 +32,16 @@ public class OpinionsApiService : Controller
     private readonly ICustomerService customerService;
 
     /// <summary>
-    /// Silnik mapujący.
-    /// </summary>
-    private readonly IMapper mapper;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="OpinionsApiService"/> class.
+    /// Initializes a new instance of the <see cref="OpinionsController"/> class.
     /// </summary>
     /// <param name="opinionsService">Serwis produktów.</param>
     /// <param name="mapper">Silnik mapujący.</param>
-    public OpinionsApiService(IOpinionService opinionsService, ICustomerService customerService, IProductService productService, IMapper mapper)
+    public OpinionsController(IOpinionService opinionsService, ICustomerService customerService, IProductService productService, IMapper mapper)
+        : base(mapper)
     {
         this.opinionsService = opinionsService;
         this.productService = productService;
         this.customerService = customerService;
-        this.mapper = mapper;
     }
 
     /// <summary>
@@ -88,7 +84,7 @@ public class OpinionsApiService : Controller
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
     [HttpPost]
-    [Route("/api/customers/create")]
+    [Route("/api/opinions/create")]
     public object Any(OpinionCreateRequest request)
     {
       /*  var validation = this.Request.TryResolve<IValidator<OpinionCreateRequest>>().Validate(request);

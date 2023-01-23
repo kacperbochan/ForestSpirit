@@ -12,7 +12,7 @@ namespace ForestSpirit.Core.Controllers;
 /// </summary>
 [Route("/api/orders")]
 [ApiController]
-public class OrdersApiService : Controller
+public class OrdersController : AbstractController
 {
     /// <summary>
     /// Serwis produktów.
@@ -25,20 +25,15 @@ public class OrdersApiService : Controller
     private readonly ICustomerService customerService;
 
     /// <summary>
-    /// Silnik mapujący.
-    /// </summary>
-    private readonly IMapper mapper;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="OrdersApiService"/> class.
+    /// Initializes a new instance of the <see cref="OrdersController"/> class.
     /// </summary>
     /// <param name="ordersService">Serwis produktów.</param>
     /// <param name="mapper">Silnik mapujący.</param>
-    public OrdersApiService(IOrderService ordersService, ICustomerService customerService, IMapper mapper)
+    public OrdersController(IOrderService ordersService, ICustomerService customerService, IMapper mapper)
+        : base(mapper)
     {
         this.ordersService = ordersService;
         this.customerService = customerService;
-        this.mapper = mapper;
     }
 
     /// <summary>
@@ -47,7 +42,7 @@ public class OrdersApiService : Controller
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
     [HttpGet]
-    [Route("/api/workers/list")]
+    [Route("/api/orders/list")]
     public object Get(OrderListRequest request)
     {
         var products = this.ordersService.GetAll();
@@ -61,7 +56,7 @@ public class OrdersApiService : Controller
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
     [HttpGet]
-    [Route("/api/workers")]
+    [Route("/api/orders")]
     public object Get([FromQuery] int key)
     {
         var product = this.ordersService.Get(key);
@@ -81,7 +76,7 @@ public class OrdersApiService : Controller
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
     [HttpPost]
-    [Route("/api/customers/create")]
+    [Route("/api/orders/create")]
     public object Any(OrderCreateRequest request)
     {
         /*var validation = this.Request.TryResolve<IValidator<OrderCreateRequest>>().Validate(request);

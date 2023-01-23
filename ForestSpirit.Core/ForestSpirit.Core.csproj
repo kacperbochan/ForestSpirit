@@ -27,6 +27,7 @@
     <PackageReference Include="ServiceStack.Core" Version="6.2.0" />
     <PackageReference Include="ServiceStack.Logging.NLog.Core" Version="6.2.0" />
     <PackageReference Include="ServiceStack.OrmLite.SqlServer.Core" Version="6.2.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
   </ItemGroup>
 
 </Project>

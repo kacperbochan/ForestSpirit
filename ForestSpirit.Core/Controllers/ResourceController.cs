@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ForestSpirit.Core.Controllers;
 using ForestSpirit.Framework.Outposts;
 using ForestSpirit.Framework.Resources;
 using ForestSpirit.Framework.Resources.Records;
@@ -12,7 +13,7 @@ namespace ForestSpirit.Core.ApiServices;
 /// </summary>
 [Route("/api/resources")]
 [ApiController]
-public class ResourceApiService : Controller
+public class ResourceController : AbstractController
 {
     /// <summary>
     /// Serwis produktów.
@@ -25,20 +26,15 @@ public class ResourceApiService : Controller
     private readonly IOutpostService outpostService;
 
     /// <summary>
-    /// Silnik mapujący.
-    /// </summary>
-    private readonly IMapper mapper;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ResourceApiService"/> class.
+    /// Initializes a new instance of the <see cref="ResourceController"/> class.
     /// </summary>
     /// <param name="resourceService">Serwis produktów.</param>
     /// <param name="mapper">Silnik mapujący.</param>
-    public ResourceApiService(IResourceService resourceService, IOutpostService outpostService, IMapper mapper)
+    public ResourceController(IResourceService resourceService, IOutpostService outpostService, IMapper mapper)
+        : base(mapper)
     {
         this.resourceService = resourceService;
         this.outpostService = outpostService;
-        this.mapper = mapper;
     }
 
     /// <summary>
@@ -47,7 +43,7 @@ public class ResourceApiService : Controller
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
     [HttpGet]
-    [Route("/api/workers/list")]
+    [Route("/api/resources/list")]
     public object Get()
     {
         var products = this.resourceService.GetAll();
@@ -61,7 +57,7 @@ public class ResourceApiService : Controller
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
     [HttpGet]
-    [Route("/api/workers")]
+    [Route("/api/resources")]
     public object Get([FromQuery] int key)
     {
         var product = this.resourceService.Get(key);
@@ -81,7 +77,7 @@ public class ResourceApiService : Controller
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
     [HttpPost]
-    [Route("/api/customers/create")]
+    [Route("/api/resources/create")]
     public object Any(ResourceCreateRequest request)
     {
         /*var validation = this.Request.TryResolve<IValidator<ResourceCreateRequest>>().Validate(request);

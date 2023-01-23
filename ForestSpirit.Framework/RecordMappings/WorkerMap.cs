@@ -18,6 +18,8 @@ public class WorkerMap : ClassMap<WorkerRecord>
         this.Map(x => x.ChangedDate).Column("Changed_At");
         this.Map(x => x.CreatedBy).Column("Created_By");
         this.Map(x => x.CreatedDate).Column("Created_At");
-        this.HasMany(x => x.Requests);
+        this.HasMany(x => x.Requests)
+            .Inverse()
+            .Cascade.All();
     }
 }

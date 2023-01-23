@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-
+using ForestSpirit.Core.Controllers;
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.Framework.Workers;
 using ForestSpirit.ServiceModel.Workers;
@@ -12,7 +12,7 @@ namespace ForestSpirit.Core.ApiServices;
 /// </summary>
 [Route("/api/workers")]
 [ApiController]
-public class WorkerApiService : Controller
+public class WorkerController : AbstractController
 {
     /// <summary>
     /// Serwis produktów.
@@ -20,19 +20,14 @@ public class WorkerApiService : Controller
     private readonly IWorkerService workersService;
 
     /// <summary>
-    /// Silnik mapujący.
-    /// </summary>
-    private readonly IMapper mapper;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="WorkerApiService"/> class.
+    /// Initializes a new instance of the <see cref="WorkerController"/> class.
     /// </summary>
     /// <param name="workersService">Serwis produktów.</param>
     /// <param name="mapper">Silnik mapujący.</param>
-    public WorkerApiService(IWorkerService workersService, IMapper mapper)
+    public WorkerController(IWorkerService workersService, IMapper mapper)
+        : base(mapper)
     {
         this.workersService = workersService;
-        this.mapper = mapper;
     }
 
     /// <summary>

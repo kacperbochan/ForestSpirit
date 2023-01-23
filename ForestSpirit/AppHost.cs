@@ -23,7 +23,7 @@ public class AppHost : AppHostBase
     /// <param name="applicationName">Nazwa aplikacji.</param>
     /// <param name="configuration">Konfiguracja hosta.</param>
     public AppHost(string applicationName, IConfiguration configuration)
-        : base(applicationName, typeof(ProductApiService).Assembly)
+        : base(applicationName, typeof(ProductController).Assembly)
     {
         this.ApplicationName = applicationName;
         this.configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));

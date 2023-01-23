@@ -2,24 +2,38 @@
 
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-
+using FluentNHibernate.Mapping;
 using ForestSpirit.Framework.Customers;
 using ForestSpirit.Framework.Customers.Providers;
+using ForestSpirit.Framework.Customers.Records;
 using ForestSpirit.Framework.Equipments;
 using ForestSpirit.Framework.Equipments.Providers;
+using ForestSpirit.Framework.Equipments.Records;
 using ForestSpirit.Framework.Opinions;
 using ForestSpirit.Framework.Opinions.Providers;
+using ForestSpirit.Framework.Opinions.Records;
 using ForestSpirit.Framework.Orders;
 using ForestSpirit.Framework.Orders.Providers;
+using ForestSpirit.Framework.Orders.Records;
+using ForestSpirit.Framework.Outposts.Records;
 using ForestSpirit.Framework.Products;
 using ForestSpirit.Framework.Products.Providers;
+using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.Framework.Requests;
 using ForestSpirit.Framework.Requests.Providers;
 using ForestSpirit.Framework.Resources;
 using ForestSpirit.Framework.Resources.Providers;
+using ForestSpirit.Framework.Resources.Records;
 using ForestSpirit.Framework.Workers;
 using ForestSpirit.Framework.Workers.Providers;
-using ForestSpirit.Mappings;
+using ForestSpirit.ServiceModel.Customers;
+using ForestSpirit.ServiceModel.Equipments;
+using ForestSpirit.ServiceModel.Opinions;
+using ForestSpirit.ServiceModel.Orders;
+using ForestSpirit.ServiceModel.Outposts;
+using ForestSpirit.ServiceModel.Products;
+using ForestSpirit.ServiceModel.Resources;
+using ForestSpirit.ServiceModel.Workers;
 using ForestSpirit.Settings;
 
 using Microsoft.Extensions.Options;
@@ -70,8 +84,14 @@ public class Startup
         services.AddSingleton<Microsoft.Extensions.Options.IOptions<AppSettings>>(provider => new OptionsWrapper<AppSettings>(settings));
         services.AddSingleton<Microsoft.Extensions.Options.IOptions<ResourcesSettings>>(provider => new OptionsWrapper<ResourcesSettings>(settings.Resources));
 
-
+        // połączenie bazy danych
         this.InstallDb(services, settings);
+
+        // Mapping
+        this.InstallMapping(services);
+
+        // File system
+        this.InstallFileSystem(services, settings);
 
         // CORS
         services.AddCors(
@@ -93,8 +113,6 @@ public class Startup
                     });
             });
 
-        // Mapping
-        this.InstallMapping(services);
 
         services.AddMvc();
         services.AddControllers().AddJsonOptions(opt =>
@@ -106,6 +124,7 @@ public class Startup
             configure.Title = "API aplikacji bazodanowej ForestSpirit";
         });
 
+        // Serwisy
         services.AddScoped<ICustomerService, CustomerService>();
         services.AddScoped<IEquipmentService, EquipmentService>();
         services.AddScoped<IOpinionService, OpinionService>();
@@ -114,9 +133,6 @@ public class Startup
         services.AddScoped<IRequestService, RequestService>();
         services.AddScoped<IResourceService, ResourceService>();
         services.AddScoped<IWorkerService, WorkerService>();
-
-        // File system
-        this.InstallFileSystem(services, settings);
 
         // Walidacja
         //services.AddScoped<IValidator<ServiceModel.MeterRequest>, MeterRequestValidator>();
@@ -156,17 +172,6 @@ public class Startup
     /// <param name="settings">Ustawienia aplikacji.</param>
     private void InstallDb(IServiceCollection services, AppSettings settings)
     {
-        /*var connectionManager = new DbConnectionManager();
-
-        var factory = this.CreateDbFactory(settings.Db, true);
-        connectionManager.Register("default", factory);
-
-        services.AddSingleton<IDbConnectionManager>(connectionManager);
-        services.AddSingleton<IDbConnectionFactory>(factory);
-        services.AddSingleton(factory);
-        services.AddScoped(x => factory.OpenDbConnection());
-        services.AddSingleton<Compiler, SqlServerCompiler>();*/
-
         var sessionFactory = Fluently.Configure()
           .Database(
             MsSqlConfiguration.MsSql2012.ConnectionString(settings.Db.ConnectionString))
@@ -199,8 +204,6 @@ public class Startup
     {
         var mapperConfig = new MapperConfiguration(this.Build);
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-        // services.AddSingleton<TagValueResolver>();
     }
 
     /// <summary>
@@ -209,6 +212,13 @@ public class Startup
     /// <param name="cfg">Konfiguracja mapper'a.</param>
     private void Build(IMapperConfigurationExpression cfg)
     {
-        cfg.AddProfile<ProductMappingProfile>();
+        cfg.CreateMap<CustomerRecord, CustomerData>();
+        cfg.CreateMap<EquipmentRecord, EquipmentData>();
+        cfg.CreateMap<OpinionRecord, OpinionData>();
+        cfg.CreateMap<OrderRecord, OrderData>();
+        cfg.CreateMap<OutpostRecord, OutpostData>();
+        cfg.CreateMap<ProductRecord, ProductData>();
+        cfg.CreateMap<ResourceRecord, ResourceData>();
+        cfg.CreateMap<WorkerRecord, WorkerData>();
     }
 }

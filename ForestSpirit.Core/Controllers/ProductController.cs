@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ForestSpirit.Core.Controllers;
 using ForestSpirit.Framework.Products;
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.ServiceModel.Products;
@@ -11,7 +12,7 @@ namespace ForestSpirit.Core.ApiServices;
 /// </summary>
 [Route("/api/products")]
 [ApiController]
-public class ProductApiService : Controller
+public class ProductController : AbstractController
 {
     /// <summary>
     /// Serwis produktów.
@@ -19,19 +20,14 @@ public class ProductApiService : Controller
     private readonly IProductService productService;
 
     /// <summary>
-    /// Silnik mapujący.
-    /// </summary>
-    private readonly IMapper mapper;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ProductApiService"/> class.
+    /// Initializes a new instance of the <see cref="ProductController"/> class.
     /// </summary>
     /// <param name="productService">Serwis produktów.</param>
     /// <param name="mapper">Silnik mapujący.</param>
-    public ProductApiService(IProductService productService, IMapper mapper)
+    public ProductController(IProductService productService, IMapper mapper)
+        : base(mapper)
     {
         this.productService = productService;
-        this.mapper = mapper;
     }
 
     /// <summary>

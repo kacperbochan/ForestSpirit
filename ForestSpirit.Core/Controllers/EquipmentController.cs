@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-
+using ForestSpirit.Core.Controllers;
 using ForestSpirit.Framework.Equipments;
 using ForestSpirit.Framework.Equipments.Records;
 using ForestSpirit.Framework.Outposts;
@@ -14,7 +14,7 @@ namespace ForestSpirit.Core.ApiServices;
 /// </summary>
 [Route("/api/equipments")]
 [ApiController]
-public class EquipmentApiService : Controller
+public class EquipmentController : AbstractController
 {
     /// <summary>
     /// Serwis produktów.
@@ -27,20 +27,15 @@ public class EquipmentApiService : Controller
     private readonly IOutpostService outpostService;
 
     /// <summary>
-    /// Silnik mapujący.
-    /// </summary>
-    private readonly IMapper mapper;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="EquipmentApiService"/> class.
+    /// Initializes a new instance of the <see cref="EquipmentController"/> class.
     /// </summary>
     /// <param name="equimpentsService">Serwis produktów.</param>
     /// <param name="mapper">Silnik mapujący.</param>
-    public EquipmentApiService(IEquipmentService equimpentsService, IOutpostService outpostService, IMapper mapper)
+    public EquipmentController(IEquipmentService equimpentsService, IOutpostService outpostService, IMapper mapper)
+        : base(mapper)
     {
         this.equimpentsService = equimpentsService;
         this.outpostService = outpostService;
-        this.mapper = mapper;
     }
 
     /// <summary>
@@ -83,7 +78,7 @@ public class EquipmentApiService : Controller
     /// <param name="request">Wartość rządania.</param>
     /// <returns>Odpowiedź.</returns>
     [HttpPost]
-    [Route("/api/customers/create")]
+    [Route("/api/equipments/create")]
     public object Any(EquipmentCreateRequest request)
     {
         /* var validation = this.Request.TryResolve<IValidator<EquipmentCreateRequest>>().Validate(request);
