@@ -1,13 +1,14 @@
-<div class="container page page_solid">
+<div class="container page page_solid" style="padding-left: 20px;padding-right: 20px;">
     <div class="cart-header">
-      <div class="row">
+      <div>
+      <div class="row" style="justify-content: center; margin: auto;" >
         <div class="col-3 stage-title" (click)="goToPage(0)">1. Twój koszyk</div>
         <div class="col-1"></div>
         <div class="col-3 stage-title" (click)="goToPage(1)">2. Szczegóły dostawy</div>
         <div class="col-1"></div>
         <div class="col-3 stage-title" (click)="goToPage(2)">3. Płatność</div>
       </div>
-      <div class="row">
+      <div class="row" style="justify-content: center; margin: auto;">
         <div class="col-3 line"><hr [ngClass]="{'horisontal-highlight':page==0}"></div>
         <div class="col-1 line"><hr></div>
         <div class="col-3 line"><hr [ngClass]="{'horisontal-highlight':page==1}"></div>
@@ -15,8 +16,9 @@
         <div class="col-3 line"><hr [ngClass]="{'horisontal-highlight':page==2}"></div>
       </div>
     </div>
+    </div>
     <div class="cart-body">
-      <div class="row">
+      <div class="row" style="justify-content: center; margin: auto;">
         <div class="col-7">
           <ng-container [ngSwitch]="page">
             <app-cart-products *ngSwitchCase="0" [produkty]="produkty"></app-cart-products>
@@ -31,7 +33,7 @@
           <button type="reset" class="btn btn-primary shadow-none custom-button cancel" (click)="previousPage()">Wstecz</button>
         </div>
         <div class="col-1"></div>
-        <div class="col-4">
+        <div class="col-4" style="justify-content: center;">
           <app-summary [produkty]="produkty"></app-summary>
         </div>
       </div>
