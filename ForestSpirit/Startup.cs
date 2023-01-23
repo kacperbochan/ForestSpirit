@@ -3,6 +3,7 @@
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Mapping;
+using ForestSpirit.Framework;
 using ForestSpirit.Framework.Customers;
 using ForestSpirit.Framework.Customers.Providers;
 using ForestSpirit.Framework.Customers.Records;
@@ -205,13 +206,6 @@ public class Startup
     /// <param name="cfg">Konfiguracja mapper'a.</param>
     private void Build(IMapperConfigurationExpression cfg)
     {
-        cfg.CreateMap<CustomerRecord, CustomerData>();
-        cfg.CreateMap<EquipmentRecord, EquipmentData>();
-        cfg.CreateMap<OpinionRecord, OpinionData>();
-        cfg.CreateMap<OrderRecord, OrderData>();
-        cfg.CreateMap<OutpostRecord, OutpostData>();
-        cfg.CreateMap<ProductRecord, ProductData>();
-        cfg.CreateMap<ResourceRecord, ResourceData>();
-        cfg.CreateMap<WorkerRecord, WorkerData>();
+        cfg.AddProfile<GeneralMappingProfile>();
     }
 }
