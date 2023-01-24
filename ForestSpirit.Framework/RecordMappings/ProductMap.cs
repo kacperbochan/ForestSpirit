@@ -11,9 +11,11 @@ public class ProductMap : ClassMap<ProductRecord>
         this.Table("Product");
         this.Id(x => x.Id);
         this.Map(x => x.Name);
+        this.Map(x => x.Category);
         this.Map(x => x.Procentage);
         this.Map(x => x.Price);
         this.Map(x => x.Ingridience).Nullable();
+        this.Map(x => x.Tastes).Nullable();
         this.Map(x => x.Rating);
         this.Map(x => x.OpinionCount).Column("Number_Of_Opinions");
         this.Map(x => x.ChangedBy).Column("Changed_By");

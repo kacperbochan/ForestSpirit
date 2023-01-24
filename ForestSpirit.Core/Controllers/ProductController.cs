@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ForestSpirit.Core.Controllers;
 using ForestSpirit.Framework.Products;
+using ForestSpirit.Framework.Products.Providers;
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.ServiceModel.Products;
 using Microsoft.AspNetCore.Cors;
@@ -122,6 +123,32 @@ public class ProductController : AbstractController
         var record = this.productService.Save(builder);
 
         var data = this.mapper.Map<ProductRecord, ProductData>(record);
-        return Ok(data);
+        return this.Ok(data);
+    }
+
+    /// <summary>
+    /// Dodanie noweg produktu do systemu.
+    /// </summary>
+    /// <param name="request">Wartość rządania.</param>
+    /// <returns>Odpowiedź.</returns>
+    [EnableCors]
+    [HttpGet]
+    [Route("/api/products/tastes")]
+    public IActionResult GetTastes()
+    {
+        return this.Ok(this.productService.GetTastes());
+    }
+
+    /// <summary>
+    /// Dodanie noweg produktu do systemu.
+    /// </summary>
+    /// <param name="request">Wartość rządania.</param>
+    /// <returns>Odpowiedź.</returns>
+    [EnableCors]
+    [HttpGet]
+    [Route("/api/products/categories")]
+    public IActionResult GetCategories()
+    {
+        return this.Ok(ProductCategories.Instance.GetData());
     }
 }

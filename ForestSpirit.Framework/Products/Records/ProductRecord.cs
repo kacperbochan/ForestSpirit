@@ -1,7 +1,7 @@
 ﻿using ForestSpirit.Framework.Data;
 using ForestSpirit.Framework.Opinions.Records;
 using ForestSpirit.Framework.Outposts.Records;
-using ServiceStack.DataAnnotations;
+using ForestSpirit.Framework;
 
 namespace ForestSpirit.Framework.Products.Records;
 
@@ -21,6 +21,11 @@ public class ProductRecord : AbstractRecord
     public virtual string Name { get; set; }
 
     /// <summary>
+    /// Nazwa.
+    /// </summary>
+    public virtual int Category { get; set; }
+
+    /// <summary>
     /// Procent alkocholu w produkcie.
     /// </summary>
     public virtual int Procentage { get; set; }
@@ -34,6 +39,11 @@ public class ProductRecord : AbstractRecord
     /// Skłądniki.
     /// </summary>
     public virtual string Ingridience { get; set; }
+
+    /// <summary>
+    /// Skłądniki.
+    /// </summary>
+    public virtual string Tastes { get; set; }
 
     /// <summary>
     /// Ocena.

@@ -45,6 +45,7 @@ public class Program
                             //.AddEnvironmentVariables();
                     })
                 //.UseNLog()
+               // .UseUrls("https://localhost:5000")
                 .Build();
 
             // run

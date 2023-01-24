@@ -107,7 +107,6 @@ public class Startup
                     });
             });
 
-
         services.AddMvc();
         services.AddControllers().AddJsonOptions(opt =>
         {

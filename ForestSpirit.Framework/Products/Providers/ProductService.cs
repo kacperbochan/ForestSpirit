@@ -2,6 +2,8 @@
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.Framework.Products.Records.Builders;
 using NHibernate;
+using NHibernate.Util;
+using ServiceStack;
 using System.Data;
 
 namespace ForestSpirit.Framework.Products.Providers;
@@ -78,5 +80,24 @@ public class ProductService : AbstractService<ProductRecord>, IProductService
         {
             return session.Query<ProductRecord>().Where(x => x.Id == id).FirstOrDefault();
         }
+    }
+
+    public IEnumerable<string> GetTastes()
+    {
+        var tastes = new List<string>();
+        var result = new List<string>();
+
+        // pobranie danych
+        using (var session = this.Db.OpenSession())
+        {
+            tastes = session.Query<ProductRecord>().Select(x => x.Tastes).Distinct().ToList();
+        }
+
+        foreach (var tasteList in tastes.Select(x => x.DeNormaize()))
+        {
+            result.AddRange(tasteList);
+        }
+
+        return result.Distinct();
     }
 }

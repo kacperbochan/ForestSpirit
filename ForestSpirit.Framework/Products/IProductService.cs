@@ -7,4 +7,5 @@ public interface IProductService : IBuildableService<IProductRecordBuilder, Prod
 {
     List<ProductRecord> GetAll();
     ProductRecord Get(int id);
+    IEnumerable<string> GetTastes();
 }
