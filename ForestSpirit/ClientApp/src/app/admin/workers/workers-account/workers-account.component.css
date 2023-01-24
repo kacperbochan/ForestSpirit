@@ -3,7 +3,7 @@
 	position: sticky;
 	top: 105px;
 	background: white;
-	padding-bottom: 5px;
+
 }
 
 .secondary_menu ul{
@@ -78,4 +78,8 @@
 
 .panel .people .person .buttons a:hover{
 	background-color: #ccc;
+}
+
+.hre {
+	border: 5px solid var(--secondary-color);
 }
