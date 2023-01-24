@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+
 using ForestSpirit.Core.Controllers;
 using ForestSpirit.Framework.Products;
 using ForestSpirit.Framework.Products.Providers;
 using ForestSpirit.Framework.Products.Records;
 using ForestSpirit.ServiceModel.Products;
+
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -48,6 +50,59 @@ public class ProductController : AbstractController
     }
 
     /// <summary>
+    /// Pobranie wszytskich produktów.
+    /// </summary>
+    /// <param name="request">Wartość rządania.</param>
+    /// <returns>Odpowiedź.</returns>
+    [EnableCors]
+    [HttpGet]
+    [Route("/api/products/search")]
+    public IActionResult Search(ProductSearchRequest request)
+    {
+        var products = this.productService.GetAll();
+
+        products = this.Filter(products, request);
+
+        var data = this.mapper.Map<List<ProductRecord>, ProductData[]>(products);
+        return Ok(data);
+    }
+
+    private List<ProductRecord> Filter(List<ProductRecord> items, ProductSearchRequest filter)
+    {
+        if (filter.Keys.Count() != 0)
+        {
+            items = items.Where(x => filter.Keys.Contains(x.Id)).ToList();
+        }
+
+        if (filter.Category.Count() != 0)
+        {
+            items = items.Where(x => filter.Category.Contains(x.Id)).ToList();
+        }
+
+        if (filter.HiPrice != null)
+        {
+            items = items.Where(x => x.Price < filter.HiPrice).ToList();
+        }
+
+        if (filter.LoPrice != null)
+        {
+            items = items.Where(x => x.Price > filter.LoPrice).ToList();
+        }
+
+        if (filter.Skip != null)
+        {
+            items.Skip((int)filter.Skip);
+        }
+
+        if (filter.Take != null)
+        {
+            items.Skip((int)filter.Take);
+        }
+
+        return items;
+    }
+
+    /// <summary>
     /// Pobranie pojedyńczego produktu.
     /// </summary>
     /// <param name="request">Wartość rządania.</param>
@@ -78,9 +133,9 @@ public class ProductController : AbstractController
     [Route("/api/products/create")]
     public IActionResult Any(ProductCreateRequest request)
     {
-        //var validation = this.Request.TryResolve<IValidator<ProductCreateRequest>>().Validate(request);
+        /*var validation = this.Request.TryResolve<IValidator<ProductCreateRequest>>().Validate(request);
 
-        /* if (!validation.IsValid)
+        if (!validation.IsValid)
          {
              throw new ValidationException($"Invalid object");
          }*/
