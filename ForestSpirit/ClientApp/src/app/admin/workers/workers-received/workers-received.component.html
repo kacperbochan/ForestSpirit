@@ -1,20 +1,26 @@
-<div class="secondary_menu">
-  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-  <ul class="d-flex justify-content-center">
+<div class="secondary_menu" style="top: 115px; padding-bottom: 0px;">
+	<hr class ="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
+	<ul class="d-flex justify-content-center">
     <li ><a [routerLink]="['/workers-account']">Konta</a></li>
     <li><a [routerLink]="['/workers-schedule']">Harmonogramy</a></li>
-    <li style="background-color: #ddd; border-radius: 10px;"><a [routerLink]="['/workers-received']">Wiadomości</a></li>
-  </ul>
+    <li style="border-right: none;"><b><a [routerLink]="['/workers-received']">Wiadomości</a></b></li>
+	</ul>
+	<hr class ="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
 </div>
-	<div class="panel">
+	<div class="panel" style="margin-top: 150px;">
 		<div class="inbox">
-			<div class="side_panel">
-				<ul>
-					<li><a [routerLink]="['/workers-new']">Nowa wiadomość</a></li>
-					<li><a [routerLink]="['/workers-received']">Odebrane</a></li>
-					<li><a [routerLink]="['/workers-sent']">Wysłane</a></li>
-					<li><a [routerLink]="['/workers-bin']">Kosz</a></li>
-				</ul>
+			<div class="side_panel" style="background-color: white;height: 400px;">
+				<div style= "padding: 15px; justify-content: center;">
+					<ul style = "padding: 0px;">
+						<li><a [routerLink]="['/workers-new']">Nowa wiadomość</a></li>
+						<hr style=" border: 1px solid rgb(24, 70, 38);">
+						<li><b><a [routerLink]="['/workers-received']">Odebrane</a></b></li>
+						<hr style=" border: 1px solid rgb(24, 70, 38);">
+						<li><a [routerLink]="['/workers-sent']">Wysłane</a></li>
+						<hr style=" border: 1px solid rgb(24, 70, 38);">
+						<li><a [routerLink]="['/workers-bin']">Kosz</a></li>
+					</ul>
+				</div>
 			</div>
 			<div class="messages">
 
@@ -25,7 +31,7 @@
 					</div>
 					<div class="contents">
 						<div class="title">Wiadomość</div>
-						<div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ipsum leo, scelerisque a massa vitae, eleifend imperdiet sem. Donec nec nibh at tortor venenatis cursus at eu sem. Nullam blandit tempus turpis at aliquet. Vestibulum vulputate vestibulum felis, eu euismod diam sodales eu. Aliquam gravida, tellus id luctus ultrices, ex lectus mollis est, id tempor ante elit sit amet velit. Morbi a hendrerit metus, sit amet interdum mauris. Quisque ipsum dui, porttitor id commodo vel, aliquet sit amet ligula. Sed nec dolor posuere, pretium massa vitae, dapibus est. Quisque id volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis lacinia et massa eget lobortis. Curabitur vitae semper lectus. Mauris elementum pretium porta. </div>
+						<div class="content" style="padding-right: 15px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ipsum leo, scelerisque a massa vitae, eleifend imperdiet sem. Donec nec nibh at tortor venenatis cursus at eu sem. Nullam blandit tempus turpis at aliquet. Vestibulum vulputate vestibulum felis, eu euismod diam sodales eu. Aliquam gravida, tellus id luctus ultrices, ex lectus mollis est, id tempor ante elit sit amet velit. Morbi a hendrerit metus, sit amet interdum mauris. Quisque ipsum dui, porttitor id commodo vel, aliquet sit amet ligula. Sed nec dolor posuere, pretium massa vitae, dapibus est. Quisque id volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis lacinia et massa eget lobortis. Curabitur vitae semper lectus. Mauris elementum pretium porta. </div>
 						<div class="sender">Andrzej Duda</div>
 						<div class="date">2022-12-19</div>
 					</div>
@@ -37,7 +43,7 @@
 					</div>
 					<div class="contents">
 						<div class="title">Wiadomość</div>
-						<div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ipsum leo, scelerisque a massa vitae, eleifend imperdiet sem. Donec nec nibh at tortor venenatis cursus at eu sem. Nullam blandit tempus turpis at aliquet. Vestibulum vulputate vestibulum felis, eu euismod diam sodales eu. Aliquam gravida, tellus id luctus ultrices, ex lectus mollis est, id tempor ante elit sit amet velit. Morbi a hendrerit metus, sit amet interdum mauris. Quisque ipsum dui, porttitor id commodo vel, aliquet sit amet ligula. Sed nec dolor posuere, pretium massa vitae, dapibus est. Quisque id volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis lacinia et massa eget lobortis. Curabitur vitae semper lectus. Mauris elementum pretium porta. </div>
+						<div class="content" style="padding-right: 15px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ipsum leo, scelerisque a massa vitae, eleifend imperdiet sem. Donec nec nibh at tortor venenatis cursus at eu sem. Nullam blandit tempus turpis at aliquet. Vestibulum vulputate vestibulum felis, eu euismod diam sodales eu. Aliquam gravida, tellus id luctus ultrices, ex lectus mollis est, id tempor ante elit sit amet velit. Morbi a hendrerit metus, sit amet interdum mauris. Quisque ipsum dui, porttitor id commodo vel, aliquet sit amet ligula. Sed nec dolor posuere, pretium massa vitae, dapibus est. Quisque id volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis lacinia et massa eget lobortis. Curabitur vitae semper lectus. Mauris elementum pretium porta. </div>
 						<div class="sender">Andrzej Duda</div>
 						<div class="date">2022-12-19</div>
 					</div>
@@ -49,7 +55,7 @@
 					</div>
 					<div class="contents">
 						<div class="title">Wiadomość</div>
-						<div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ipsum leo, scelerisque a massa vitae, eleifend imperdiet sem. Donec nec nibh at tortor venenatis cursus at eu sem. Nullam blandit tempus turpis at aliquet. Vestibulum vulputate vestibulum felis, eu euismod diam sodales eu. Aliquam gravida, tellus id luctus ultrices, ex lectus mollis est, id tempor ante elit sit amet velit. Morbi a hendrerit metus, sit amet interdum mauris. Quisque ipsum dui, porttitor id commodo vel, aliquet sit amet ligula. Sed nec dolor posuere, pretium massa vitae, dapibus est. Quisque id volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis lacinia et massa eget lobortis. Curabitur vitae semper lectus. Mauris elementum pretium porta. </div>
+						<div class="content" style="padding-right: 15px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ipsum leo, scelerisque a massa vitae, eleifend imperdiet sem. Donec nec nibh at tortor venenatis cursus at eu sem. Nullam blandit tempus turpis at aliquet. Vestibulum vulputate vestibulum felis, eu euismod diam sodales eu. Aliquam gravida, tellus id luctus ultrices, ex lectus mollis est, id tempor ante elit sit amet velit. Morbi a hendrerit metus, sit amet interdum mauris. Quisque ipsum dui, porttitor id commodo vel, aliquet sit amet ligula. Sed nec dolor posuere, pretium massa vitae, dapibus est. Quisque id volutpat leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis lacinia et massa eget lobortis. Curabitur vitae semper lectus. Mauris elementum pretium porta. </div>
 						<div class="sender">Andrzej Duda</div>
 						<div class="date">2022-12-19</div>
 					</div>

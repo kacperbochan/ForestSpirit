@@ -3,9 +3,11 @@
 	position: absolute;
 	bottom: 45px;
 	left: 20px;
-	color: white;
+	
+	
 }
 
 .panel .statistics table tr th{
 	padding: 5px;
+
 }

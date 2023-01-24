@@ -1,13 +1,16 @@
-<div class="secondary_menu">
-  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-  <ul class="d-flex justify-content-center">
+<div class="secondary_menu" style="top: 115px; padding-bottom: 0px;">
+	<hr class ="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
+	<ul class="d-flex justify-content-center">
     <li ><a [routerLink]="['/workers-account']">Konta</a></li>
     <li><a [routerLink]="['/workers-schedule']">Harmonogramy</a></li>
-    <li style="background-color: #ddd; border-radius: 10px;"><a [routerLink]="['/workers-received']">Wiadomości</a></li>
-  </ul>
+    <li style="border-right: none;"><b><a [routerLink]="['/workers-received']">Wiadomości</a></b></li>
+	</ul>
+	<hr class ="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
 </div>
-<div class="panel">
+
+	<div class="panel" style="margin-top: 150px;">
   <div class="separator"> </div>
+  <h2 style="text-align: center; color: white;">Nowa Wiadomość</h2>
   <div class="forms">
     <form>
         <div class="form-group">
