@@ -1,12 +1,14 @@
-<div class="secondary_menu">
-  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<div class="secondary_menu" style="top: 115px; padding-bottom: 0px;">
+	<hr class ="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
   <ul class="d-flex justify-content-center">
-    <li style="background-color: #ddd; border-radius: 10px;"><a [routerLink]="['/issues']">Moje</a></li>
+    <li><b><a [routerLink]="['/issues']">Moje</a></b></li>
     <li><a [routerLink]="['/issues-received']">Przysłane</a></li>
-    <li style="border-right: none;"><a [routerLink]="['/issues-add']">Dodaj</a></li>
-  </ul>
+    <li><a [routerLink]="['/issues-add']">Dodaj</a></li>
+	</ul>
+	<hr class ="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
 </div>
-<div class="panel">
+
+<div class="panel" style="margin-top: 150px;">
   <div class="files">
 
     <div class="file d-flex justify-content-between">
@@ -50,7 +52,7 @@
           </div>
           <div class="chkbxs">
             <form>
-              <div>
+              <div> 
                 <input class="chkbx" type="checkbox" id="zlozony" name="zlozony" value="zlozony" title="ZŁOŻONY">
                 <label for="zlozony">Złożony</label>
               </div>
