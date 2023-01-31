@@ -54,11 +54,17 @@ import { StuffComponent } from './admin/places/stuff/stuff.component';
 import { StuffModifyComponent } from './admin/places/stuff-modify/stuff-modify.component';
 import { SuppliesComponent } from './admin/places/supplies/supplies.component';
 import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { RegisterFormComponent } from './user-login/register-form/register-form.component';
+import { LoginFormComponent } from './user-login/login-form/login-form.component';
 
 
 @NgModule({
   declarations: [
     AboutComponent,
+    UserLoginComponent,
+    RegisterFormComponent,
+    LoginFormComponent,
     AdresFormComponent,
     AppComponent,
     CartComponent,
@@ -124,10 +130,14 @@ import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.c
       { path: 'fetch-data', component: UserLeyoutComponent,
       children: [
         {path: '', component: FetchDataComponent}
-      ]},
+      ] },
       { path: 'about', component: UserLeyoutComponent,
       children: [
         {path: '', component: AboutComponent}
+      ] },
+      { path: 'login', component: UserLeyoutComponent,
+      children: [
+        {path: '', component: UserLoginComponent}
       ] },
       { path: 'shop', component: UserLeyoutComponent,
       children: [
