@@ -13,133 +13,18 @@
 
 <div class="panel" style="margin-top: 150px;">
   <div class="places">
-
-    <div class="place d-flex justify-content-between">
+    <div class="place d-flex justify-content-between" *ngFor="let place of places; index as i">
       <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
+        <img src={{place.picture}}>
         <div class="data">
-          <div class="location_name">Destylarnia A</div>
-          <div class="location_id">ID: 69420213742069</div>
-          <div class="location_address">69.696969N 69.696969E</div>
+          <div class="location_name">{{place.nazwa}}</div>
+          <div class="location_id">ID: {{place.id}}</div>
+          <div class="location_address">{{place.adres}}</div>
         </div>
       </div>
       <div class="buttons">
         <a [routerLink]="['/places-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
+        <a [routerLink]="['/places']">Usuń</a>
       </div>
     </div>
-    <div class="place d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="location_name">Destylarnia A</div>
-          <div class="location_id">ID: 69420213742069</div>
-          <div class="location_address">69.696969N 69.696969E</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/places-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-    <div class="place d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="location_name">Destylarnia A</div>
-          <div class="location_id">ID: 69420213742069</div>
-          <div class="location_address">69.696969N 69.696969E</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/places-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-    <div class="place d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="location_name">Destylarnia A</div>
-          <div class="location_id">ID: 69420213742069</div>
-          <div class="location_address">69.696969N 69.696969E</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/places-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-    <div class="place d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="location_name">Destylarnia A</div>
-          <div class="location_id">ID: 69420213742069</div>
-          <div class="location_address">69.696969N 69.696969E</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/places-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-    <div class="place d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="location_name">Destylarnia A</div>
-          <div class="location_id">ID: 69420213742069</div>
-          <div class="location_address">69.696969N 69.696969E</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/places-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-    <div class="place d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="location_name">Destylarnia A</div>
-          <div class="location_id">ID: 69420213742069</div>
-          <div class="location_address">69.696969N 69.696969E</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/places-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-    <div class="place d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="location_name">Destylarnia A</div>
-          <div class="location_id">ID: 69420213742069</div>
-          <div class="location_address">69.696969N 69.696969E</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/places-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-    <div class="place d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="location_name">Destylarnia A</div>
-          <div class="location_id">ID: 69420213742069</div>
-          <div class="location_address">69.696969N 69.696969E</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/places-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-
-  </div>
 </div>

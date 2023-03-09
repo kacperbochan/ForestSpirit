@@ -10,10 +10,10 @@
 	<div class="panel" style="margin-top: 150px;">
   <div class="separator"></div>
   <div class="orders">
-    <div class="order">
-      <div class="main_info d-flex justify-content-between">
+    <div class="order" *ngFor="let order of orderListed">
+      <div class="main_info d-flex justify-content-between" >
         <div class="d-flex justify-content-start">
-          <div class="order_id">ID: 0123456789</div>
+          <div class="order_id">ID: {{order.id}}</div>
           <div class="chkbx">
             <form>
               <div>
@@ -23,127 +23,24 @@
             </form>
           </div>
         </div>
-        <div class="order_sum">123,45 zł</div>
+        <div class="order_sum">{{order.cena}} zł</div>
       </div>
-      <div class="details d-flex justify-content-between">
-        <table>
-          <tr>
-            <td>- bimber A</td>
-            <td>2 l</td>
-            <td>49.98 zł</td>
-          </tr>
-          <tr>
-            <td>- bimber B</td>
-            <td>1 l</td>
-            <td>24.99 zł</td>
-          </tr>
-          <tr>
-            <td>- bimber C</td>
-            <td>3 l</td>
-            <td>74.97 zł</td>
+      <div class="details d-flex justify-content-between" >
+        <table >
+          <tr *ngFor="let product of orderElemListed">
+            <td>-{{product.produkt.nazwa}}</td>
+            <td>{{product.ilosc}} l</td>
+            <td>{{product.produkt.cena * product.ilosc}} zł</td>
           </tr>
         </table>
         <div class="data">
-          <div class="name">J.P. Polak</div>
+          <div class="name">{{order.adres}}</div>
           <div class="client_id">2137</div>
           <div class="city">Wadowice</div>
           <div class="street">Kościelna 7</div>
         </div>
       </div>
     </div>
-    <div class="order">
-      <div class="main_info d-flex justify-content-between">
-        <div class="order_id">ID: 0123456789</div>
-        <div class="order_sum">123,45 zł</div>
-      </div>
-      <div class="details d-flex justify-content-between">
-        <table>
-          <tr>
-            <td>- bimber A</td>
-            <td>2 l</td>
-            <td>49.98 zł</td>
-          </tr>
-          <tr>
-            <td>- bimber B</td>
-            <td>1 l</td>
-            <td>24.99 zł</td>
-          </tr>
-          <tr>
-            <td>- bimber C</td>
-            <td>3 l</td>
-            <td>74.97 zł</td>
-          </tr>
-        </table>
-        <div class="data">
-          <div class="name">J.P. Polak</div>
-          <div class="client_id">2137</div>
-          <div class="city">Wadowice</div>
-          <div class="street">Kościelna 7</div>
-        </div>
-      </div>
-    </div>
-    <div class="order">
-      <div class="main_info d-flex justify-content-between">
-        <div class="order_id">ID: 0123456789</div>
-        <div class="order_sum">123,45 zł</div>
-      </div>
-      <div class="details d-flex justify-content-between">
-        <table>
-          <tr>
-            <td>- bimber A</td>
-            <td>2 l</td>
-            <td>49.98 zł</td>
-          </tr>
-          <tr>
-            <td>- bimber B</td>
-            <td>1 l</td>
-            <td>24.99 zł</td>
-          </tr>
-          <tr>
-            <td>- bimber C</td>
-            <td>3 l</td>
-            <td>74.97 zł</td>
-          </tr>
-        </table>
-        <div class="data">
-          <div class="name">J.P. Polak</div>
-          <div class="client_id">2137</div>
-          <div class="city">Wadowice</div>
-          <div class="street">Kościelna 7</div>
-        </div>
-      </div>
-    </div>
-    <div class="order">
-      <div class="main_info d-flex justify-content-between">
-        <div class="order_id">ID: 0123456789</div>
-        <div class="order_sum">123,45 zł</div>
-      </div>
-      <div class="details d-flex justify-content-between">
-        <table>
-          <tr>
-            <td>- bimber A</td>
-            <td>2 l</td>
-            <td>49.98 zł</td>
-          </tr>
-          <tr>
-            <td>- bimber B</td>
-            <td>1 l</td>
-            <td>24.99 zł</td>
-          </tr>
-          <tr>
-            <td>- bimber C</td>
-            <td>3 l</td>
-            <td>74.97 zł</td>
-          </tr>
-        </table>
-        <div class="data">
-          <div class="name">J.P. Polak</div>
-          <div class="client_id">2137</div>
-          <div class="city">Wadowice</div>
-          <div class="street">Kościelna 7</div>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <div class="separator"></div>
 </div>

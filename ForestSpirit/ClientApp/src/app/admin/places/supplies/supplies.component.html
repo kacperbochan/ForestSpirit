@@ -14,104 +14,18 @@
 <div class="panel" style="margin-top: 150px;">
   <div class="resources">
 
-    <div class="resource d-flex justify-content-between">
+    <div class="resource d-flex justify-content-between" *ngFor="let supplies of suppliesListed">
       <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
+        <img src={{supplies.picture}}>
         <div class="data">
-          <div class="name">Wiśnie</div>
-          <div class="quantity">1000 kg</div>
-          <div class="input_date">01.12.2022</div>
+          <div class="name">{{supplies.nazwa}}</div>
+          <div class="quantity">{{supplies.ilosc}} kg</div>
+          <div class="input_date">{{supplies.data | date}}</div>
         </div>
       </div>
       <div class="placement_data">
         <div class="place_name" style="font-size: 15px;">Destylarnia A</div>
-        <div class="place_id" style="font-size: 15px;">ID: 69420213742069</div>
+        <div class="place_id" style="font-size: 15px;">ID: {{supplies.idDestylarni}}</div>
       </div>
     </div>
-    <div class="resource d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="name">Wiśnie</div>
-          <div class="quantity">1000 kg</div>
-          <div class="input_date">01.12.2022</div>
-        </div>
-      </div>
-      <div class="placement_data">
-        <div class="place_name" style="font-size: 15px;">Destylarnia A</div>
-        <div class="place_id" style="font-size: 15px;">ID: 69420213742069</div>
-      </div>
-    </div>
-    <div class="resource d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="name">Wiśnie</div>
-          <div class="quantity">1000 kg</div>
-          <div class="input_date">01.12.2022</div>
-        </div>
-      </div>
-      <div class="placement_data">
-        <div class="place_name" style="font-size: 15px;">Destylarnia A</div>
-        <div class="place_id" style="font-size: 15px;">ID: 69420213742069</div>
-      </div>
-    </div>
-    <div class="resource d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="name">Wiśnie</div>
-          <div class="quantity">1000 kg</div>
-          <div class="input_date">01.12.2022</div>
-        </div>
-      </div>
-      <div class="placement_data">
-        <div class="place_name" style="font-size: 15px;">Destylarnia A</div>
-        <div class="place_id" style="font-size: 15px;">ID: 69420213742069</div>
-      </div>
-    </div>
-    <div class="resource d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="name">Wiśnie</div>
-          <div class="quantity">1000 kg</div>
-          <div class="input_date">01.12.2022</div>
-        </div>
-      </div>
-      <div class="placement_data">
-        <div class="place_name" style="font-size: 15px;">Destylarnia A</div>
-        <div class="place_id" style="font-size: 15px;">ID: 69420213742069</div>
-      </div>
-    </div>
-    <div class="resource d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="name">Wiśnie</div>
-          <div class="quantity">1000 kg</div>
-          <div class="input_date">01.12.2022</div>
-        </div>
-      </div>
-      <div class="placement_data">
-        <div class="place_name" style="font-size: 15px;">Destylarnia A</div>
-        <div class="place_id" style="font-size: 15px;">ID: 69420213742069</div>
-      </div>
-    </div>
-    <div class="resource d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="name">Wiśnie</div>
-          <div class="quantity">1000 kg</div>
-          <div class="input_date">01.12.2022</div>
-        </div>
-      </div>
-      <div class="placement_data">
-        <div class="place_name" style="font-size: 15px;">Destylarnia A</div>
-        <div class="place_id" style="font-size: 15px;">ID: 69420213742069</div>
-      </div>
-    </div>
-
-  </div>
 </div>

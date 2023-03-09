@@ -14,14 +14,14 @@
 <div class="panel" style="margin-top: 150px;">
   <div class="appliences">
 
-    <div class="applience d-flex justify-content-between">
+    <div class="applience d-flex justify-content-between" *ngFor="let stuff of stuffListed; index as i">
       <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
+        <img src={{stuff.picture}}>
         <div class="data">
-          <div class="applience_name">Sprzęt A</div>
-          <div class="applience_id">ID sprzętu: g6w4576e45yte4s5f</div>
-          <div class="applience_address_name">destylarnia A</div>
-          <div class="applience_address">ID: 69420213742069</div>
+          <div class="applience_name">{{stuff.nazwa}}</div>
+          <div class="applience_id">ID sprzętu: {{stuff.id}}</div>
+          <div class="applience_address_name">ID destylarnii: {{stuff.idDestylarni}}</div>
+          <div class="applience_address">{{stuff.opis}}</div>
         </div>
       </div>
       <div class="buttons">
@@ -29,51 +29,4 @@
         <a href="">Usuń</a>
       </div>
     </div>
-    <div class="applience d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="applience_name">Sprzęt A</div>
-          <div class="applience_id">ID sprzętu: g6w4576e45yte4s5f</div>
-          <div class="applience_address_name">destylarnia A</div>
-          <div class="applience_address">ID: 69420213742069</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/stuff-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-    <div class="applience d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="applience_name">Sprzęt A</div>
-          <div class="applience_id">ID sprzętu: g6w4576e45yte4s5f</div>
-          <div class="applience_address_name">destylarnia A</div>
-          <div class="applience_address">ID: 69420213742069</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/stuff-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-    <div class="applience d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="applience_name">Sprzęt A</div>
-          <div class="applience_id">ID sprzętu: g6w4576e45yte4s5f</div>
-          <div class="applience_address_name">destylarnia A</div>
-          <div class="applience_address">ID: 69420213742069</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/stuff-modify']">Modyfikuj</a>
-        <a href="">Usuń</a>
-      </div>
-    </div>
-
-  </div>
 </div>
