@@ -10,14 +10,15 @@
 	<div class="panel" style="margin-top: 150px;">
   <div class="products">
 
-    <div class="product d-flex justify-content-between">
+    <div class="product d-flex justify-content-between" *ngFor="let produkt of produkty; index as i">
       <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
+        <img src={{produkt.zdjecie}}>
         <div class="data">
-          <div class="name">Duch lasu</div>
-          <div class="ingredients">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-          <div class="price">24.99 zł/l</div>
-          <div class="quantity">102 l</div>
+          <div class="name">{{produkt.nazwa}}</div>
+          <div class="description">{{produkt.opis}}</div>
+          <div class="ingredients">smaki: o tu tu z bazki trzeba jakoś wyjąć</div>
+          <div class="price">{{produkt.cena}} zł/l</div>
+          <div class="quantity">tu jest iliśc wut czy co?????/ 102 l</div>
         </div>
       </div>
       <div class="buttons">
@@ -25,66 +26,4 @@
         <a href="">Usuń ze sprzedaży</a>
       </div>
     </div>
-    <div class="product d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="name">Duch lasu</div>
-          <div class="ingredients">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-          <div class="price">24.99 zł/l</div>
-          <div class="quantity">102 l</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/products-view-modify']">Modyfikuj</a>
-        <a href="">Usuń ze sprzedaży</a>
-      </div>
-    </div>
-    <div class="product d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="name">Duch lasu</div>
-          <div class="ingredients">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-          <div class="price">24.99 zł/l</div>
-          <div class="quantity">102 l</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/products-view-modify']">Modyfikuj</a>
-        <a href="">Usuń ze sprzedaży</a>
-      </div>
-    </div>
-    <div class="product d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="name">Duch lasu</div>
-          <div class="ingredients">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-          <div class="price">24.99 zł/l</div>
-          <div class="quantity">102 l</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/products-view-modify']">Modyfikuj</a>
-        <a href="">Usuń ze sprzedaży</a>
-      </div>
-    </div>
-    <div class="product d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data">
-          <div class="name">Duch lasu</div>
-          <div class="ingredients">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-          <div class="price">24.99 zł/l</div>
-          <div class="quantity">102 l</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a [routerLink]="['/products-view-modify']">Modyfikuj</a>
-        <a href="">Usuń ze sprzedaży</a>
-      </div>
-    </div>
-
-  </div>
 </div>
