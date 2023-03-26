@@ -1,8 +1,16 @@
+:root {
+  --main-color: #4c7a34;
+  --primary-color: #355723;
+  --secondary-color: #243e16;
+  --accent-color: #e5dab6;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
+
 
 .nav-link-custom,
 .nav-link-custom:visited{
@@ -35,4 +43,18 @@ a.navbar-brand {
   opacity: .6;
 }
 
+.graybg {
+  background: #f0f0f0;
+}
 
+.hrNav {
+  margin: 0;
+  color: var(--secondary-color);
+  opacity: 100%;
+}
+
+.hrNav1 {
+  margin: 0;
+  color: var(--secondary-color);
+  opacity: 20%;
+}
