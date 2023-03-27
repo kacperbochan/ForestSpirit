@@ -11,6 +11,7 @@ import { Produkt } from 'src/Models/produkt';
 export class ProductListComponent implements OnInit {
 
  @Input() selected: number=1;
+ @Input() isMobile: boolean = false;
 
   // produkt1 = new Produkt("Bimber 1", "dlugi opis produktu", 123, 3.02, "assets/zdjecie_brak_pionowe.jpg");
   // produkt2 = new Produkt("Bimber 2", "dlugi opis produktu", 323, 3.21, "assets/zdjecie_brak_pionowe.jpg");

@@ -1,18 +1,36 @@
-<table>
-  <col style="width:10%">
-  <col style="width:70%">
-  <col style="width:20%">
-  <tr *ngFor="let produkt of produktyListed;index as i" [routerLink]="['/product/'+produkt.id]" class="lista" >
-    <td>
-      <img src= {{produkt.zdjecie}} alt="zdjecie_kategoria">
-    </td>
-    <td class="content">
-      <h3>{{produkt.nazwa}}</h3>
-      <p>{{produkt.opis}}</p>
-    </td>
-    <td>
-      <h4>{{produkt.cena}} zł</h4>
-      <app-star-system [score]="produkt.ocena"></app-star-system>
-    </td>
-  </tr>
-</table>
+<div>
+  <div *ngIf="isMobile; else desktop">
+    <table >
+    <tr *ngFor="let produkt of produktyListed;index as i" [routerLink]="['/product/'+produkt.id]" class="lista" >
+      <td style="padding-bottom: 5%;">
+        <img src= {{produkt.zdjecie}} alt="zdjecie_kategoria" class="image">
+        <h3>{{produkt.nazwa}}</h3>
+        <p>{{produkt.opis}}</p>
+        <h4>{{produkt.cena}} zł</h4>
+          <app-star-system [score]="produkt.ocena"></app-star-system>
+        
+      </td>
+    </tr>
+  </table>
+  </div>
+  <ng-template #desktop>
+    <table>
+    <col style="width:10%">
+    <col style="width:70%">
+    <col style="width:20%">
+    <tr *ngFor="let produkt of produktyListed;index as i" [routerLink]="['/product/'+produkt.id]" class="lista" >
+      <td>
+        <img src= {{produkt.zdjecie}} alt="zdjecie_kategoria" class="image">
+      </td>
+      <td class="content">
+        <h3>{{produkt.nazwa}}</h3>
+        <p>{{produkt.opis}}</p>
+      </td>
+      <td>
+        <h4>{{produkt.cena}} zł</h4>
+        <app-star-system [score]="produkt.ocena"></app-star-system>
+      </td>
+    </tr>
+    </table>
+  </ng-template>
+</div>

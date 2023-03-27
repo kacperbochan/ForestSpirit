@@ -13,9 +13,11 @@ export class ShopComponent implements OnInit {
   constructor() { 
   }
   selected:number=1;
+  isMobile: boolean = false;
 
   ngOnInit(): void {
     this.selected=-1;
+    this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(navigator.userAgent)
   }
 
   selectCategory(category:number){

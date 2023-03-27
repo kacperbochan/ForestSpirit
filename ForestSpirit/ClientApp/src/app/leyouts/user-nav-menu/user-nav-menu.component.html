@@ -15,7 +15,9 @@
         [attr.aria-expanded]="isExpanded"
         (click)="toggle()"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon">
+          <img src="assets/menu-icon.png" width="70%">
+        </span>
       </button>
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
@@ -29,19 +31,19 @@
           >
             <a class="nav-link nav-link-custom" [routerLink]="['/']">Forest Spirit</a>
           </li>
-          <div class="vl">|</div>
+          <div *ngIf="!isExpanded" class="vl">|</div>
           <li class="nav-item" [routerLinkActive]="['link-active-custom']">
             <a class="nav-link nav-link-custom" [routerLink]="['/about']">
               O nas
             </a>
           </li>
-          <div class="vl">|</div>
+          <div *ngIf="!isExpanded" class="vl">|</div>
           <li class="nav-item" [routerLinkActive]="['link-active-custom']">
             <a class="nav-link nav-link-custom" [routerLink]="['/shop']">
               Sklep
             </a>
           </li>
-          <div class="vl">|</div>
+          <div *ngIf="!isExpanded" class="vl">|</div>
           <li class="nav-item" [routerLinkActive]="['link-active-custom']">
             <a class="nav-link nav-link-custom" [routerLink]="['/contact']">
               Kontakt
