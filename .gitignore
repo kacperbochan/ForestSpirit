@@ -363,4 +363,3 @@ MigrationBackup/
 FodyWeavers.xsd
 /ForestSpirit/ClientApp/package-lock.json
 /ForestSpirit/ClientApp/package.json
-/.gitignore
