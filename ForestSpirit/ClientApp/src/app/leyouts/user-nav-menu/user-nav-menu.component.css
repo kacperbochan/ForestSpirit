@@ -11,6 +11,18 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.navbar1 {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 .nav-link-custom,
 .nav-link-custom:visited{
