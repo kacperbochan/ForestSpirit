@@ -11,48 +11,18 @@
 <div class="panel" style="margin-top: 150px;">
   <div class="files">
 
-    <div class="file d-flex justify-content-between">
+    <div class="file d-flex justify-content-between" *ngFor="let issue of issues; index as i">
       <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
+        <img src={{issue.picture}}>
         <div class="data d-flex justify-content-around">
-          <div class="name">wniosek_01.12.2022</div>
-          <div class="date">(01.12.2022)</div>
+          <div class="name">{{issue.nazwa}}</div>
+          <div class="date">({{issue.data | date}})</div>
         </div>
       </div>
       <div class="buttons">
-        <a href="">Przyjmij</a>
-        <a href="">Odrzuć</a>
-        <a href="">Pobierz</a>
+        <a [routerLink]="['/issues-received']">Przyjmij</a>
+        <a [routerLink]="['/issues-received']">Odrzuć</a>
+        <a [routerLink]="['/issues-received']">Pobierz</a>
       </div>
     </div>
-    <div class="file d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data d-flex justify-content-around">
-          <div class="name">wniosek_01.12.2022</div>
-          <div class="date">(01.12.2022)</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a href="">Przyjmij</a>
-        <a href="">Odrzuć</a>
-        <a href="">Pobierz</a>
-      </div>
-    </div>
-    <div class="file d-flex justify-content-between">
-      <div class="d-flex justify-content-start">
-        <img src="../../../assets/zdjecie_brak_pionowe.jpg">
-        <div class="data d-flex justify-content-around">
-          <div class="name">wniosek_01.12.2022</div>
-          <div class="date">(01.12.2022)</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a href="">Przyjmij</a>
-        <a href="">Odrzuć</a>
-        <a href="">Pobierz</a>
-      </div>
-    </div>
-
-  </div>
 </div>
