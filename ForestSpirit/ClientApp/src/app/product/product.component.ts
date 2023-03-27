@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.http.get<Produkt_incoming>("http://localhost:5047/api/products/get?key="+this.productId).subscribe(
         x=> this.produkt = new Produkt(
-            x.id, x.name,"opipis",x.price,x.rating,x.procentage,"assets/zdjecie_brak_pionowe.jpg")
+            x.id, x.name,"opipis",x.price,x.rating,x.procentage,"assets/products/Alcohol_("+(x.id+116)+").png")
           )
     };
 
