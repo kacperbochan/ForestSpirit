@@ -1,5 +1,62 @@
 <header>
-  <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm bg-white border-bottom box-shadow">
+
+
+  <nav class="navbar navbar-light bg-light " style="list-style:none">
+    <div class="container-fluid">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand link-active-custom no-padding" [routerLink]="['/']">
+        <img src="assets/LogoLong.png" width="150px" height="50px" alt="ikona" class="image">
+      </a>
+
+      <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+        <a class="nav-link no-padding" [routerLink]="['/cart']">
+          <button class="btn custom-button">
+            <span class="icon-cart"></span> Koszyk
+          </button>
+        </a>
+      </li>
+
+    </div>
+  </nav>
+  <hr class="hrNav"/>
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="graybg shadow-3 p-3">
+
+      <ul class="navbar1 flex-grow">
+        <li class="nav-item"
+            [routerLinkActive]="['link-active-custom']"
+            [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link nav-link-custom" style="width:auto" [routerLink]="['/']">Forest Spirit</a>
+        </li>
+        <div class="vl">|</div>
+        <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+          <a class="nav-link nav-link-custom" [routerLink]="['/about']">
+            O nas
+          </a>
+        </li>
+        <div class="vl">|</div>
+        <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+          <a class="nav-link nav-link-custom" [routerLink]="['/shop']">
+            Sklep
+          </a>
+        </li>
+        <div class="vl">|</div>
+        <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+          <a class="nav-link nav-link-custom" [routerLink]="['/contact']">
+            Kontakt
+          </a>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+  <!--<nav
+    class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm bg-white border-bottom box-shadow"
+  >
     <div class="container">
       <a class="navbar-brand link-active-custom no-padding" [routerLink]="['/']">
         <img src="assets/LogoLong.png" width="300px" height="100px" alt="ikona" class="image">
@@ -57,5 +114,5 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav>-->
 </header>
