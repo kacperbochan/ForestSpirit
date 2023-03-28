@@ -154,7 +154,7 @@ import { LoginFormComponent } from './user-login/login-form/login-form.component
           { path: 'cart', component: CartComponent },
           { path: 'product/:id', component: ProductComponent },
           { path: 'footer-test', component: SummaryComponent },
-          { path: 'login', component: UserLeyoutComponent },
+          { path: 'login', component: UserLoginComponent },
         ]
       },
       {
