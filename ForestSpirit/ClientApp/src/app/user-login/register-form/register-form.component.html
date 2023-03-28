@@ -1,0 +1,26 @@
+<h3>Rejestracja</h3>
+<hr>
+<form #f="ngForm">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="login">Login</label>
+      <input type="text" class="form-control" id="login" placeholder="login">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="password">Hasło</label>
+      <input type="password" class="form-control" id="password" placeholder="*****">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="password2">Powtórz hasło</label>
+      <input type="password" class="form-control" id="password2" placeholder="*****">
+    </div>
+  </div>
+</form>
+<hr>
+<button type="submit" class="btn btn-primary shadow-none custom-button register-button" (click)="tryRegister()">
+  <span>Zarejestruj</span>
+</button>

@@ -65,11 +65,17 @@ import { MessagestrashComponent } from './worker/messages/messagestrash/messages
 import { MessagesnewComponent } from './worker/messages/messagesnew/messagesnew.component';
 import { MessagesreceivedComponent } from './worker/messages/messagesreceived/messagesreceived.component';
 import { MessagessentComponent } from './worker/messages/messagessent/messagessent.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { RegisterFormComponent } from './user-login/register-form/register-form.component';
+import { LoginFormComponent } from './user-login/login-form/login-form.component';
 
 
 @NgModule({
   declarations: [
     AboutComponent,
+    UserLoginComponent,
+    RegisterFormComponent,
+    LoginFormComponent,
     AdresFormComponent,
     AppComponent,
     CartComponent,
@@ -147,7 +153,8 @@ import { MessagessentComponent } from './worker/messages/messagessent/messagesse
           { path: 'shop', component: ShopComponent },
           { path: 'cart', component: CartComponent },
           { path: 'product/:id', component: ProductComponent },
-          { path: 'footer-test', component: SummaryComponent }
+          { path: 'footer-test', component: SummaryComponent },
+          { path: 'login', component: UserLeyoutComponent },
         ]
       },
       {
