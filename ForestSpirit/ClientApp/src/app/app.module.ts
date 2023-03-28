@@ -144,7 +144,7 @@ import { LoginFormComponent } from './user-login/login-form/login-form.component
     ReactiveFormsModule,
     RouterModule.forRoot([
       {
-        path: '', component: UserLeyoutComponent, pathMatch: 'full',
+        path: '', component: UserLeyoutComponent,
         children: [
           { path: '', component: HomeComponent },
           { path: 'contact', component: ContactComponent },
