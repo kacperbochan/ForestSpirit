@@ -117,138 +117,51 @@ import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.c
       { path: '', component: UserLeyoutComponent, pathMatch: 'full',
       children: [{path: '', component: HomeComponent}
       ]},
-      { path: 'contact', component: UserLeyoutComponent,
+
+      { path: '', component: UserLeyoutComponent,
       children: [
-        {path: '', component: ContactComponent}
+        {path: 'contact', component: ContactComponent},
+        {path: 'fetch-data', component: FetchDataComponent},
+        {path: 'about', component: AboutComponent},
+        {path: 'shop', component: ShopComponent},
+        {path: 'cart', component: CartComponent},
+        {path: 'product/:id', component: ProductComponent},
+        {path: 'footer-test', component: SummaryComponent}
       ] },
-      { path: 'fetch-data', component: UserLeyoutComponent,
-      children: [
-        {path: '', component: FetchDataComponent}
-      ]},
-      { path: 'about', component: UserLeyoutComponent,
-      children: [
-        {path: '', component: AboutComponent}
-      ] },
-      { path: 'shop', component: UserLeyoutComponent,
-      children: [
-        {path: '', component: ShopComponent}
-      ] },
-      { path: 'cart', component: UserLeyoutComponent,
-      children: [
-        {path: '', component: CartComponent}
-      ] },
-      { path: 'product/:id', component: UserLeyoutComponent,
-      children: [
-        {path: '', component: ProductComponent}
-      ] },
-      { path: 'footer-test', component: UserLeyoutComponent,
-      children: [
-        {path: '', component: SummaryComponent}
-      ] },
+
       { path: 'admin', component: AdminLeyoutComponent,
         children: [
-          {path: '', component: AdminComponent}
+          {path: '', component: AdminComponent},
+          {path: 'workers-account', component: WorkersAccountComponent},
+          {path: 'workers-bin', component: WorkersBinComponent},
+          {path: 'workers-modify', component: WorkersModifyComponent},
+          {path: 'workers-new', component: WorkersNewComponent},
+          {path: 'workers-received', component: WorkersReceivedComponent},
+          {path: 'workers-schedule', component: WorkersScheduleComponent},
+          {path: 'workers-sent', component: WorkersSentComponent},
+          {path: 'customers', component: CustomersComponent},
+          {path: 'customers-modify', component: CustomersModifyComponent},
+          {path: 'issues', component: IssuesMyComponent},
+          {path: 'issues-add', component: IssuesAddComponent},
+          {path: 'issues-received', component: IssuesReceivedComponent},
+          {path: 'products-view', component: ProductsViewComponent},
+          {path: 'products-view-add', component: ProductsViewAddComponent},
+          {path: 'products-view-modify', component: ProductsViewModifyComponent},
+          {path: 'places', component: PlacesComponent},
+          {path: 'places-add', component: PlacesAddComponent},
+          {path: 'places-modify', component: PlacesModifyComponent},
+          {path: 'stuff', component: StuffComponent},
+          {path: 'stuff-add', component: StuffAddComponent},
+          {path: 'stuff-modify', component: StuffModifyComponent},
+          {path: 'supplies', component: SuppliesComponent},
+          {path: 'supplies-add', component: SuppliesAddComponent},
+          {path: 'shop-orders', component: ShopOrdersComponent},
+          {path: 'shop-promotions', component: ShopPromotionComponent}
       ] },
-      { path: 'workers-account', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: WorkersAccountComponent}
-      ] },
-      { path: 'workers-bin', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: WorkersBinComponent}
-      ] },
-      { path: 'workers-modify', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: WorkersModifyComponent}
-      ] },
-      { path: 'workers-new', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: WorkersNewComponent}
-      ] },
-      { path: 'workers-received', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: WorkersReceivedComponent}
-      ] },
-      { path: 'workers-schedule', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: WorkersScheduleComponent}
-      ] },
-      { path: 'workers-sent', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: WorkersSentComponent}
-      ] },
-      { path: 'customers', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: CustomersComponent}
-      ] },
-      { path: 'customers-modify', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: CustomersModifyComponent}
-      ] },
-      { path: 'issues', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: IssuesMyComponent}
-      ] },
-      { path: 'issues-add', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: IssuesAddComponent}
-      ] },
-      { path: 'issues-received', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: IssuesReceivedComponent}
-      ] },
-      { path: 'products-view', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: ProductsViewComponent}
-      ] },
-      { path: 'products-view-add', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: ProductsViewAddComponent}
-      ] },
-      { path: 'products-view-modify', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: ProductsViewModifyComponent}
-      ] },
-      { path: 'places', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: PlacesComponent}
-      ] },
-      { path: 'places-add', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: PlacesAddComponent}
-      ] },
-      { path: 'places-modify', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: PlacesModifyComponent}
-      ] },
-      { path: 'stuff', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: StuffComponent}
-      ] },
-      { path: 'stuff-add', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: StuffAddComponent}
-      ] },
-      { path: 'stuff-modify', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: StuffModifyComponent}
-      ] },
-      { path: 'supplies', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: SuppliesComponent}
-      ] },
-      { path: 'supplies-add', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: SuppliesAddComponent}
-      ] },
-      { path: 'shop-orders', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: ShopOrdersComponent}
-      ] },
-      { path: 'shop-promotions', component: AdminLeyoutComponent,
-      children: [
-        {path: '', component: ShopPromotionComponent}
-      ] },
+
+
+
+
     ], {scrollPositionRestoration: 'enabled'}),
   ],
   providers: [],
