@@ -1,0 +1,27 @@
+<div class="secondary_menu" style="margin-top:70px">
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+  <ul class="d-flex justify-content-center">
+    <li><a [routerLink]="['/worker/issues']">Przysłane</a></li>
+    <li style="background-color: #ddd; border-radius: 10px;"><a [routerLink]="['/worker/add']">Dodaj</a></li>
+  </ul>
+</div>
+<div class="panel">
+
+  <div class="separator"> </div>
+  <div class="forms">
+    <form>
+      <div class="form-group">
+        <label for="file">Plik:</label>
+        <input type="file" class="form-control-file" id="file">
+      </div>
+      <div class="form-group">
+        <label for="name">Nazwa:</label>
+        <input type="text" class="form-control" id="name">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-dark">Dodaj</button>
+      </div>
+    </form>
+  </div>
+
+</div>

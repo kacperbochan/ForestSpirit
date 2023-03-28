@@ -1,16 +1,16 @@
 <div class="secondary_menu" style="top: 115px; padding-bottom: 0px;">
-	<hr class ="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
+  <hr class="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
   <ul class="d-flex justify-content-center">
-    <li><b><a [routerLink]="['/issues']">Moje</a></b></li>
-    <li><a [routerLink]="['/issues-received']">Przysłane</a></li>
-    <li><a [routerLink]="['/issues-add']">Dodaj</a></li>
-	</ul>
-	<hr class ="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
+    <li><b><a [routerLink]="['/admin/issues']">Moje</a></b></li>
+    <li><a [routerLink]="['/admin/issues-received']">Przysłane</a></li>
+    <li><a [routerLink]="['/admin/issues-add']">Dodaj</a></li>
+  </ul>
+  <hr class="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
 </div>
 
 <div class="panel" style="margin-top: 150px;">
   <div class="files">
-    <div class="file d-flex justify-content-between" *ngFor="let issue of issues; index as i" >
+    <div class="file d-flex justify-content-between" *ngFor="let issue of issues; index as i">
       <div class="d-flex justify-content-start">
         <img src={{issue.picture}}>
         <div class="data">
@@ -41,4 +41,5 @@
         <a [routerLink]="['/issues']">Usuń</a>
       </div>
     </div>
+  </div>
 </div>

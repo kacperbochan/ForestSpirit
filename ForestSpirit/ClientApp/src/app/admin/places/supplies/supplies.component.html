@@ -1,14 +1,14 @@
 <div class="secondary_menu" style="top: 115px; padding-bottom: 0px;">
-  <hr class ="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
+  <hr class="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
   <ul class="d-flex justify-content-center">
-    <li><a [routerLink]="['/places']">Przeglądaj</a></li>
-    <li><a [routerLink]="['/places-add']">Dodaj placówkę</a></li>
-    <li><a [routerLink]="['/stuff']">Sprzęt</a></li>
-    <li><a [routerLink]="['/stuff-add']">Dodaj sprzęt</a></li>
-    <li><b><a [routerLink]="['/supplies']">Zaopatrzenie</a></b></li>
-    <li style="border-right: none;"><a [routerLink]="['/supplies-add']">Dodaj zaopatrzenie</a></li>
+    <li><a [routerLink]="['/admin/places']">Przeglądaj</a></li>
+    <li><a [routerLink]="['/admin/places-add']">Dodaj placówkę</a></li>
+    <li><a [routerLink]="['/admin/stuff']">Sprzęt</a></li>
+    <li><a [routerLink]="['/admin/stuff-add']">Dodaj sprzęt</a></li>
+    <li><b><a [routerLink]="['/admin/supplies']">Zaopatrzenie</a></b></li>
+    <li style="border-right: none;"><a [routerLink]="['/admin/supplies-add']">Dodaj zaopatrzenie</a></li>
   </ul>
-  <hr class ="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
+  <hr class="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
 </div>
 
 <div class="panel" style="margin-top: 150px;">
@@ -28,4 +28,5 @@
         <div class="place_id" style="font-size: 15px;">ID: {{supplies.idDestylarni}}</div>
       </div>
     </div>
+  </div>
 </div>
