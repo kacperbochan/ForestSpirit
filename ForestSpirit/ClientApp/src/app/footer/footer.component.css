@@ -1,6 +1,23 @@
+:root {
+  --main-color: #4c7a34;
+  --primary-color: #355723;
+  --secondary-color: #243e16;
+  --accent-color: #e5dab6;
+}
+
 .foter {
-position: absolute;
+  position: absolute;
   bottom: 0;
   width: 100%;
 
+}
+
+.hrNav {
+  margin: 0;
+  color: var(--secondary-color);
+  opacity: 100%;
+}
+
+.tekst {
+  color: var(--secondary-color);
 }

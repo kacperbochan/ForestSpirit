@@ -1,0 +1,69 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm bg-white border-bottom box-shadow">
+    <div class="container">
+      <a class="navbar-brand link-active-custom no-padding" [routerLink]="['/worker']">
+        <img src="assets/LogoLong.png" width="300px" height="100px" alt="ikona" class="image">
+      </a>
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+              aria-label="Toggle navigation"
+              [attr.aria-expanded]="isExpanded"
+              (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+           [ngClass]="{ show: isExpanded }">
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item"
+              [routerLinkActive]="['link-active-custom']"
+              [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link nav-link-custom" [routerLink]="['/worker/received']">
+            Wiadomości
+            </a>
+          </li>
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/worker/schedule']">
+              Harmonogram
+            </a>
+          </li>
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/worker/issues']">
+              Wnioski
+            </a>
+          </li>
+          <div class="vl">|</div>
+          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+            <a class="nav-link nav-link-custom" [routerLink]="['/worker/orders']">
+              Zamówienia
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+
+<div class="header d-flex justify-content-around">
+  <div class="icon_main">
+    <a href="worker.html"><img src="assets/281517.png" alt=""></a>
+  </div>
+  <div class="d-flex justify-content-end">
+    <div class="menu">
+      <ul class="d-flex justify-content-around">
+        <li><a href="wiadomosci/odebrane.html">Wiadomości</a></li>
+        <li><a href="harmonogram/harmonogram.html">Harmonogram</a></li>
+        <li><a href="wnioski/przeslane.html">Wnioski</a></li>
+        <li><a href="zamowienia/moje.html">Zamówienia</a></li>
+      </ul>
+    </div>
+    <div class="icon_admin">
+      <img src="assets/51338.png" alt="">
+    </div>
+  </div>
+</div>

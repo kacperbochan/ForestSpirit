@@ -1,17 +1,17 @@
 <div class="secondary_menu" style="top: 115px; padding-bottom: 0px;">
-	<hr class ="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
-	<ul class="d-flex justify-content-center">
-    <li ><b><a [routerLink]="['/shop-orders']">Zamówienia</a></b></li>
-    <li style="border-right: none;"><a [routerLink]="['/shop-promotions']">Promocje</a></li>
+  <hr class="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
+  <ul class="d-flex justify-content-center">
+    <li><b><a [routerLink]="['/admin/shop-orders']">Zamówienia</a></b></li>
+    <li style="border-right: none;"><a [routerLink]="['/admin/shop-promotions']">Promocje</a></li>
   </ul>
-	<hr class ="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
+  <hr class="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
 </div>
 
-	<div class="panel" style="margin-top: 150px;">
+<div class="panel" style="margin-top: 150px;">
   <div class="separator"></div>
   <div class="orders">
     <div class="order" *ngFor="let order of orderListed">
-      <div class="main_info d-flex justify-content-between" >
+      <div class="main_info d-flex justify-content-between">
         <div class="d-flex justify-content-start">
           <div class="order_id">ID: {{order.id}}</div>
           <div class="chkbx">
@@ -25,8 +25,8 @@
         </div>
         <div class="order_sum">{{order.cena}} zł</div>
       </div>
-      <div class="details d-flex justify-content-between" >
-        <table >
+      <div class="details d-flex justify-content-between">
+        <table>
           <tr *ngFor="let product of orderElemListed">
             <td>-{{product.produkt.nazwa}}</td>
             <td>{{product.ilosc}} l</td>
@@ -42,5 +42,6 @@
       </div>
     </div>
 
-  <div class="separator"></div>
+    <div class="separator"></div>
+  </div>
 </div>

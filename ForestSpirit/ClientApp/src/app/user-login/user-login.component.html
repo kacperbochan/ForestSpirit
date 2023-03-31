@@ -1,0 +1,24 @@
+<div class="container page page_solid">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <div class="row" style="justify-content: center;">
+        <div class="col-3 stage-title" [ngClass]="{'bolder':page==0}" (click)="goToPage(0)">Logowanie</div>
+        <div class="col-5"></div>
+        <div class="col-3 stage-title" [ngClass]="{'bolder':page==1}" (click)="goToPage(1)">Rejestracja</div>
+      </div>
+      <div class="row">
+        <div class="col-4 line"><hr [ngClass]="{'horisontal-highlight':page==0}"></div>
+        <div class="col-4 line"></div>
+        <div class="col-4 line"><hr [ngClass]="{'horisontal-highlight':page==1}"></div>
+      </div>
+      <div class="loginContent">
+        <ng-container [ngSwitch]="page">
+          <app-login-form *ngSwitchCase="0"></app-login-form>
+          <app-register-form *ngSwitchCase="1"></app-register-form>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>

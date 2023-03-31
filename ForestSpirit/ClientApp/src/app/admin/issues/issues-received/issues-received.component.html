@@ -1,11 +1,11 @@
 <div class="secondary_menu" style="top: 115px; padding-bottom: 0px;">
-	<hr class ="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
+  <hr class="hre" style="height:2px; border: 3px solid rgb(24, 70, 38); opacity: 100%;">
   <ul class="d-flex justify-content-center">
-    <li><a [routerLink]="['/issues']">Moje</a></li>
-    <li><b><a [routerLink]="['/issues-received']">Przysłane</a></b></li>
-    <li><a [routerLink]="['/issues-add']">Dodaj</a></li>
-	</ul>
-	<hr class ="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
+    <li><a [routerLink]="['/admin/issues']">Moje</a></li>
+    <li><b><a [routerLink]="['/admin/issues-received']">Przysłane</a></b></li>
+    <li><a [routerLink]="['/admin/issues-add']">Dodaj</a></li>
+  </ul>
+  <hr class="hre" style="height:2px; border: 1px solid rgb(24, 70, 38); opacity: 100%; margin-bottom: 0px;">
 </div>
 
 <div class="panel" style="margin-top: 150px;">
@@ -25,4 +25,5 @@
         <a [routerLink]="['/issues-received']">Pobierz</a>
       </div>
     </div>
+  </div>
 </div>

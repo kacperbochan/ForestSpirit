@@ -54,11 +54,28 @@ import { StuffComponent } from './admin/places/stuff/stuff.component';
 import { StuffModifyComponent } from './admin/places/stuff-modify/stuff-modify.component';
 import { SuppliesComponent } from './admin/places/supplies/supplies.component';
 import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.component';
+import { WorkerComponent } from './worker/worker/worker.component';
+import { WorkerNavMenuComponent } from './leyouts/worker-nav-menu/worker-nav-menu.component';
+import { WorkerLeyoutComponent } from './leyouts/worker-leyout/worker-leyout.component';
+import { IssuessentComponent } from './worker/issues/issuessent/issuessent.component';
+import { IssuesaddComponent } from './worker/issues/issuesadd/issuesadd.component';
+import { ScheduleComponent } from './worker/schedule/schedule.component';
+import { OrdersComponent } from './worker/orders/orders.component';
+import { MessagestrashComponent } from './worker/messages/messagestrash/messagestrash.component';
+import { MessagesnewComponent } from './worker/messages/messagesnew/messagesnew.component';
+import { MessagesreceivedComponent } from './worker/messages/messagesreceived/messagesreceived.component';
+import { MessagessentComponent } from './worker/messages/messagessent/messagessent.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { RegisterFormComponent } from './user-login/register-form/register-form.component';
+import { LoginFormComponent } from './user-login/login-form/login-form.component';
 
 
 @NgModule({
   declarations: [
     AboutComponent,
+    UserLoginComponent,
+    RegisterFormComponent,
+    LoginFormComponent,
     AdresFormComponent,
     AppComponent,
     CartComponent,
@@ -106,7 +123,19 @@ import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.c
     StuffComponent,
     StuffModifyComponent,
     SuppliesComponent,
-    SuppliesAddComponent
+    SuppliesAddComponent,
+
+    IssuesaddComponent,
+    IssuessentComponent,
+    ScheduleComponent,
+    OrdersComponent,
+    MessagestrashComponent,
+    MessagesnewComponent,
+    MessagesreceivedComponent,
+    MessagessentComponent,
+    WorkerComponent,
+    WorkerNavMenuComponent,
+    WorkerLeyoutComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -114,55 +143,68 @@ import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.c
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: UserLeyoutComponent, pathMatch: 'full',
-      children: [{path: '', component: HomeComponent}
-      ]},
-
-      { path: '', component: UserLeyoutComponent,
-      children: [
-        {path: 'contact', component: ContactComponent},
-        {path: 'fetch-data', component: FetchDataComponent},
-        {path: 'about', component: AboutComponent},
-        {path: 'shop', component: ShopComponent},
-        {path: 'cart', component: CartComponent},
-        {path: 'product/:id', component: ProductComponent},
-        {path: 'footer-test', component: SummaryComponent}
-      ] },
-
-      { path: 'admin', component: AdminLeyoutComponent,
+      {
+        path: '', component: UserLeyoutComponent,
         children: [
-          {path: '', component: AdminComponent},
-          {path: 'workers-account', component: WorkersAccountComponent},
-          {path: 'workers-bin', component: WorkersBinComponent},
-          {path: 'workers-modify', component: WorkersModifyComponent},
-          {path: 'workers-new', component: WorkersNewComponent},
-          {path: 'workers-received', component: WorkersReceivedComponent},
-          {path: 'workers-schedule', component: WorkersScheduleComponent},
-          {path: 'workers-sent', component: WorkersSentComponent},
-          {path: 'customers', component: CustomersComponent},
-          {path: 'customers-modify', component: CustomersModifyComponent},
-          {path: 'issues', component: IssuesMyComponent},
-          {path: 'issues-add', component: IssuesAddComponent},
-          {path: 'issues-received', component: IssuesReceivedComponent},
-          {path: 'products-view', component: ProductsViewComponent},
-          {path: 'products-view-add', component: ProductsViewAddComponent},
-          {path: 'products-view-modify', component: ProductsViewModifyComponent},
-          {path: 'places', component: PlacesComponent},
-          {path: 'places-add', component: PlacesAddComponent},
-          {path: 'places-modify', component: PlacesModifyComponent},
-          {path: 'stuff', component: StuffComponent},
-          {path: 'stuff-add', component: StuffAddComponent},
-          {path: 'stuff-modify', component: StuffModifyComponent},
-          {path: 'supplies', component: SuppliesComponent},
-          {path: 'supplies-add', component: SuppliesAddComponent},
-          {path: 'shop-orders', component: ShopOrdersComponent},
-          {path: 'shop-promotions', component: ShopPromotionComponent}
-      ] },
+          { path: '', component: HomeComponent },
+          { path: 'contact', component: ContactComponent },
+          { path: 'fetch-data', component: FetchDataComponent },
+          { path: 'about', component: AboutComponent },
+          { path: 'shop', component: ShopComponent },
+          { path: 'cart', component: CartComponent },
+          { path: 'product/:id', component: ProductComponent },
+          { path: 'footer-test', component: SummaryComponent },
+          { path: 'login', component: UserLoginComponent },
+        ]
+      },
+      {
+        path: 'admin', component: AdminLeyoutComponent,
+        children: [
+          { path: '', component: AdminComponent },
+          { path: 'workers-account', component: WorkersAccountComponent },
+          { path: 'workers-bin', component: WorkersBinComponent },
+          { path: 'workers-modify', component: WorkersModifyComponent },
+          { path: 'workers-new', component: WorkersNewComponent },
+          { path: 'workers-received', component: WorkersReceivedComponent },
+          { path: 'workers-schedule', component: WorkersScheduleComponent },
+          { path: 'workers-sent', component: WorkersSentComponent },
+          { path: 'customers', component: CustomersComponent },
+          { path: 'customers-modify', component: CustomersModifyComponent },
+          { path: 'issues', component: IssuesMyComponent },
+          { path: 'issues-add', component: IssuesAddComponent },
+          { path: 'issues-received', component: IssuesReceivedComponent },
+          { path: 'products-view', component: ProductsViewComponent },
+          { path: 'products-view-add', component: ProductsViewAddComponent },
+          { path: 'products-view-modify', component: ProductsViewModifyComponent },
+          { path: 'places', component: PlacesComponent },
+          { path: 'places-add', component: PlacesAddComponent },
+          { path: 'places-modify', component: PlacesModifyComponent },
+          { path: 'stuff', component: StuffComponent },
+          { path: 'stuff-add', component: StuffAddComponent },
+          { path: 'stuff-modify', component: StuffModifyComponent },
+          { path: 'supplies', component: SuppliesComponent },
+          { path: 'supplies-add', component: SuppliesAddComponent },
+          { path: 'shop-orders', component: ShopOrdersComponent },
+          { path: 'shop-promotions', component: ShopPromotionComponent }
+        ]
+      },
 
+      {
+        path: 'worker', component: WorkerLeyoutComponent,
+        children: [
+          { path: '', component: WorkerComponent },
+          { path: 'issues', component: IssuessentComponent },
+          { path: 'add', component: IssuesaddComponent },
+          { path: 'schedule', component: ScheduleComponent},
+          { path: 'orders', component: OrdersComponent},
+          { path: 'trash', component: MessagestrashComponent},
+          { path: 'new', component: MessagesnewComponent},
+          { path: 'received', component: MessagesreceivedComponent},
+          { path: 'sent', component: MessagessentComponent}
+        ]
+      },
 
-
-
-    ], {scrollPositionRestoration: 'enabled'}),
+    ], { scrollPositionRestoration: 'enabled' }),
   ],
   providers: [],
   bootstrap: [AppComponent]
