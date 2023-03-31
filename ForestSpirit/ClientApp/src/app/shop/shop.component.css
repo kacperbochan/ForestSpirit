@@ -1,9 +1,15 @@
-.header{
+
+
+.search_bar{
   text-align: center;
   color: var(--main-color);
   padding-top: 100px;
   padding-bottom: 50px;
 }
+.query{
+  width: 300px;
+}
+
 
 hr {
   width:30%;
@@ -31,74 +37,53 @@ button{
   color: white;
 }
 
-.categories{
-  margin-top: 100px;
-  text-align: center;
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
-}
 
-.categories h2{
+.categories_text{
   font-weight: normal;
   color: var(--main-color);
+  text-align: center;
+  margin: 100px 0px;
 }
 
-.categories img {
+
+
+.wrapper {
+  display: grid;
+  text-align: center;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: repeat(2, 200px);
+
+}
+
+.wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border: 2px solid var(--main-color);
 }
 
-/* Three image containers (use 25% for four, and 50% for two, etc) */
-.categories .column {
-  float: left;
-  width: 20%;
-  padding: 5px;
-}
-
-.categories .column:hoo {
-  float: left;
-  width: 20%;
-  padding: 5px;
-}
-
-/* Clear floats after image containers */
-.categories .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.categories .row {
-  margin-top: 80px;
-  margin-bottom: 100px;
-}
 
 .container {
   position: relative;
   width: 100%;
 }
 
-.image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 
 .overlay {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 10%;
+  left: 0;
   right: 0;
-  height: 100%;
-  width: 80%;
   opacity: 0;
   transition: .5s ease;
+  margin: 0px 10px;
   background-color: var(--main-color);
 }
 
 .container .overlay:hover {
-  opacity: 1;
+  opacity: 0.9;
 }
 
 .selected{
@@ -107,7 +92,7 @@ button{
 
 .text {
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -118,3 +103,11 @@ button{
 }
 
 
+
+/* on Mobile */
+@media only screen and (max-width: 600px) {
+  .query{
+    width: 80%;
+  }
+
+}
