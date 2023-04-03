@@ -1,4 +1,23 @@
+.opinion h3{
+  text-align: center;
+  color: var(--main-color);
+}
+
+.opinion{
+  margin: 50px 0px;
+}
+
+.table{
+  margin-top: 50px;
+}
 tr{
   border-top: solid 1px rgb(235, 235, 235);
   border-bottom: solid 1px rgb(235, 235, 235);
+}
+
+@media only screen and (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
+
 }

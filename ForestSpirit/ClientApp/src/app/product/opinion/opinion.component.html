@@ -1,18 +1,22 @@
-<table >
-  <col style="width:10%">
-  <col style="width:20%">
-  <col style="width:70%">
-  <tr  *ngFor="let opinia of opinie;index as i">
-    <td>
-      <img src={{opinia.zdjecie}} alt="zdjecie_kategoria">
-    </td>
-    <td>
-      <b>{{opinia.nazwa | uppercase}}</b>
-      <p>{{opinia.data | date}}</p>
-      <app-star-system [score]="opinia.ocena"></app-star-system>
-    </td>
-    <td>
-      <p>{{opinia.opis}}</p>
-    </td>
-  </tr>
-</table>
+<div class="opinion">
+  <h3>OPINIE</h3>
+
+  <table class="table table-borderless">
+
+    <tbody>
+      <tr *ngFor="let opinia of opinie;index as i">
+        <td>
+          <img src={{opinia.zdjecie}} alt="zdjecie_kategoria" width="100px" class="hidden-mobile">
+        </td>
+        <td>
+          <b>{{opinia.nazwa | uppercase}}</b>
+          <p>{{opinia.data | date}}</p>
+          <app-star-system [score]="opinia.ocena"></app-star-system>
+        </td>
+        <td>
+          <p>{{opinia.opis}}</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

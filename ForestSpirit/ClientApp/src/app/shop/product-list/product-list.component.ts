@@ -52,7 +52,7 @@ export class ProductListComponent implements OnInit {
       data.map(
         x=> {this.produkty.push(
           new Produkt(
-            x.id, x.name,"opipis",x.price,x.rating,x.procentage,"assets/zdjecie_brak_pionowe.jpg"))})
+            x.id, x.name,"opipis",x.price,x.rating,x.procentage,"assets/products/Alcohol_("+(x.id+116)+").png"))})
     });
 
     this.produktyListed = this.produkty.filter(p=>p.percent>0);
