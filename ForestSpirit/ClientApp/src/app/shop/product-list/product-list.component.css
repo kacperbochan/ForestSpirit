@@ -7,5 +7,29 @@ tr:hover{
   background-color: rgb(235, 235, 235);
 }
 .content{
-  padding:50px
+  margin: auto;
+}
+
+
+.product_list img{
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  border: 2px solid var(--main-color);
+}
+
+
+@media only screen and (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
+  .product_list h4{
+    font-size: 20px;
+  }
+  .product_list h3{
+    font-size: 17px;
+  }
+
+
 }

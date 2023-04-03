@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SimilarProductComponent implements OnInit {
 
-  produkt1 = new Produkt("Bimber 1", "dlugi opis produktu", 123, 3.02, "assets/zdjecie_brak_pionowe.jpg");
-  produkt2 = new Produkt("Bimber 2", "dlugi opis produktu", 323, 3.21, "assets/zdjecie_brak_pionowe.jpg");
-  produkt3 = new Produkt("Bimber 3", "dlugi opis produktu", 232, 4.77, "assets/zdjecie_brak_pionowe.jpg");
+  produkt1 = new Produkt("Bimber 1", "dlugi opis produktu", 123, 3.02, "assets/products/Alcohol_(116).png");
+  produkt2 = new Produkt("Bimber 2", "dlugi opis produktu", 323, 3.21, "assets/products/Alcohol_(133).png");
+  produkt3 = new Produkt("Bimber 3", "dlugi opis produktu", 232, 4.77, "assets/products/Alcohol_(126).png");
 
   produkty = new Array(this.produkt1,this.produkt2,this.produkt3);
 

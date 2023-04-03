@@ -1,9 +1,14 @@
-<div *ngFor="let produkt of produkty;index as i" class="similar_product" style="display:inline-block;">
-  <div class="similar_img" style="display:inline-block;">
-    <img src={{produkt.zdjecie}} alt="zdjecie_kategoria">
-  </div>
-  <div class="similar_text" style="display:inline-block;">
-    <h5>{{produkt.nazwa}}</h5>
-    <p>{{produkt.cena}} zł</p>
+<div class="similar">
+  <h3>PODOBNE PRODUKTY</h3>
+  <div class="similar_grid">
+    <div *ngFor="let produkt of produkty;index as i" class="similar_product">
+      <div class="similar_img">
+        <img src={{produkt.zdjecie}} alt="zdjecie_kategoria">
+      </div>
+      <div class="similar_text">
+        <h5>{{produkt.nazwa}}</h5>
+        <p>{{produkt.cena}} zł</p>
+      </div>
+    </div>
   </div>
 </div>

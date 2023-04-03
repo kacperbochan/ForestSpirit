@@ -1,68 +1,64 @@
 <div class="container page page_solid">
-  <div class="header">
+  <div class="search_bar">
     <h1>Poczuj bliskość natury!</h1>
     <hr>
     <form>
-      <input type="search" id="query" name="q" placeholder="Szukaj...">
+      <input type="search" id="query" class="query" name="q" placeholder="Szukaj...">
       <button>Szukaj</button>
     </form>
   </div>
 
-  <div class="categories" style="margin-left: 15%;">
+  <div class="categories_text">
     <h2>Kategorie</h2>
     <p>dziaba dziaba mądre rzeczy dziaba dziaba</p>
+  </div>
 
-    <div class="row">
-      <div class="column">
-        <div class="container">
-          <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay" [ngClass]="{'selected': selected===0}" (click)="selectCategory(0)">
-            <div class="text">WSZYSTKO</div>
-          </div>
-        </div>
-        <p>WSZYSTKO</p>
+
+  <div class="wrapper">
+    <div class="container">
+      <img src="assets/products/bimber_miodowy.jpg" alt="zdjecie_kategoria" class="image">
+      <div class="overlay" [ngClass]="{'selected': selected===0}" (click)="selectCategory(0)">
+        <div class="text"><b>WSZYSTKO</b></div>
       </div>
-      <div class="column">
-        <div class="container">
-          <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay" [ngClass]="{'selected': selected===1}" (click)="selectCategory(1)">
-            <div class="text">ALKOHOL</div>
-          </div>
-        </div>
-        <p>ALKOHOL</p>
+      <p>WSZYSTKO</p>
+    </div>
+
+    <div class="container">
+      <img src="assets/products/bimber_owocowy_1.jpg" alt="zdjecie_kategoria" class="image">
+      <div class="overlay" [ngClass]="{'selected': selected===1}" (click)="selectCategory(1)">
+        <div class="text"><b>ALKOHOL</b></div>
       </div>
-      <div class="column">
-        <div class="container">
-          <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay" [ngClass]="{'selected': selected===2}" (click)="selectCategory(2)">
-            <div class="text">ALKOHOL 0%</div>
-          </div>
-        </div>
-        <p>ALKOHOL 0%</p>
+      <p>ALKOHOL</p>
+    </div>
+    <div class="container">
+      <img src="assets/products/bimber_0procent_3.jpg" alt="zdjecie_kategoria" class="image">
+      <div class="overlay" [ngClass]="{'selected': selected===2}" (click)="selectCategory(2)">
+        <div class="text"><b>ALKOHOL 0%</b></div>
       </div>
-      <div class="column">
-        <div class="container">
-          <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay" [ngClass]="{'selected': selected===3}" (click)="selectCategory(3)">
-            <div class="text">AKCESORIA</div>
-          </div>
-        </div>
-        <p>AKCESORIA</p>
+      <p>ALKOHOL 0%</p>
+    </div>
+    <div class="container">
+      <img src="assets/products/akcesoria.jpg" alt="zdjecie_kategoria" class="image">
+      <div class="overlay" [ngClass]="{'selected': selected===3}" (click)="selectCategory(3)">
+        <div class="text"><b>AKCESORIA</b></div>
       </div>
-      <div class="column">
-        <div class="container">
-          <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay" [ngClass]="{'selected': selected===5}" (click)="selectCategory(5)">
-            <div class="text">ZESTAWY PREZENTOWE</div>
-          </div>
-        </div>
-        <p>ZESTAWY PREZENTOWE</p>
+      <p>AKCESORIA</p>
+    </div>
+    <div class="container">
+      <img src="assets/products/zestawy_prezentowe.jpg" alt="zdjecie_kategoria" class="image">
+      <div class="overlay" [ngClass]="{'selected': selected===4}" (click)="selectCategory(4)">
+        <div class="text"><b>ZESTAWY PREZENTOWE</b></div>
       </div>
+      <p>ZESTAWY PREZENTOWE</p>
     </div>
   </div>
 
-  <div style="text-align: center; width: 50%; margin-left: 25%;">
-    <div class="list" width="100%">
+
+
+
+
+  <div>
+    <div class="list" >
       <app-product-list [selected]="selected"></app-product-list>
     </div>
   </div>
