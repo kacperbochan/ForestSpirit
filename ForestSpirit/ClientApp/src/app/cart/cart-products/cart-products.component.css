@@ -1,7 +1,10 @@
 img{
+  display: block;
   border: 1px solid var(--main-color);
+  min-width: 30px;
+  max-height: 80px;
 	width: 100%;
-	height: 84px;
+	height: 100%;
 }
 .row{
   padding: 10px;
@@ -12,7 +15,9 @@ img{
 	font-weight: 300;
 }
 .form-control{
-  width: 100px;
+  max-width: 100px;
+  min-width: 50px;
+  width: 100%;
   text-align: center;
   border-color: var(--main-color);
 }

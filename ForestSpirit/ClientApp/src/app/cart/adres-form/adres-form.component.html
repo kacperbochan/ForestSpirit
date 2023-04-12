@@ -50,7 +50,7 @@
   </div>
   <hr>
   <div class="form-row delivery-section">
-      <label for="darmowa" class="delivery-option separator" [ngClass]="{'delivery-selected':delivery==1}">
+      <label style="flex: 1; min-width: 200px" for="darmowa" class="delivery-option separator" [ngClass]="{'delivery-selected':delivery==1}">
         <div class="radio-part radio-circle">
           <input class="radio-custom" type="radio" name="options" id="darmowa" [(ngModel)]="delivery" autocomplete="off" value="1">
           <span class="checkmark"></span>
@@ -60,7 +60,7 @@
           <span class="text-main">będzie kiedy będzie</span>
         </div>
       </label>
-      <label for="jutro" class="delivery-option" [ngClass]="{'delivery-selected':delivery==2}">
+      <label style="flex: 1; min-width: 200px" for="jutro" class="delivery-option" [ngClass]="{'delivery-selected':delivery==2}">
         <div class="radio-part radio-circle">
           <input class="radio-custom" type="radio" name="options" id="jutro" [(ngModel)]="delivery" autocomplete="off" value="2">
           <span class="checkmark"></span>

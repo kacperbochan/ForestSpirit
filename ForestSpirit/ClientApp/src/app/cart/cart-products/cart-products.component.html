@@ -6,10 +6,10 @@
       <div class="col-2">
         <img src= {{element.produkt.zdjecie}} alt="zdjecie produkt">
       </div>
-      <div class="col-7">
-        <div class="product-title">{{element.produkt.nazwa|uppercase}}</div>
-        <div>{{element.produkt.opis}}</div>
-        <div>{{element.produkt.cena}} ZŁ</div>
+      <div class="col-7" style="display: grid; grid-template-columns: repeat(auto-fill);">
+        <div style="flex: 2;" class="product-title">{{element.produkt.nazwa|uppercase}}</div>
+        <div style="flex: 7;">{{element.produkt.opis}}</div>
+        <div style="flex: 2;">{{element.produkt.cena}} ZŁ</div>
       </div>
 
       <div class="col-1">
