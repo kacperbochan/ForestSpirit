@@ -1,117 +1,117 @@
 <header>
 
 
-  <nav class="navbar navbar-light bg-light " style="list-style:none">
-    <div class="container-fluid">
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand link-active-custom no-padding" [routerLink]="['/']">
-        <img src="assets/LogoLong.png" width="150px" height="50px" alt="ikona" class="image">
-      </a>
-
-      <li class="nav-item" [routerLinkActive]="['link-active-custom']">
-        <a class="nav-link no-padding" [routerLink]="['/cart']">
-          <button class="btn custom-button">
-            <span class="icon-cart"></span> Koszyk
-          </button>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm bg-white border-bottom box-shadow desktopBar">
+      <div class="container">
+        <a class="navbar-brand link-active-custom no-padding" [routerLink]="['/']">
+          <img src="assets/LogoLong.png" width="300px" height="100px" alt="ikona" class="image">
         </a>
-      </li>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target=".navbar-collapse"
+                aria-label="Toggle navigation"
+                [attr.aria-expanded]="isExpanded"
+                (click)="toggle()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+             [ngClass]="{ show: isExpanded }">
+          <ul class="navbar-nav flex-grow">
+            <li class="nav-item"
+                [routerLinkActive]="['link-active-custom']"
+                [routerLinkActiveOptions]="{ exact: true }">
+              <a class="nav-link nav-link-custom" [routerLink]="['/']">Forest Spirit</a>
+            </li>
+            <div class="vl">|</div>
+            <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+              <a class="nav-link nav-link-custom" [routerLink]="['/about']">
+                O nas
+              </a>
+            </li>
+            <div class="vl">|</div>
+            <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+              <a class="nav-link nav-link-custom" [routerLink]="['/shop']">
+                Sklep
+              </a>
+            </li>
+            <div class="vl">|</div>
+            <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+              <a class="nav-link nav-link-custom" [routerLink]="['/contact']">
+                Kontakt
+              </a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+              <a class="nav-link no-padding" [routerLink]="['/cart']">
+                <button class="btn custom-button">
+                  <span class="icon-cart"></span> Koszyk
+                </button>
+              </a>
+            </li>
 
-    </div>
-  </nav>
-  <hr class="hrNav"/>
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="graybg shadow-3 p-3">
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-      <ul class="navbar1 flex-grow">
-        <li class="nav-item"
-            [routerLinkActive]="['link-active-custom']"
-            [routerLinkActiveOptions]="{ exact: true }">
-          <a class="nav-link nav-link-custom" style="width:auto" [routerLink]="['/']">Forest Spirit</a>
-        </li>
-        <div class="vl">|</div>
-        <li class="nav-item" [routerLinkActive]="['link-active-custom']">
-          <a class="nav-link nav-link-custom" [routerLink]="['/about']">
-            O nas
+
+
+    <div class="mobileBar">
+      <nav class="navbar navbar-light bg-light " style="list-style:none ;height: 100px">
+        <div class="container-fluid">
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand link-active-custom no-padding brand" [routerLink]="['/']">
+            <img src="assets/LogoLong.png" width="225px" height="75px" alt="ikona" class="image">
           </a>
-        </li>
-        <div class="vl">|</div>
-        <li class="nav-item" [routerLinkActive]="['link-active-custom']">
-          <a class="nav-link nav-link-custom" [routerLink]="['/shop']">
-            Sklep
-          </a>
-        </li>
-        <div class="vl">|</div>
-        <li class="nav-item" [routerLinkActive]="['link-active-custom']">
-          <a class="nav-link nav-link-custom" [routerLink]="['/contact']">
-            Kontakt
-          </a>
-        </li>
-      </ul>
 
-
-    </div>
-  </div>
-  <!--<nav
-    class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm bg-white border-bottom box-shadow"
-  >
-    <div class="container">
-      <a class="navbar-brand link-active-custom no-padding" [routerLink]="['/']">
-        <img src="assets/LogoLong.png" width="300px" height="100px" alt="ikona" class="image">
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target=".navbar-collapse"
-        aria-label="Toggle navigation"
-        [attr.aria-expanded]="isExpanded"
-        (click)="toggle()"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-        [ngClass]="{ show: isExpanded }"
-      >
-        <ul class="navbar-nav flex-grow">
-          <li
-            class="nav-item"
-            [routerLinkActive]="['link-active-custom']"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a class="nav-link nav-link-custom" [routerLink]="['/']">Forest Spirit</a>
-          </li>
-          <div class="vl">|</div>
-          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
-            <a class="nav-link nav-link-custom" [routerLink]="['/about']">
-              O nas
-            </a>
-          </li>
-          <div class="vl">|</div>
-          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
-            <a class="nav-link nav-link-custom" [routerLink]="['/shop']">
-              Sklep
-            </a>
-          </li>
-          <div class="vl">|</div>
-          <li class="nav-item" [routerLinkActive]="['link-active-custom']">
-            <a class="nav-link nav-link-custom" [routerLink]="['/contact']">
-              Kontakt
-            </a>
-          </li>
           <li class="nav-item" [routerLinkActive]="['link-active-custom']">
             <a class="nav-link no-padding" [routerLink]="['/cart']">
-              <button class="btn custom-button" >
+              <button class="btn custom-button">
                 <span class="icon-cart"></span> Koszyk
               </button>
             </a>
           </li>
 
-        </ul>
+        </div>
+      </nav>
+      <hr class="hrNav" />
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="graybg shadow-3 p-3">
+
+          <ul class="navbar1 flex-grow">
+            <li class="nav-item"
+                [routerLinkActive]="['link-active-custom']"
+                [routerLinkActiveOptions]="{ exact: true }">
+              <a class="nav-link nav-link-custom" style="width:auto" [routerLink]="['/']">
+                <h3>Forest Spirit</h3>
+              </a>
+            </li>
+            <hr class="hrNav1" />
+            <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+              <a class="nav-link nav-link-custom" style="width:auto" [routerLink]="['/about']">
+                <h3>O nas</h3>
+              </a>
+            </li>
+            <hr class="hrNav1" />
+            <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+              <a class="nav-link nav-link-custom" style="width:auto" [routerLink]="['/shop']">
+                <h3>Sklep</h3>
+              </a>
+            </li>
+            <hr class="hrNav1" />
+            <li class="nav-item" [routerLinkActive]="['link-active-custom']">
+              <a class="nav-link nav-link-custom" style="width:auto" [routerLink]="['/contact']">
+                <h3> Kontakt</h3>
+              </a>
+            </li>
+          </ul>
+
+
+        </div>
       </div>
     </div>
-  </nav>-->
+
 </header>
