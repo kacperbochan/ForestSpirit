@@ -12,51 +12,53 @@
     <h2>Kategorie</h2>
     <p>dziaba dziaba mądre rzeczy dziaba dziaba</p>
 
-    <div class="row">
-      <div class="column">
-        <div class="container">
-          <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay" [ngClass]="{'selected': selected===0}" (click)="selectCategory(0)">
-            <div class="text">WSZYSTKO</div>
+    <div class="grid">
+      <div class="row">
+        <div class="column">
+          <div class="container">
+            <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
+            <div class="overlay" [ngClass]="{'selected': selected===0}" (click)="selectCategory(0)">
+              <div class="text">WSZYSTKO</div>
+            </div>
           </div>
+          <p>WSZYSTKO</p>
         </div>
-        <p>WSZYSTKO</p>
-      </div>
-      <div class="column">
-        <div class="container">
-          <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay" [ngClass]="{'selected': selected===1}" (click)="selectCategory(1)">
-            <div class="text">ALKOHOL</div>
+        <div class="column">
+          <div class="container">
+            <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
+            <div class="overlay" [ngClass]="{'selected': selected===1}" (click)="selectCategory(1)">
+              <div class="text">ALKOHOL</div>
+            </div>
           </div>
+          <p>ALKOHOL</p>
         </div>
-        <p>ALKOHOL</p>
-      </div>
-      <div class="column">
-        <div class="container">
-          <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay" [ngClass]="{'selected': selected===2}" (click)="selectCategory(2)">
-            <div class="text">ALKOHOL 0%</div>
+        <div class="column">
+          <div class="container">
+            <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
+            <div class="overlay" [ngClass]="{'selected': selected===2}" (click)="selectCategory(2)">
+              <div class="text">ALKOHOL 0%</div>
+            </div>
           </div>
+          <p>ALKOHOL 0%</p>
         </div>
-        <p>ALKOHOL 0%</p>
-      </div>
-      <div class="column">
-        <div class="container">
-          <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay" [ngClass]="{'selected': selected===3}" (click)="selectCategory(3)">
-            <div class="text">AKCESORIA</div>
+        <div class="column">
+          <div class="container">
+            <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
+            <div class="overlay" [ngClass]="{'selected': selected===3}" (click)="selectCategory(3)">
+              <div class="text">AKCESORIA</div>
+            </div>
           </div>
+          <p>AKCESORIA</p>
         </div>
-        <p>AKCESORIA</p>
-      </div>
-      <div class="column">
-        <div class="container">
-          <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
-          <div class="overlay" [ngClass]="{'selected': selected===5}" (click)="selectCategory(5)">
-            <div class="text">ZESTAWY PREZENTOWE</div>
+        <div class="column">
+          <div class="container">
+            <img src="assets/zdjecie_brak_pionowe.jpg" alt="zdjecie_kategoria" class="image">
+            <div class="overlay" [ngClass]="{'selected': selected===5}" (click)="selectCategory(5)">
+              <div class="text">ZESTAWY PREZENTOWE</div>
+            </div>
           </div>
+          <p>ZESTAWY PREZENTOWE</p>
         </div>
-        <p>ZESTAWY PREZENTOWE</p>
       </div>
     </div>
   </div>

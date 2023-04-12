@@ -54,6 +54,7 @@ import { StuffComponent } from './admin/places/stuff/stuff.component';
 import { StuffModifyComponent } from './admin/places/stuff-modify/stuff-modify.component';
 import { SuppliesComponent } from './admin/places/supplies/supplies.component';
 import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.component';
+import { CategoryComponent } from './shop/category/category.component';
 
 
 @NgModule({
@@ -106,7 +107,8 @@ import { SuppliesAddComponent } from './admin/places/supplies-add/supplies-add.c
     StuffComponent,
     StuffModifyComponent,
     SuppliesComponent,
-    SuppliesAddComponent
+    SuppliesAddComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

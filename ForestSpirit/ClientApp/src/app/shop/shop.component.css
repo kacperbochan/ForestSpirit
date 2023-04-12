@@ -33,11 +33,17 @@ button{
 }
 
 .categories{
-  margin-top: 100px;
+  margin-top: 10%;
   text-align: center;
   width: 70%;
   margin-left: 15%;
   margin-right: 15%;
+}
+
+.categories .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(1fr, 150px));
+  
 }
 
 .categories h2{
@@ -51,14 +57,16 @@ button{
 
 /* Three image containers (use 25% for four, and 50% for two, etc) */
 .categories .column {
-  float: left;
-  width: 20%;
+  flex: none;
+  min-width: 100px;
+  max-width: 150px;
   padding: 5px;
 }
 
 .categories .column:hoo {
-  float: left;
-  width: 20%;
+  flex: none;
+  min-width: 100px;
+  max-width: 150px;
   padding: 5px;
 }
 
@@ -70,8 +78,8 @@ button{
 }
 
 .categories .row {
-  margin-top: 80px;
-  margin-bottom: 100px;
+  margin-top: 10%;
+  margin-bottom: 15%;
 }
 
 .container {
