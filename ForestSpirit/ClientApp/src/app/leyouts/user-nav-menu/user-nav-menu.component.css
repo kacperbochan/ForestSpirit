@@ -88,7 +88,7 @@ a.navbar-brand {
   display: block;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 769px) {
   .mobileBar {
     display: block;
   }
