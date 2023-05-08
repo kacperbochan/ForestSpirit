@@ -68,6 +68,7 @@ import { MessagessentComponent } from './worker/messages/messagessent/messagesse
 import { UserLoginComponent } from './user-login/user-login.component';
 import { RegisterFormComponent } from './user-login/register-form/register-form.component';
 import { LoginFormComponent } from './user-login/login-form/login-form.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -135,7 +136,8 @@ import { LoginFormComponent } from './user-login/login-form/login-form.component
     MessagessentComponent,
     WorkerComponent,
     WorkerNavMenuComponent,
-    WorkerLeyoutComponent
+    WorkerLeyoutComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -155,6 +157,7 @@ import { LoginFormComponent } from './user-login/login-form/login-form.component
           { path: 'product/:id', component: ProductComponent },
           { path: 'footer-test', component: SummaryComponent },
           { path: 'login', component: UserLoginComponent },
+          { path: 'user', component: UserComponent },
         ]
       },
       {
